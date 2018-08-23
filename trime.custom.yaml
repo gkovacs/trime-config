@@ -1,0 +1,8 @@
+customization:
+  distribution_code_name: ""
+  distribution_version: ""
+  generator: "Rime-JNI"
+  modified_time: "Tue May  8 15:26:58 2018"
+  rime_version: 1.2.9
+patch:
+  "style/color_scheme": default

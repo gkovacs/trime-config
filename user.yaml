@@ -1,0 +1,11 @@
+var:
+  option:
+    ascii_punct: false
+    full_shape: false
+    simplification: true
+  previously_selected_schema: td_pinyin_flypy
+  schema_access_time:
+    bopomofo_tw: 1524538999
+    double_pinyin: 1528014243
+    td_pinyin_flypy: 1534845696
+    terra_pinyin: 1524531329
