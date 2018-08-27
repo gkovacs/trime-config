@@ -280,11 +280,11 @@ preset_keyboards:
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
 
       - {click: Keyboard_number, long_click: Menu, width: 12.5, key_back_color: bgn, key_text_color: tgn}
-      - {click: ";", composing: "ˉ", long_click: ":", send_bindings: false, key_back_color: bgn, key_text_color: tgn}
+      - {click: ";", composing: "ˉ", long_click: ":", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: "/", composing: "ˊ", long_click: "?", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: space, long_click: Mode_switch, swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switchcn, width: 32.5, key_back_color: bkg, key_text_color: tkg}
-      - {{click: ",", composing: "ˇ", long_click: "<", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: "\\", composing: "ˋ", long_click: ., send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: ",", composing: "ˇ", long_click: "<", send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: "\\", composing: "ˋ", long_click: ".", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: Return, swipe_up: Escape, width: 15, key_back_color: benter, key_text_color: tenter}
 
   number:
