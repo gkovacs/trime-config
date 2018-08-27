@@ -284,7 +284,8 @@ preset_keyboards:
       - {click: ",", composing: "ˇ", label: '，', send_bindings: false, long_click: '<>{Left}', key_back_color: bh4, key_text_color: th4}
       - {click: space, long_click: Mode_switch, swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switchcn, width: 30, key_back_color: bkg, key_text_color: tkg}
       - {click: '.', label: '。', long_click: Keyboard_kao, composing: "ˋ", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: Return, swipe_up: Escape, width: 25, key_back_color: benter, key_text_color: tenter}
+      - {click: "\\", composing: "ˋ", long_click: ., send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: Return, swipe_up: Escape, width: 15, key_back_color: benter, key_text_color: tenter}
 
   number:
     author: "暖暖"
