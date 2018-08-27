@@ -38,6 +38,7 @@ engine:
     - fallback_segmentor
   translators:
     - script_translator
+    - reverse_lookup_translator
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
@@ -45,6 +46,17 @@ speller:
 
 translator:
   dictionary: roma_kr
+  spelling_hints: 5
+
+reverse_lookup:
+  dictionary: luna_pinyin
+  prefix: "`"
+  suffix: "'"
+  tips: 〔拼音〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
 
 punctuator:
   import_preset: default
@@ -54,4 +66,5 @@ key_binder:
 
 recognizer:
   import_preset: default
-
+  patterns:
+    reverse_lookup: "`[a-z]*'?$"
