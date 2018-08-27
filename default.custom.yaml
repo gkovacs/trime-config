@@ -9,6 +9,8 @@ patch:
   schema_list:
     - schema: td_pinyin_flypy
     - schema: leimaau_jyutping
+    - schema: hannomPS
+    - schema: stroke
   ascii_composer/switch_key:
     Shift_L: noop
     Shift_R: noop
