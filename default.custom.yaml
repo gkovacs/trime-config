@@ -7,4 +7,8 @@ customization:
 patch:
   "menu/page_size": 9
   schema_list:
-    - {schema: td_pinyin_flypy}
+    - schema: td_pinyin_flypy
+    - schema: leimaau_jyutping
+  ascii_composer/switch_key:
+    Shift_L: noop
+    Shift_R: noop
