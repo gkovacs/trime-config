@@ -14,6 +14,7 @@ schema:
   dependencies:
     #- luna_pinyin
     - terra_pinyin.extended
+    - stroke
 
 switches:
   - name: ascii_mode
@@ -237,6 +238,17 @@ putonghua_to_jyutping_reverse_lookup:
   #  - xform/^/（粵拼：〔/
   #  - xform/$/〕）/
 
+reverse_lookup:
+  dictionary: stroke
+  enable_completion: true
+  prefix: "`H"
+  suffix: ";"
+  tips: 〔筆畫〕
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
+  comment_format:
+    - xform/([nl])v/$1ü/
+
 punctuator:
   import_preset: symbols
 
@@ -250,6 +262,7 @@ recognizer:
     url: "^(www[.]|https?:|ftp:|mailto:).*$"
     #reverse_lookup: "`[a-z]*;?$"
     putonghua_to_jyutping_lookup: "`[a-z]*;?$"
+    reverse_lookup: "`H[a-z]*;?$"
 
 
 zh_simp:
