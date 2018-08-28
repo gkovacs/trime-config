@@ -211,7 +211,7 @@ preset_keyboards:
       - {click: p, long_click: 0, key_back_color: bh1, key_text_color: th1}
 
       - {width: 5, key_back_color: bh2, key_text_color: th2}
-      - {click: a, long_click: IME_last, key_back_color: bh2, key_text_color: th2}
+      - {click: a, long_click: Schema_switch, key_back_color: bh2, key_text_color: th2}
       - {click: s, long_click: '@', key_back_color: bh2, key_text_color: th2}
       - {click: d, long_click: '#', key_back_color: bh2, key_text_color: th2}
       - {click: f, long_click: '$', key_back_color: bh2, key_text_color: th2}
@@ -258,7 +258,7 @@ preset_keyboards:
       - {click: p, long_click: 0, key_back_color: bh1, key_text_color: th1}
 
       - {width: 5, key_back_color: bh2, key_text_color: th2}
-      - {click: a, long_click: IME_last, key_back_color: bh2, key_text_color: th2}
+      - {click: a, long_click: Schema_switch, key_back_color: bh2, key_text_color: th2}
       - {click: s, long_click: '@', key_back_color: bh2, key_text_color: th2}
       - {click: d, long_click: '#', key_back_color: bh2, key_text_color: th2}
       - {click: f, long_click: '$', key_back_color: bh2, key_text_color: th2}
@@ -306,7 +306,7 @@ preset_keyboards:
       - {click: p, long_click: 0, key_back_color: bh1, key_text_color: th1}
 
       - {width: 5, key_back_color: bh2, key_text_color: th2}
-      - {click: a, long_click: IME_last, key_back_color: bh2, key_text_color: th2}
+      - {click: a, long_click: Schema_switch, key_back_color: bh2, key_text_color: th2}
       - {click: s, long_click: '@', key_back_color: bh2, key_text_color: th2}
       - {click: d, long_click: '#', key_back_color: bh2, key_text_color: th2}
       - {click: f, long_click: '$', key_back_color: bh2, key_text_color: th2}
