@@ -23,11 +23,11 @@ switches:
     states: [ 半角, 全角 ]
   #- name: simplification
   #  states: [ 漢字, 汉字 ]
-  - options: [zh_simp, zh_hk ]
+  - options: [zh_simp, zh_tw ]
     reset: 0
     states:
       - 字形 → 大陸
-      - 字形 → 香港
+      - 字形 → 台灣
   - name: ascii_punct
     states: [ 。，, ．， ]
 
@@ -70,7 +70,7 @@ engine:
     #- reverse_lookup_filter
     #- simplifier
     - simplifier@zh_simp
-    - simplifier@zh_hk
+    - simplifier@zh_tw
     - uniquifier
     - reverse_lookup_filter@jyutping_reverse_lookup
     - reverse_lookup_filter@putonghua_to_jyutping_reverse_lookup
@@ -432,8 +432,8 @@ zh_simp:
   opencc_config: t2s.json
   tips: none
 
-zh_hk:
-  option_name: zh_hk
-  opencc_config: t2hk.json
+zh_tw:
+  option_name: zh_tw
+  opencc_config: t2tw.json
   tips: none
 

@@ -23,11 +23,11 @@ switches:
   - name: full_shape
     states: [ 半角, 全角 ]
   #- options: [zh_simp2, zh_simp, zh_trad, zh_hk, zh_tw, zh_jp ]
-  - options: [zh_simp, zh_hk ]
+  - options: [zh_simp, zh_tw ]
     reset: 0
     states:
       - 字形 → 大陸
-      - 字形 → 香港
+      - 字形 → 台灣
   #  reset: 1
   #  states:
   #    - 字形 → 大陸〔繁體〕
@@ -69,7 +69,7 @@ engine:
     - simplifier@zh_simp
     #- simplifier@zh_simp2
     #- simplifier@zh_trad
-    - simplifier@zh_hk
+    - simplifier@zh_tw
     #- simplifier@zh_tw
     #- simplifier@zh_jp
     - uniquifier
@@ -421,9 +421,9 @@ zh_simp:
 #  opencc_config: s2t.json
 #  tips: all
 
-zh_hk:
-  option_name: zh_hk
-  opencc_config: t2hk.json
+zh_tw:
+  option_name: zh_tw
+  opencc_config: t2tw.json
   tips: none
 
 #zh_tw:
