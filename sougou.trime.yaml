@@ -224,7 +224,7 @@ preset_keyboards:
 
       - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
       - {click: z, long_click: '`', swipe_down: '[]{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: x, long_click: cut, swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
+      - {click: x, long_click: '`H', swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
       - {click: c, long_click: copy, swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
       - {click: v, long_click: paste, swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
       - {click: b, long_click: ";", key_back_color: bh3, key_text_color: th3}
@@ -271,9 +271,9 @@ preset_keyboards:
 
       - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
       - {click: z, long_click: '`', swipe_down: '[]{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: x, long_click: cut, swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: c, long_click: copy, swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
-      - {click: v, long_click: paste, swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
+      - {click: x, long_click: '`H', swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
+      - {click: c, long_click: '`J', swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
+      - {click: v, long_click: '`Y', swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
       - {click: b, long_click: ".", key_back_color: bh3, key_text_color: th3}
       - {click: n, long_click: ":", key_back_color: bh3, key_text_color: th3}
       - {click: m, long_click: '?', swipe_down: "|", key_back_color: bh3, key_text_color: th3}
