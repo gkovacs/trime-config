@@ -3,8 +3,8 @@ ascii_composer:
   switch_key:
     Shift_L: noop
     Shift_R: noop
-config_version: 0.36.custom.1919657102
-customization: 1919657102
+config_version: 0.36.custom.3575148717
+customization: 3575148717
 key_binder:
   bindings:
     - {accept: "Control+p", send: Up, when: composing}
