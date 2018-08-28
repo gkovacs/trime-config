@@ -2,16 +2,13 @@ customization:
   distribution_code_name: ""
   distribution_version: ""
   generator: "Rime::SwitcherSettings"
-  modified_time: "Tue Aug 21 03:01:46 2018"
+  modified_time: "Tue Aug 28 01:12:10 2018"
   rime_version: 1.2.9
 patch:
-  "menu/page_size": 9
-  schema_list:
-    - schema: td_pinyin_flypy_jyutping
-    - schema: td_pinyin_flypy
-    - schema: leimaau_jyutping
-    - schema: hannomPS
-    - schema: roma_kr
-  ascii_composer/switch_key:
+  "ascii_composer/switch_key":
     Shift_L: noop
     Shift_R: noop
+  "menu/page_size": 9
+  schema_list:
+    - {schema: leimaau_jyutping}
+    - {schema: td_pinyin_flypy_jyutping}

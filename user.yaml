@@ -3,9 +3,11 @@ var:
     ascii_punct: false
     full_shape: false
     simplification: true
-  previously_selected_schema: td_pinyin_flypy
+  previously_selected_schema: td_pinyin_flypy_jyutping
+  previously_selected_theme: sougou
   schema_access_time:
     bopomofo_tw: 1524538999
     double_pinyin: 1528014243
     td_pinyin_flypy: 1534845696
+    td_pinyin_flypy_jyutping: 1535443998
     terra_pinyin: 1524531329
