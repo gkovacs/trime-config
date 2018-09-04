@@ -194,10 +194,10 @@ preset_color_schemes:
 preset_keyboards:
   default:
     author: "暖暖"
-    name: 26键默认布局
+    name: 小鶴雙粵拼
     width: 10
   #  height: 48
-    ascii_mode: 1
+    ascii_mode: 0
     keys:
       - {click: q, long_click: 1, key_back_color: bh1, key_text_color: th1}
       - {click: w, long_click: 2, key_back_color: bh1, key_text_color: th1}
@@ -224,20 +224,21 @@ preset_keyboards:
 
       - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
       - {click: z, long_click: '`', swipe_down: '[]{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: x, long_click: '`H', swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: c, long_click: '`J', swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
-      - {click: v, long_click: '`Y', swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
-      - {click: b, long_click: ";", key_back_color: bh3, key_text_color: th3}
+      - {click: x, long_click: 'cut', swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
+      - {click: c, long_click: copy, swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
+      - {click: v, long_click: paste, swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
+      - {click: b, long_click: ".", key_back_color: bh3, key_text_color: th3}
       - {click: n, long_click: ":", key_back_color: bh3, key_text_color: th3}
       - {click: m, long_click: '?', swipe_down: "|", key_back_color: bh3, key_text_color: th3}
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
 
       - {click: Keyboard_number, long_click: Menu, width: 12.5, key_back_color: bgn, key_text_color: tgn}
-      - {click: "`", long_click: Keyboard_bqrw, width: 12.5, key_back_color: bgn, key_text_color: tgn}
-      - {click: ',', label: '，', long_click: '<>{Left}', key_back_color: bh4, key_text_color: th4}
-      - {click: space, long_click: Mode_switch, swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switchcn, width: 30, key_back_color: bkg, key_text_color: tkg}
-      - {click: '.', label: '。', long_click: Keyboard_kao, key_back_color: bh4, key_text_color: th4}
-      - {click: Return, swipe_up: Escape, width: 25, key_back_color: benter, key_text_color: tenter}
+      - {click: ";", long_click: ":", send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: "/", long_click: "?", send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: space, long_click: Mode_switch, swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switchcn, width: 32.5, key_back_color: bkg, key_text_color: tkg}
+      - {click: ",", long_click: "-", send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: ".", long_click: "_", send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: Return, swipe_up: Escape, width: 15, key_back_color: benter, key_text_color: tenter}
 
   td_pinyin_flypy:
     author: "暖暖"
