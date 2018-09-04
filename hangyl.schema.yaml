@@ -16,6 +16,10 @@ schema:
     ㅗo ㅘoa ㅙoai ㅚoi ㅛio
     ㅜu ㅝue ㅞuei ㅟui ㅠiu
     ㅡy ㅢyi ㅣi
+  dependencies:
+    #- luna_pinyin
+    - terra_pinyin.extended
+    - hangyl_hanja
 
 switches:
   - name: half_shape
