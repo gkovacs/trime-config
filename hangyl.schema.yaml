@@ -22,6 +22,8 @@ schema:
     - hangyl_hanja
 
 switches:
+  - name: simplification
+    states: [ 傳統, 簡化 ]
   - name: half_shape
     states: [ 半角, 全角 ]
     reset: 0
