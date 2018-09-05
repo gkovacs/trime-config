@@ -263,4 +263,4 @@ recognizer:
 
 abc_segmentor:
   extra_tags:
-    #- reverse_lookup
+    - reverse_lookup
