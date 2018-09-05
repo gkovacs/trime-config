@@ -30,8 +30,8 @@ switches:
   - name: half_shape
     states: [ 半角, 全角 ]
     reset: 0
-  - name: ascii_punct
-    states: [ 。，, ．， ]
+  #- name: ascii_punct
+  #  states: [ 。，, ．， ]
 
 engine:
   processors:
@@ -43,7 +43,7 @@ engine:
     - selector
     - navigator
     - express_editor
-    - fluency_editor
+    #- fluency_editor
   segmentors:
     - ascii_segmentor
     - matcher
