@@ -18,7 +18,7 @@ switches:
     states: [ 中文, 西文 ]
   - name: full_shape
     states: [ 半角, 全角 ]
-  - name: hn_sp
+  - name: simplification
     states: [ 漢字, 汉字 ]
 
 engine:
