@@ -13,6 +13,8 @@ patch:
     - schema: td_pinyin_flypy_jyutping
     - schema: leimaau_jyutping
     - schema: hangyl
+    - schema: nihongo-hybrid
+    - schema: hannomPS
   ascii_composer/switch_key:
     Shift_L: noop
     Shift_R: noop

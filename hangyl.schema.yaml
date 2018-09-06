@@ -63,7 +63,7 @@ engine:
     - reverse_lookup_filter@putonghua_to_hanja_reverse_lookup
 
 speller:
-  alphabet: 'zyxwvutsrqponmlkjihgfedcba;'',./|'
+  alphabet: 'zyxwvutsrqponmlkjihgfedcba'
   initials: 'zyxwvutsrqponmlkjihgfedcba'
   delimiter: " '"
   algebra:
@@ -85,7 +85,7 @@ speller:
 translator:
   dictionary: hangyl
   prism: hangyl
-  spelling_hints: 9
+  spelling_hints: 10
   preedit_format:
     - xform/'/ /
     - xform/(^|[ '])([qx])/$1/
@@ -98,6 +98,7 @@ reverse_lookup:
   dictionary: hangyl_hanja
   prefix: "`"
   suffix: "`"
+  spelling_hints: 10
   tips: 〔漢字・한자〕
   comment_format:
     - xform/(^|[ '])q/$1/
@@ -106,6 +107,7 @@ reverse_lookup:
 putonghua_to_hanja_lookup:
   tag: putonghua_to_hanja_lookup
   prefix: "`J"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  spelling_hints: 10
   dictionary: terra_pinyin.extended
   prism: td_pinyin_flypy
   preedit_format:
@@ -205,6 +207,7 @@ putonghua_to_hanja_lookup:
 putonghua_to_hanja_reverse_lookup:
   tags: [ putonghua_to_hanja_lookup ]
   dictionary: hangyl_hanja
+  spelling_hints: 10
   comment_format:
     - xform/(^|[ '])q/$1/
     - xform/q/ng/
