@@ -401,10 +401,10 @@ putonghua_to_hannom_reverse_lookup:
     - 'xform yx ỹ'
     - 'xform yr ỷ'
   
-simplifier:
-  tips: all
-  opencc_config: hn.ini
-  option_name: hn_sp
+#simplifier:
+#  tips: all
+#  opencc_config: hn.ini
+#  option_name: hn_sp
   
 punctuator:
   import_preset: default
