@@ -230,7 +230,7 @@ putonghua_to_hanja_lookup:
     - xform/([nljqxy])v/$1ü/
     - xform/eh[0-5]?/ê/
     - xform/([a-z]+)[0-5]/$1/
-  tips: 【反查粵拼】
+  tips: 【普查韓】
   #closing_tips: 【粵拼】
 
 putonghua_to_hanja_reverse_lookup:

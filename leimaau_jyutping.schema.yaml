@@ -140,7 +140,7 @@ jyutping_to_putonghua_lookup:
     - xform/([aeioumngptk])v/$1²/
     - xform/([aeioumngptk])xx/$1⁶/
     - xform/([aeioumngptk])x/$1³/
-  tips: 【反查粵拼】
+  tips: 【粵查普】
   #closing_tips: 【粵拼】
 
 pinyin_lookup:
@@ -210,7 +210,7 @@ pinyin_lookup:
     - 'xform ü/ ǘ'
     - 'xform ü, ǚ'
     - 'xform ü\. ǜ'
-  tips: 【反查粵拼】
+  tips: 【粵】
   #closing_tips: 【粵拼】
 
 putonghua_to_jyutping_lookup:
@@ -310,7 +310,7 @@ putonghua_to_jyutping_lookup:
     - xform/([nljqxy])v/$1ü/
     - xform/eh[0-5]?/ê/
     - xform/([a-z]+)[0-5]/$1/
-  tips: 【反查粵拼】
+  tips: 【普查粵】
   #closing_tips: 【粵拼】
 
 pinyin_reverse_lookup:

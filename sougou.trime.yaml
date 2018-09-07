@@ -211,7 +211,7 @@ preset_keyboards:
       - {click: p, long_click: 0, key_back_color: bh1, key_text_color: th1}
 
       - {width: 5, key_back_color: bh2, key_text_color: th2}
-      - {click: a, long_click: Schema_switch, key_back_color: bh2, key_text_color: th2}
+      - {click: a, long_click: '`', key_back_color: bh2, key_text_color: th2}
       - {click: s, long_click: '@', key_back_color: bh2, key_text_color: th2}
       - {click: d, long_click: '#', key_back_color: bh2, key_text_color: th2}
       - {click: f, long_click: '$', key_back_color: bh2, key_text_color: th2}
@@ -223,18 +223,18 @@ preset_keyboards:
       - {width: 5, key_back_color: bh2, key_text_color: th2}
 
       - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
-      - {click: z, long_click: '`', swipe_down: '[]{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: x, long_click: '`H', swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: c, long_click: '`J', swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
-      - {click: v, long_click: '`Y', swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
+      - {click: z, long_click: '`H', swipe_down: '[]{Left}', key_back_color: bh3, key_text_color: th3}
+      - {click: x, long_click: '`J', swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
+      - {click: c, long_click: '`Y', swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
+      - {click: v, long_click: '`V', swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
       - {click: b, long_click: "~", key_back_color: bh3, key_text_color: th3}
       - {click: n, long_click: "'", key_back_color: bh3, key_text_color: th3}
       - {click: m, long_click: '"', swipe_down: "|", key_back_color: bh3, key_text_color: th3}
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
 
-      - {click: Keyboard_number, composing: Shift_L, long_click: Menu, width: 12.5, key_back_color: bgn, key_text_color: tgn}
-      - {click: ";", long_click: ":", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: "/", long_click: "?", send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: Keyboard_number, long_click: Menu, width: 12.5, key_back_color: bgn, key_text_color: tgn}
+      - {click: ";", long_click: ":", swipe_up: '`N', send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: "/", long_click: "?", swipe_up: '`K', send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: space, long_click: Mode_switch, swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switch, width: 32.5, key_back_color: bkg, key_text_color: tkg}
       - {click: ",", long_click: "<", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: ".", long_click: ">", send_bindings: false, key_back_color: bh4, key_text_color: th4}

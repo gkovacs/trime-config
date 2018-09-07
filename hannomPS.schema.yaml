@@ -319,7 +319,7 @@ putonghua_to_hannom_lookup:
     - xform/([nljqxy])v/$1ü/
     - xform/eh[0-5]?/ê/
     - xform/([a-z]+)[0-5]/$1/
-  tips: 【反查粵拼】
+  tips: 【普查越】
 
 putonghua_to_hannom_reverse_lookup:
   tags: [ putonghua_to_hannom_lookup ]
