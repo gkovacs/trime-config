@@ -10,6 +10,7 @@ schema:
     - ensigma96 <ensigma96@gmail.com>
   dependencies:
     - terra_pinyin.extended # for using reverse lookup
+    - stroke
 
 switches:
   - name: ascii_mode
@@ -49,7 +50,7 @@ engine:
   translators:
     - punct_translator
     - script_translator
-    #- reverse_lookup_translator
+    - reverse_lookup_translator
     - script_translator@putonghua_to_kanji_lookup
   filters:
     - simplifier
@@ -189,6 +190,17 @@ putonghua_to_kanji_reverse_lookup:
 #  option_name: jp_variants
 #  opencc_config: jp_t2s.json
 
+reverse_lookup:
+  dictionary: stroke
+  enable_completion: true
+  prefix: "`H"
+  suffix: "`"
+  tips: 〔筆畫〕
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
+  comment_format:
+    - 'xlit|q|ー|'
+
 punctuator:
   import_preset: default
 
@@ -203,6 +215,7 @@ key_binder:
 recognizer:
   import_preset: default
   patterns:
+    reverse_lookup: "`H[a-z]*`?$"
     putonghua_to_kanji_lookup: "`[a-z;/,.]*`?$"
 
 #zh_jp:
