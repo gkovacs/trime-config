@@ -26,6 +26,7 @@ engine:
     - ascii_composer
     - recognizer
     - key_binder
+    - navigator
     - speller
     - punctuator
     - selector
@@ -411,6 +412,18 @@ punctuator:
 
 key_binder:
   import_preset: default
+  bindings:
+    - {accept: "Control+Shift+f", toggle: simplification, when: always}
+    - {accept: "Control+Shift+F", toggle: simplification, when: always}
+    - {accept: "Control+Shift+t", toggle: simplification, when: always}
+    - {accept: "Control+Shift+T", toggle: simplification, when: always}
+    #- {accept: "space", send: "Control+Shift+Return", when: composing}
+    - {accept: "space", send: "Shift+Return", when: composing}
+    - {accept: ";", send: "space", when: composing}
+    #- {accept: "Return", send: "space", when: composing}
+
+editor:
+  
 
 recognizer:
   import_preset: default

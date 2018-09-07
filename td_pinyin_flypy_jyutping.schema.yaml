@@ -26,8 +26,8 @@ switches:
   - options: [zh_simp, zh_tw ]
     reset: 0
     states:
-      - 字形 → 大陸
-      - 字形 → 台灣
+      - 汉字
+      - 漢字
   - name: ascii_punct
     states: [ 。，, ．， ]
 
@@ -375,6 +375,11 @@ punctuator:
 
 key_binder:
   import_preset: default
+  bindings:
+    - {accept: "Control+Shift+f", toggle: zh_simp, when: always}
+    - {accept: "Control+Shift+F", toggle: zh_simp, when: always}
+    - {accept: "Control+Shift+t", toggle: zh_tw, when: always}
+    - {accept: "Control+Shift+T", toggle: zh_tw, when: always}
 
 recognizer:
   patterns:

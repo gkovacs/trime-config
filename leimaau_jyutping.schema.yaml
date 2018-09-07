@@ -22,20 +22,13 @@ switches:
     states: [ 中文, 西文 ]
   - name: full_shape
     states: [ 半角, 全角 ]
-  #- options: [zh_simp2, zh_simp, zh_trad, zh_hk, zh_tw, zh_jp ]
+  #- name: simplification
+  #  states: [ 漢字, 汉字 ]
   - options: [zh_simp, zh_tw ]
     reset: 0
     states:
-      - 字形 → 大陸
-      - 字形 → 台灣
-  #  reset: 1
-  #  states:
-  #    - 字形 → 大陸〔繁體〕
-  #    - 字形 → 大陸
-  #    - 字形 → 傳統
-  #    - 字形 → 香港
-  #    - 字形 → 臺灣
-  #    - 字形 → 日本
+      - 汉字
+      - 漢字
   - name: ascii_punct
     states: [ 。，, ．， ]
 
@@ -363,6 +356,11 @@ punctuator:
 
 key_binder:
   import_preset: default
+  bindings:
+    - {accept: "Control+Shift+f", toggle: zh_simp, when: always}
+    - {accept: "Control+Shift+F", toggle: zh_simp, when: always}
+    - {accept: "Control+Shift+t", toggle: zh_tw, when: always}
+    - {accept: "Control+Shift+T", toggle: zh_tw, when: always}
 
 recognizer:
   patterns:

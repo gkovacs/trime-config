@@ -25,13 +25,17 @@ switches:
   - name: ascii_mode
     reset: 0
     states: [ 中文, 西文 ]
-  - name: simplification
-    states: [ 傳統, 簡化 ]
-  - name: half_shape
+  - name: full_shape
     states: [ 半角, 全角 ]
-    reset: 0
-  #- name: ascii_punct
-  #  states: [ 。，, ．， ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+  #- options: [zh_simp, zh_tw ]
+  #  reset: 0
+  #  states:
+  #    - 汉字
+  #    - 漢字
+  - name: ascii_punct
+    states: [ 。，, ．， ]
 
 engine:
   processors:
@@ -257,6 +261,11 @@ punctuator:
 
 key_binder:
   import_preset: default
+  bindings:
+    - {accept: "Control+Shift+f", toggle: simplification, when: always}
+    - {accept: "Control+Shift+F", toggle: simplification, when: always}
+    - {accept: "Control+Shift+t", toggle: simplification, when: always}
+    - {accept: "Control+Shift+T", toggle: simplification, when: always}
 
 recognizer:
   import_preset: default
@@ -267,3 +276,4 @@ recognizer:
 abc_segmentor:
   extra_tags:
     - reverse_lookup
+

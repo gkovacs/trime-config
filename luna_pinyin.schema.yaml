@@ -63,7 +63,7 @@ schema:
     
   name: "朙月拼音"
   schema_id: luna_pinyin
-  version: 0.20.custom.1789946210
+  version: 0.21.custom.1789946210
 speller:
   algebra:
     - "xform/^([b-df-np-z])$/$1_/"
@@ -83,11 +83,10 @@ switches:
     states: ["中文", "西文"]
   - name: full_shape
     states: ["半角", "全角"]
-  - name: ascii_punct
-    states: ["，。", "，．"]
   - name: simplification
-    reset: 1
     states: ["漢字", "汉字"]
+  - name: ascii_punct
+    states: ["。，", "．，"]
 translator:
   dictionary: luna_pinyin.extended
   preedit_format:

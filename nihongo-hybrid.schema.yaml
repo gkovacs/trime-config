@@ -194,6 +194,11 @@ punctuator:
 
 key_binder:
   import_preset: default
+  bindings:
+    - {accept: "Control+Shift+f", toggle: simplification, when: always}
+    - {accept: "Control+Shift+F", toggle: simplification, when: always}
+    - {accept: "Control+Shift+t", toggle: simplification, when: always}
+    - {accept: "Control+Shift+T", toggle: simplification, when: always}
 
 recognizer:
   import_preset: default
@@ -206,15 +211,15 @@ recognizer:
 #  #tips: all
 #  tips: none
 
-zh_simp:
-  option_name: zh_simp
-  opencc_config: t2s.json
-  tips: none
+# zh_simp:
+#   option_name: zh_simp
+#   opencc_config: t2s.json
+#   tips: none
 
-zh_tw:
-  option_name: zh_tw
-  opencc_config: t2tw.json
-  tips: none
+# zh_tw:
+#   option_name: zh_tw
+#   opencc_config: t2tw.json
+#   tips: none
 
 # jp_variants:
 #   option_name: jp_variants
