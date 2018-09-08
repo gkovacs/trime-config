@@ -39,6 +39,8 @@ engine:
     - matcher
     - abc_segmentor
     - affix_segmentor@putonghua_to_hannom_lookup
+    - affix_segmentor@kanji_lookup
+    - affix_segmentor@hanja_lookup
     - punct_segmentor
     - fallback_segmentor
   translators:
@@ -46,10 +48,14 @@ engine:
     - r10n_translator
     - reverse_lookup_translator
     - script_translator@putonghua_to_hannom_lookup
+    - script_translator@kanji_lookup
+    - script_translator@hanja_lookup
   filters:
     - simplifier
     - uniquifier
     - reverse_lookup_filter@putonghua_to_hannom_reverse_lookup
+    - reverse_lookup_filter@kanji_reverse_lookup
+    - reverse_lookup_filter@hanja_reverse_lookup
 
 speller:
   alphabet: 'Azyxwvutsrqponmlkjihgfedcba'
@@ -494,6 +500,40 @@ reverse_lookup:
 #  opencc_config: hn.ini
 #  option_name: hn_sp
   
+kanji_lookup:
+  tag: kanji_lookup
+  prefix: "`N"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  dictionary: "nihongo-hybrid"
+  preedit_format:
+    - 'xlit|q|ー|'
+  tips: 【日】
+
+kanji_reverse_lookup:
+  tags: [ kanji_lookup ]
+  dictionary: "nihongo-hybrid"
+  comment_format:
+    - 'xlit|q|ー|'
+
+hanja_lookup:
+  tag: hanja_lookup
+  prefix: "`K"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  dictionary: "hangyl_hanja"
+  preedit_format:
+    - xform/'/ /
+    - xform/(^|[ '])([qx])/$1/
+    - xform/([qx])/ng/
+  tips: 【韓】
+
+hanja_reverse_lookup:
+  tags: [ hanja_lookup ]
+  dictionary: "hangyl_hanja"
+  comment_format:
+    - xform/(^|[ '])q/$1/
+    - xform/q/ng/
+
+
 punctuator:
   import_preset: default
 
@@ -517,3 +557,5 @@ recognizer:
   patterns:
     reverse_lookup: "`H[a-z]*'?$"
     putonghua_to_hannom_lookup: "`[a-z;/,.]*'?$"
+    kanji_lookup: "`N[a-z]*?$"
+    hanja_lookup: "`K[a-z]*?$"

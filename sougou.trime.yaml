@@ -224,8 +224,8 @@ preset_keyboards:
 
       - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
       - {click: z, long_click: '`H', swipe_down: '[]{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: x, long_click: '`J', swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: c, long_click: '`Y', swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
+      - {click: x, long_click: '`N', swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
+      - {click: c, long_click: '`K', swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
       - {click: v, long_click: '`V', swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
       - {click: b, long_click: "~", key_back_color: bh3, key_text_color: th3}
       - {click: n, long_click: "'", key_back_color: bh3, key_text_color: th3}
@@ -238,7 +238,7 @@ preset_keyboards:
       - {click: space, long_click: Mode_switch, swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switch, width: 32.5, key_back_color: bkg, key_text_color: tkg}
       - {click: ",", long_click: "<", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: ".", long_click: ">", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: Return, swipe_up: Escape, width: 15, key_back_color: benter, key_text_color: tenter}
+      - {click: Return, swipe_up: Escape, long_click: "Control+Shift+Return", width: 15, key_back_color: benter, key_text_color: tenter}
 
   number:
     author: "暖暖"
