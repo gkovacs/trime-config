@@ -238,7 +238,7 @@ preset_keyboards:
       - {click: space, long_click: Mode_switch, swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switch, width: 32.5, key_back_color: bkg, key_text_color: tkg}
       - {click: ",", long_click: "<", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: ".", long_click: ">", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: Return, swipe_up: Escape, long_click: Shift+Return, width: 15, key_back_color: benter, key_text_color: tenter}
+      - {click: Return, swipe_up: Escape, long_click: CommitScriptText, width: 15, key_back_color: benter, key_text_color: tenter}
 
   number:
     author: "暖暖"
