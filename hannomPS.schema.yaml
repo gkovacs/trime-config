@@ -519,7 +519,7 @@ hanja_lookup:
   tag: hanja_lookup
   prefix: "`K"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
-  dictionary: "hangyl_hanja"
+  dictionary: "hangyl"
   preedit_format:
     - xform/'/ /
     - xform/(^|[ '])([qx])/$1/
@@ -528,7 +528,7 @@ hanja_lookup:
 
 hanja_reverse_lookup:
   tags: [ hanja_lookup ]
-  dictionary: "hangyl_hanja"
+  dictionary: "hangyl"
   comment_format:
     - xform/(^|[ '])q/$1/
     - xform/q/ng/
