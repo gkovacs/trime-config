@@ -135,12 +135,12 @@ translator:
     #- xform/([aeioumngptk])v/$1²/
     #- xform/([aeioumngptk])xx/$1⁶/
     #- xform/([aeioumngptk])x/$1³/
-    - 'xform ([aeioumngptkq]); $1¹'
-    - 'xform ([aeioumngptkq])/ $1⁴'
-    - 'xform ([aeioumngptkq]), $1²'
-    - 'xform ([aeioumngptkq])\. $1⁶'
-    - 'xform ([aeioumngptkq])x $1³'
-    - 'xform ([aeioumngptkq])v $1⁵'
+    - 'xform ([aeioumngptkqr]); $1¹'
+    - 'xform ([aeioumngptkqr])/ $1⁴'
+    - 'xform ([aeioumngptkqr]), $1²'
+    - 'xform ([aeioumngptkqr])\. $1⁶'
+    - 'xform ([aeioumngptkqr])x $1³'
+    - 'xform ([aeioumngptkqr])v $1⁵'
     - 'xform r aa'
     - 'xform q ng'
 
@@ -165,12 +165,12 @@ jyutping_to_putonghua_lookup:
     # - xform/([aeioumngptk])v/$1²/
     # - xform/([aeioumngptk])xx/$1⁶/
     # - xform/([aeioumngptk])x/$1³/
-    - 'xform ([aeioumngptkq]); $1¹'
-    - 'xform ([aeioumngptkq])/ $1⁴'
-    - 'xform ([aeioumngptkq]), $1²'
-    - 'xform ([aeioumngptkq])\. $1⁶'
-    - 'xform ([aeioumngptkq])x $1³'
-    - 'xform ([aeioumngptkq])v $1⁵'
+    - 'xform ([aeioumngptkqr]); $1¹'
+    - 'xform ([aeioumngptkqr])/ $1⁴'
+    - 'xform ([aeioumngptkqr]), $1²'
+    - 'xform ([aeioumngptkqr])\. $1⁶'
+    - 'xform ([aeioumngptkqr])x $1³'
+    - 'xform ([aeioumngptkqr])v $1⁵'
     - 'xform r aa'
     - 'xform q ng'
   tips: 【粵查普】
