@@ -93,11 +93,11 @@ speller:
     #- xform/3/x/
     #- xform/6/xx/
     - 'xform 1 ;'
-    - 'xform 4 /'
-    - 'xform 2 ,'
+    - 'xform 2 /'
+    - 'xform 3 ,'
     - 'xform 6 \.'
     - 'xform 5 v'
-    - 'xform 3 x'
+    - 'xform 4 x'
     - derive/ng/q/                # 容錯 ng -> q
     - derive/^(z|c|s)i$/$1z/      # 模糊	(zcs)i -> (zcs)z
     - derive/^(z|c|s)i$/$1y/      # 模糊	(zcs)i -> (zcs)y
@@ -136,10 +136,10 @@ translator:
     #- xform/([aeioumngptk])xx/$1⁶/
     #- xform/([aeioumngptk])x/$1³/
     - 'xform ([aeioumngptkqr]); $1¹'
-    - 'xform ([aeioumngptkqr])/ $1⁴'
-    - 'xform ([aeioumngptkqr]), $1²'
+    - 'xform ([aeioumngptkqr])x $1⁴'
+    - 'xform ([aeioumngptkqr])/ $1²'
     - 'xform ([aeioumngptkqr])\. $1⁶'
-    - 'xform ([aeioumngptkqr])x $1³'
+    - 'xform ([aeioumngptkqr]), $1³'
     - 'xform ([aeioumngptkqr])v $1⁵'
     - 'xform r aa'
     - 'xform q ng'
@@ -166,10 +166,10 @@ jyutping_to_putonghua_lookup:
     # - xform/([aeioumngptk])xx/$1⁶/
     # - xform/([aeioumngptk])x/$1³/
     - 'xform ([aeioumngptkqr]); $1¹'
-    - 'xform ([aeioumngptkqr])/ $1⁴'
-    - 'xform ([aeioumngptkqr]), $1²'
+    - 'xform ([aeioumngptkqr])x $1⁴'
+    - 'xform ([aeioumngptkqr])/ $1²'
     - 'xform ([aeioumngptkqr])\. $1⁶'
-    - 'xform ([aeioumngptkqr])x $1³'
+    - 'xform ([aeioumngptkqr]), $1³'
     - 'xform ([aeioumngptkqr])v $1⁵'
     - 'xform r aa'
     - 'xform q ng'

@@ -238,10 +238,10 @@ jyutping_lookup:
     # - xform/([aeioumngptk])xx/$1⁶/
     # - xform/([aeioumngptk])x/$1³/
     - 'xform ([aeioumngptkqr]); $1¹'
-    - 'xform ([aeioumngptkqr])/ $1⁴'
-    - 'xform ([aeioumngptkqr]), $1²'
+    - 'xform ([aeioumngptkqr])x $1⁴'
+    - 'xform ([aeioumngptkqr])/ $1²'
     - 'xform ([aeioumngptkqr])\. $1⁶'
-    - 'xform ([aeioumngptkqr])x $1³'
+    - 'xform ([aeioumngptkqr]), $1³'
     - 'xform ([aeioumngptkqr])v $1⁵'
     - 'xform r aa'
     - 'xform q ng'
@@ -261,10 +261,10 @@ jyutping_to_putonghua_lookup:
     # - xform/([aeioumngptk])xx/$1⁶/
     # - xform/([aeioumngptk])x/$1³/
     - 'xform ([aeioumngptkqr]); $1¹'
-    - 'xform ([aeioumngptkqr])/ $1⁴'
-    - 'xform ([aeioumngptkqr]), $1²'
+    - 'xform ([aeioumngptkqr])x $1⁴'
+    - 'xform ([aeioumngptkqr])/ $1²'
     - 'xform ([aeioumngptkqr])\. $1⁶'
-    - 'xform ([aeioumngptkqr])x $1³'
+    - 'xform ([aeioumngptkqr]), $1³'
     - 'xform ([aeioumngptkqr])v $1⁵'
     - 'xform r aa'
     - 'xform q ng'
