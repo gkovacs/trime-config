@@ -81,6 +81,7 @@ engine:
 
 speller:
   alphabet: 'zyxwvutsrqponmlkjihgfedcba;/,.'
+  initials: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
   algebra:
     - derive/([123456])//         # 忽略声调
@@ -581,7 +582,7 @@ hanja_reverse_lookup:
     - xform/q/ng/
 
 punctuator:
-  import_preset: symbols
+  import_preset: default
 
 key_binder:
   import_preset: default
@@ -604,6 +605,7 @@ recognizer:
     hannom_lookup: "`V[a-z]*?$"
     kanji_lookup: "`N[a-z]*?$"
     hanja_lookup: "`K[a-z]*?$"
+    punct: ^/[0-9]?[a-z]*$
 
 
 zh_simp:
