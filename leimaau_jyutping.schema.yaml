@@ -599,7 +599,7 @@ recognizer:
     #reverse_lookup: "`[a-z]*;?$"
     pinyin_lookup: "`J[a-z;/,.]*`?$"
     putonghua_to_jyutping_lookup: "`[a-z;/,.]*`?$"
-    jyutping_to_putonghua_lookup: "`Y[a-z]*`?$"
+    jyutping_to_putonghua_lookup: "`Y[a-z;/,.]*`?$"
     reverse_lookup: "`H[a-z]*`?$"
     hannom_lookup: "`V[a-z]*?$"
     kanji_lookup: "`N[a-z]*?$"
