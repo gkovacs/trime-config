@@ -215,7 +215,8 @@ preset_keyboards:
       - {click: s, long_click: '@', key_back_color: bh2, key_text_color: th2}
       - {click: d, long_click: '#', key_back_color: bh2, key_text_color: th2}
       - {click: f, long_click: '$', key_back_color: bh2, key_text_color: th2}
-      - {click: g, long_click: '%', swipe_down: "date_time", key_back_color: bh2, key_text_color: th2}
+      - {click: g, long_click: '%', swipe_down: 
+"date_time", key_back_color: bh2, key_text_color: th2}
       - {click: h, long_click: '!', swipe_down: "+", key_back_color: bh2, key_text_color: th2}
       - {click: j, long_click: '&', swipe_down: "-", key_back_color: bh2, key_text_color: th2}
       - {click: k, long_click: '*', swipe_down: "_", key_back_color: bh2, key_text_color: th2}
@@ -223,11 +224,16 @@ preset_keyboards:
       - {width: 5, key_back_color: bh2, key_text_color: th2}
 
       - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
-      - {click: z, long_click: '`H', swipe_down: '[]{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: x, long_click: '`N', swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: c, long_click: '`K', swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
-      - {click: v, long_click: '`V', swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
-      - {click: b, long_click: "~", key_back_color: bh3, key_text_color: th3}
+      - {click: z, long_click: '`H', swipe_down: 
+'`V', key_back_color: bh3, key_text_color: th3}
+      - {click: x, long_click: '`N', swipe_down: 
+'`K', key_back_color: bh3, key_text_color: th3}
+      - {click: c, long_click: '`J', swipe_down: 
+'`Y', key_back_color: bh3, key_text_color: th3}
+      - {click: v, long_click: '^', swipe_down: 
+"\\", key_back_color: bh3, key_text_color: th3}
+      - {click: b, long_click: "~", swipe_down: 
+"`Y", key_back_color: bh3, key_text_color: th3}
       - {click: n, long_click: "'", key_back_color: bh3, key_text_color: th3}
       - {click: m, long_click: '"', swipe_down: "|", key_back_color: bh3, key_text_color: th3}
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
