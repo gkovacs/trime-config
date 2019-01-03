@@ -80,17 +80,24 @@ engine:
     - reverse_lookup_filter@hanja_reverse_lookup
 
 speller:
-  alphabet: 'zyxwvutsrqponmlkjihgfedcba'
+  alphabet: 'zyxwvutsrqponmlkjihgfedcba;/,.'
   delimiter: " '"
   algebra:
     - derive/([123456])//         # 忽略声调
     - derive/^([aeiou])/q$1/      # 增加 q 表示喉塞
-    - xform/1/q/
-    - xform/4/qq/
-    - xform/2/v/
-    - xform/5/vv/
-    - xform/3/x/
-    - xform/6/xx/
+    #- xform/1/q/
+    #- xform/4/qq/
+    #- xform/2/v/
+    #- xform/5/vv/
+    #- xform/3/x/
+    #- xform/6/xx/
+    - 'xform 1 ;'
+    - 'xform 4 /'
+    - 'xform 2 ,'
+    - 'xform 6 \.'
+    - 'xform 5 v'
+    - 'xform 3 x'
+    - derive/ng/q/                # 容錯 ng -> q
     - derive/^(z|c|s)i$/$1z/      # 模糊	(zcs)i -> (zcs)z
     - derive/^(z|c|s)i$/$1y/      # 模糊	(zcs)i -> (zcs)y
     - derive/^jy?([aeiour])/y$1/  # 容錯 j -> y
@@ -121,12 +128,20 @@ translator:
   dictionary: leimaau_jyutping
   spelling_hints: 9
   preedit_format:
-    - xform/([aeioumngptk])qq/$1⁴/
-    - xform/([aeioumngptk])q/$1¹/
-    - xform/([aeioumngptk])vv/$1⁵/
-    - xform/([aeioumngptk])v/$1²/
-    - xform/([aeioumngptk])xx/$1⁶/
-    - xform/([aeioumngptk])x/$1³/
+    #- xform/([aeioumngptk])qq/$1⁴/
+    #- xform/([aeioumngptk])q/$1¹/
+    #- xform/([aeioumngptk])vv/$1⁵/
+    #- xform/([aeioumngptk])v/$1²/
+    #- xform/([aeioumngptk])xx/$1⁶/
+    #- xform/([aeioumngptk])x/$1³/
+    - 'xform ([aeioumngptkq]); $1¹'
+    - 'xform ([aeioumngptkq])/ $1⁴'
+    - 'xform ([aeioumngptkq]), $1²'
+    - 'xform ([aeioumngptkq])\. $1⁶'
+    - 'xform ([aeioumngptkq])x $1³'
+    - 'xform ([aeioumngptkq])v $1⁵'
+    - 'xform r aa'
+    - 'xform q ng'
 
 #reverse_lookup:
 #  dictionary: luna_pinyin
@@ -143,18 +158,26 @@ jyutping_to_putonghua_lookup:
   suffix: "`"
   dictionary: leimaau_jyutping
   preedit_format:
-    - xform/([aeioumngptk])qq/$1⁴/
-    - xform/([aeioumngptk])q/$1¹/
-    - xform/([aeioumngptk])vv/$1⁵/
-    - xform/([aeioumngptk])v/$1²/
-    - xform/([aeioumngptk])xx/$1⁶/
-    - xform/([aeioumngptk])x/$1³/
+    # - xform/([aeioumngptk])qq/$1⁴/
+    # - xform/([aeioumngptk])q/$1¹/
+    # - xform/([aeioumngptk])vv/$1⁵/
+    # - xform/([aeioumngptk])v/$1²/
+    # - xform/([aeioumngptk])xx/$1⁶/
+    # - xform/([aeioumngptk])x/$1³/
+    - 'xform ([aeioumngptkq]); $1¹'
+    - 'xform ([aeioumngptkq])/ $1⁴'
+    - 'xform ([aeioumngptkq]), $1²'
+    - 'xform ([aeioumngptkq])\. $1⁶'
+    - 'xform ([aeioumngptkq])x $1³'
+    - 'xform ([aeioumngptkq])v $1⁵'
+    - 'xform r aa'
+    - 'xform q ng'
   tips: 【粵查普】
   #closing_tips: 【粵拼】
 
 pinyin_lookup:
   tag: pinyin_lookup
-  prefix: "`"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  prefix: "`J"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
   dictionary: terra_pinyin.extended
   prism: td_pinyin_flypy
@@ -224,7 +247,7 @@ pinyin_lookup:
 
 putonghua_to_jyutping_lookup:
   tag: putonghua_to_jyutping_lookup
-  prefix: "`J"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  prefix: "`"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
   dictionary: terra_pinyin.extended
   prism: td_pinyin_flypy
@@ -574,8 +597,8 @@ recognizer:
     uppercase: "^[A-Z][-_+.'0-9A-Za-z]*$"
     url: "^(www[.]|https?:|ftp:|mailto:).*$"
     #reverse_lookup: "`[a-z]*;?$"
-    pinyin_lookup: "`[a-z;/,.]*`?$"
-    putonghua_to_jyutping_lookup: "`J[a-z;/,.]*`?$"
+    pinyin_lookup: "`J[a-z;/,.]*`?$"
+    putonghua_to_jyutping_lookup: "`[a-z;/,.]*`?$"
     jyutping_to_putonghua_lookup: "`Y[a-z]*`?$"
     reverse_lookup: "`H[a-z]*`?$"
     hannom_lookup: "`V[a-z]*?$"

@@ -231,12 +231,20 @@ jyutping_lookup:
   suffix: "`"
   dictionary: leimaau_jyutping
   preedit_format:
-    - xform/([aeioumngptk])qq/$1⁴/
-    - xform/([aeioumngptk])q/$1¹/
-    - xform/([aeioumngptk])vv/$1⁵/
-    - xform/([aeioumngptk])v/$1²/
-    - xform/([aeioumngptk])xx/$1⁶/
-    - xform/([aeioumngptk])x/$1³/
+    # - xform/([aeioumngptk])qq/$1⁴/
+    # - xform/([aeioumngptk])q/$1¹/
+    # - xform/([aeioumngptk])vv/$1⁵/
+    # - xform/([aeioumngptk])v/$1²/
+    # - xform/([aeioumngptk])xx/$1⁶/
+    # - xform/([aeioumngptk])x/$1³/
+    - 'xform ([aeioumngptkq]); $1¹'
+    - 'xform ([aeioumngptkq])/ $1⁴'
+    - 'xform ([aeioumngptkq]), $1²'
+    - 'xform ([aeioumngptkq])\. $1⁶'
+    - 'xform ([aeioumngptkq])x $1³'
+    - 'xform ([aeioumngptkq])v $1⁵'
+    - 'xform r aa'
+    - 'xform q ng'
   tips: 【粵】
   #closing_tips: 【粵拼】
 
@@ -246,12 +254,20 @@ jyutping_to_putonghua_lookup:
   suffix: "`"
   dictionary: leimaau_jyutping
   preedit_format:
-    - xform/([aeioumngptk])qq/$1⁴/
-    - xform/([aeioumngptk])q/$1¹/
-    - xform/([aeioumngptk])vv/$1⁵/
-    - xform/([aeioumngptk])v/$1²/
-    - xform/([aeioumngptk])xx/$1⁶/
-    - xform/([aeioumngptk])x/$1³/
+    # - xform/([aeioumngptk])qq/$1⁴/
+    # - xform/([aeioumngptk])q/$1¹/
+    # - xform/([aeioumngptk])vv/$1⁵/
+    # - xform/([aeioumngptk])v/$1²/
+    # - xform/([aeioumngptk])xx/$1⁶/
+    # - xform/([aeioumngptk])x/$1³/
+    - 'xform ([aeioumngptkq]); $1¹'
+    - 'xform ([aeioumngptkq])/ $1⁴'
+    - 'xform ([aeioumngptkq]), $1²'
+    - 'xform ([aeioumngptkq])\. $1⁶'
+    - 'xform ([aeioumngptkq])x $1³'
+    - 'xform ([aeioumngptkq])v $1⁵'
+    - 'xform r aa'
+    - 'xform q ng'
   tips: 【粵查普】
   #closing_tips: 【粵拼】
 
