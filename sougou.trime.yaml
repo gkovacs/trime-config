@@ -238,10 +238,10 @@ preset_keyboards:
       - {click: m, long_click: '"', swipe_down: "|", key_back_color: bh3, key_text_color: th3}
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
 
-      - {click: Keyboard_number, long_click: Menu, width: 12.5, key_back_color: bgn, key_text_color: tgn}
+      - {click: Keyboard_number, long_click: Schema_switch, width: 12.5, key_back_color: bgn, key_text_color: tgn}
       - {click: ";", long_click: ":", swipe_up: '`J', send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: "/", long_click: "?", swipe_up: '`Y', send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: space, long_click: Mode_switch, swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switch, width: 32.5, key_back_color: bkg, key_text_color: tkg}
+      - {click: space, long_click: Mode_switch, swipe_left: "Left", swipe_right: "Right", swipe_up: Menu, width: 32.5, key_back_color: bkg, key_text_color: tkg}
       - {click: ",", long_click: "<", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: ".", long_click: ">", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: Return, swipe_up: Escape, long_click: CommitScriptText, width: 15, key_back_color: benter, key_text_color: tenter}
