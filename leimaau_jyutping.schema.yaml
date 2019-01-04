@@ -128,8 +128,8 @@ speller:
     - 'xform 6 \.'
     - 'xform 5 v'
     - 'xform 4 x'
-    - abbrev/^([a-z]).+$/$1/      # 首字母簡拼
-    - abbrev/^([gk]w).+$/$1/      # 聲母簡拼
+    #- abbrev/^([a-z]).+$/$1/      # 首字母簡拼
+    #- abbrev/^([gk]w).+$/$1/      # 聲母簡拼
 
 menu:
   alternative_select_keys: "123456789"

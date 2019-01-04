@@ -121,7 +121,7 @@ speller:
     - xform/ui([0-5])$/V$1/
     - xform/in([0-5])$/B$1/
     - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
-    - abbrev/^(.).+$/$1/
+    #- abbrev/^(.).+$/$1/
     - derive/^([a-z]+)[0-5]$/$1/
     - 'xlit 1234 ;/,.'
 
