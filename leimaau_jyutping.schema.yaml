@@ -15,6 +15,7 @@ schema:
     #- luna_pinyin
     - terra_pinyin.extended
     - stroke
+    - leimaau_jyutping_nospaces
 
 switches:
   - name: ascii_mode
