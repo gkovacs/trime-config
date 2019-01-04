@@ -99,6 +99,8 @@ speller:
     - 'xform 6 \.'
     - 'xform 5 v'
     - 'xform 4 x'
+    - derive/eo/w/                # 容錯 eo -> w
+    - derive/oe/w/                # 容錯 oe -> w
     - derive/ng/q/                # 容錯 ng -> q
     - derive/^(z|c|s)i$/$1z/      # 模糊	(zcs)i -> (zcs)z
     - derive/^(z|c|s)i$/$1y/      # 模糊	(zcs)i -> (zcs)y
