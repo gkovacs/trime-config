@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 schema:
-  schema_id: leimaau_jyutping
+  schema_id: leimaau_jyutping_nospaces
   name: "貍貓粵拼"
   version: "20180428"
   author:
@@ -126,7 +126,7 @@ menu:
   page_size: 9
 
 translator:
-  dictionary: leimaau_jyutping
+  dictionary: leimaau_jyutping_nospaces
   spelling_hints: 9
   preedit_format:
     #- xform/([aeioumngptk])qq/$1⁴/
@@ -157,7 +157,7 @@ jyutping_to_putonghua_lookup:
   tag: jyutping_to_putonghua_lookup
   prefix: "`Y"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
-  dictionary: leimaau_jyutping
+  dictionary: leimaau_jyutping_nospaces
   preedit_format:
     # - xform/([aeioumngptk])qq/$1⁴/
     # - xform/([aeioumngptk])q/$1¹/
