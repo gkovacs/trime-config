@@ -102,6 +102,8 @@ speller:
     - derive/eo/w/                # 容錯 eo -> w
     - derive/oe/w/                # 容錯 oe -> w
     - derive/ng/q/                # 容錯 ng -> q
+    - derive/^kw/x/                # 容錯 x -> kw
+    - derive/^gw/v/                # 容錯 x -> gw
     - derive/^(z|c|s)i$/$1z/      # 模糊	(zcs)i -> (zcs)z
     - derive/^(z|c|s)i$/$1y/      # 模糊	(zcs)i -> (zcs)y
     - derive/^jy?([aeiour])/y$1/  # 容錯 j -> y
