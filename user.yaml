@@ -3,13 +3,13 @@ var:
     ascii_punct: false
     full_shape: false
     simplification: true
-  previously_selected_schema: leimaau_jyutping
+  previously_selected_schema: td_pinyin_flypy_jyutping
   previously_selected_theme: sougou
   schema_access_time:
     bopomofo_tw: 1524538999
     double_pinyin: 1528014243
-    hannomPS: 1544815065
-    leimaau_jyutping: 1545116271
+    hannomPS: 1545527691
+    leimaau_jyutping: 1546715167
     td_pinyin_flypy: 1535445445
-    td_pinyin_flypy_jyutping: 1544815435
+    td_pinyin_flypy_jyutping: 1546719537
     terra_pinyin: 1524531329
