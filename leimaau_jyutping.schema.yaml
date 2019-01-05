@@ -14,6 +14,7 @@ schema:
   dependencies:
     #- luna_pinyin
     - terra_pinyin.extended
+    - terra_pinyin_nospaces.extended
     - stroke
     - leimaau_jyutping_nospaces
 
@@ -376,7 +377,7 @@ putonghua_to_jyutping_reverse_lookup:
 
 jyutping_to_putonghua_reverse_lookup:
   tags: [ jyutping_to_putonghua_lookup ]
-  dictionary: terra_pinyin.extended
+  dictionary: terra_pinyin_nospaces.extended
   #  overwrite_comment: true  # 覆蓋其他提示
   #comment_format:
   #  - xform/ /\｜/

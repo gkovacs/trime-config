@@ -15,6 +15,7 @@ schema:
     - stroke
     - leimaau_jyutping
     - leimaau_jyutping_nospaces
+    - terra_pinyin_nospaces.extended
     - hannomPS
     - nihongo-hybrid
     - hangyl_hanja
@@ -589,7 +590,7 @@ putonghua_to_jyutping_reverse_lookup:
 
 jyutping_to_putonghua_reverse_lookup:
   tags: [ jyutping_to_putonghua_lookup ]
-  dictionary: terra_pinyin.extended
+  dictionary: terra_pinyin_nospaces.extended
   #  overwrite_comment: true  # 覆蓋其他提示
   #comment_format:
   #  - xform/ /\｜/
