@@ -226,14 +226,13 @@ preset_keyboards:
       - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
       - {click: z, long_click: '`H', swipe_down: 
 '`V', key_back_color: bh3, key_text_color: th3}
-      - {click: x, long_click: '`N', swipe_down: 
-'`K', key_back_color: bh3, key_text_color: th3}
+      - {click: x, long_click: '`Y', swipe_down: 
+'`N', key_back_color: bh3, key_text_color: th3}
       - {click: c, long_click: '`J', swipe_down: 
-'`Y', key_back_color: bh3, key_text_color: th3}
+'`K', key_back_color: bh3, key_text_color: th3}
       - {click: v, long_click: '^', swipe_down: 
 "\\", key_back_color: bh3, key_text_color: th3}
-      - {click: b, long_click: "~", swipe_down: 
-"`Y", key_back_color: bh3, key_text_color: th3}
+      - {click: b, long_click: "~", key_back_color: bh3, key_text_color: th3}
       - {click: n, long_click: "'", key_back_color: bh3, key_text_color: th3}
       - {click: m, long_click: '"', swipe_down: "|", key_back_color: bh3, key_text_color: th3}
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
