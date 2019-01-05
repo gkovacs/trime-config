@@ -14,6 +14,7 @@ schema:
   dependencies:
     - stroke
     - leimaau_jyutping
+    - leimaau_jyutping_nospaces
     - hannomPS
     - nihongo-hybrid
     - hangyl_hanja
@@ -579,7 +580,7 @@ hanja_reverse_lookup:
 
 putonghua_to_jyutping_reverse_lookup:
   tags: [ putonghua_to_jyutping_lookup ]
-  dictionary: leimaau_jyutping
+  dictionary: leimaau_jyutping_nospaces
   #  overwrite_comment: true  # 覆蓋其他提示
   #comment_format:
   #  - xform/ /\｜/
