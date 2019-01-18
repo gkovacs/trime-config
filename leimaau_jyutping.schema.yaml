@@ -51,6 +51,7 @@ engine:
     - affix_segmentor@pinyin_lookup
     - affix_segmentor@putonghua_to_jyutping_lookup
     - affix_segmentor@jyutping_to_putonghua_lookup
+    - affix_segmentor@jyutping_to_stroke_lookup
     - affix_segmentor@hannom_lookup
     - affix_segmentor@kanji_lookup
     - affix_segmentor@hanja_lookup
@@ -63,6 +64,7 @@ engine:
     - script_translator@pinyin_lookup
     - script_translator@putonghua_to_jyutping_lookup
     - script_translator@jyutping_to_putonghua_lookup
+    - script_translator@jyutping_to_stroke_lookup
     - script_translator@hannom_lookup
     - script_translator@kanji_lookup
     - script_translator@hanja_lookup
@@ -77,6 +79,7 @@ engine:
     - reverse_lookup_filter@pinyin_reverse_lookup
     - reverse_lookup_filter@putonghua_to_jyutping_reverse_lookup
     - reverse_lookup_filter@jyutping_to_putonghua_reverse_lookup
+    - reverse_lookup_filter@jyutping_to_stroke_reverse_lookup
     - reverse_lookup_filter@hannom_reverse_lookup
     - reverse_lookup_filter@kanji_reverse_lookup
     - reverse_lookup_filter@hanja_reverse_lookup
@@ -185,6 +188,29 @@ jyutping_to_putonghua_lookup:
     #- 'xform r aa'
     #- 'xform q ng'
   tips: 【粵查普】
+  #closing_tips: 【粵拼】
+
+jyutping_to_stroke_lookup:
+  tag: jyutping_to_stroke_lookup
+  prefix: "`S"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  dictionary: leimaau_jyutping
+  preedit_format:
+    #- xform/([aeioumngptk])qq/$1⁴/
+    #- xform/([aeioumngptk])q/$1¹/
+    #- xform/([aeioumngptk])vv/$1⁵/
+    #- xform/([aeioumngptk])v/$1²/
+    #- xform/([aeioumngptk])xx/$1⁶/
+    #- xform/([aeioumngptk])x/$1³/
+    - 'xform ([aeioumngptkqrwy]); $1¹'
+    - 'xform ([aeioumngptkqrwy])x $1⁴'
+    - 'xform ([aeioumngptkqrwy])/ $1²'
+    - 'xform ([aeioumngptkqrwy])\. $1⁶'
+    - 'xform ([aeioumngptkqrwy]), $1³'
+    - 'xform ([aeioumngptkqrwy])v $1⁵'
+    #- 'xform r aa'
+    #- 'xform q ng'
+  tips: 【粵查笔】
   #closing_tips: 【粵拼】
 
 pinyin_lookup:
@@ -378,6 +404,15 @@ putonghua_to_jyutping_reverse_lookup:
 jyutping_to_putonghua_reverse_lookup:
   tags: [ jyutping_to_putonghua_lookup ]
   dictionary: terra_pinyin_nospaces.extended
+  #  overwrite_comment: true  # 覆蓋其他提示
+  #comment_format:
+  #  - xform/ /\｜/
+  #  - xform/^/（粵拼：〔/
+  #  - xform/$/〕）/
+
+jyutping_to_stroke_reverse_lookup:
+  tags: [ jyutping_to_stroke_lookup ]
+  dictionary: stroke
   #  overwrite_comment: true  # 覆蓋其他提示
   #comment_format:
   #  - xform/ /\｜/
@@ -612,6 +647,7 @@ recognizer:
     pinyin_lookup: "`J[a-z;/,.]*`?$"
     putonghua_to_jyutping_lookup: "`[a-z;/,.]*`?$"
     jyutping_to_putonghua_lookup: "`Y[a-z;/,.]*`?$"
+    jyutping_to_stroke_lookup: "`S[a-z;/,.]*`?$"
     reverse_lookup: "`H[a-z]*`?$"
     hannom_lookup: "`V[a-z]*?$"
     kanji_lookup: "`N[a-z]*?$"
