@@ -115,7 +115,7 @@ speller:
     #- derive/eo([int])$/oe$1/     # 容錯 eo(int) -> oe(int)
     #- derive/^(g|k)w/$1u/         # 廣州式
     #- derive/aau$/ao/             # 廣州式 aau -> ao
-    - derive/^([szc])yu/$1y/                # 教院式 jyu -> jy，yu -> y
+    - derive/^([ltdghnkszc])yu/$1y/                # 教院式 jyu -> jy，yu -> y
     - derive/^jyu/y/                # 教院式 jyu -> jy，yu -> y
     #- derive/yu/y/                # 教院式 jyu -> jy，yu -> y
     #- derive/eoi$/eoy/            # 教院式 eoi <-> eoy
