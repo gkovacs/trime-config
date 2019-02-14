@@ -98,8 +98,8 @@ speller:
     # shorthands for ng endings
     - xform/(.)aang([1-6]?)$/$1H$2/
     - xform/(.)ang([1-6]?)$/$1G$2/
-    - xform/(.)oeng([1-6]?)$/$1P$2/
-    - xform/(.)ing([1-6]?)$/$1Ó$2/
+    - xform/(.)oeng([1-6]?)$/$1Ó$2/
+    - xform/(.)ing([1-6]?)$/$1P$2/
     - xform/(.)eng([1-6]?)$/$1À$2/
     - xform/(.)ong([1-6]?)$/$1L$2/
     - xform/(.)ung([1-6]?)$/$1S$2/
