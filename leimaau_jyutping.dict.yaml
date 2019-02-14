@@ -3,7 +3,7 @@
 #
 # leimaau_jyutping - 狸貓粵拼/熊猫粤拼共用
 #
-# Author - LeiMaau
+# Author - LeiMaau<https://leimaau.github.io/book/>
 #
 # 字彙部分綜合收錄了《統一碼組織統漢字庫unihan》、《粵語審音配詞字庫》、《香港增補字符集》、2004年《廣州話正音字典》和1992年《常用字廣州話讀音表》的字形和讀音
 # 詞彙部分綜合收錄了cc-cedict-canto、cc-canto和《開放粵語詞典》的詞彙，並經過修正
@@ -423,7 +423,6 @@ use_preset_vocabulary: true
 噏	ap1	0%
 罨	ap1	
 洽	ap1	0%
-啞	at1	3%
 扤	at1	0%
 䯉	at3	
 䯧	at3	0%
@@ -1303,7 +1302,7 @@ use_preset_vocabulary: true
 便	bin6	
 閞	bin6	
 屏	bing1	3%
-并	bing1	
+并	bing1	1%
 掤	bing1	
 乒	bing1	3%
 㓈	bing1	
@@ -1359,11 +1358,11 @@ use_preset_vocabulary: true
 棅	bing3	
 迸	bing3	
 㓈	bing3	
-並	bing3	
+並	bing3	3%
 併	bing3	
 䈂	bing3	
 摒	bing3	
-并	bing3	
+并	bing3	3%
 幷	bing3	0%
 庰	bing3	
 怲	bing3	
@@ -5039,7 +5038,7 @@ use_preset_vocabulary: true
 𢸶	cyut3	
 𠾼	cyut4	
 𠾼	cyut6	
-打	daa1	
+打	daa1	3%
 咑	daa1	
 打	daa2	
 䐎	daai1	
@@ -5299,7 +5298,7 @@ use_preset_vocabulary: true
 龘	daap6	
 龖	daap6	
 𤦊	daap6	
-蹋	daap6	3%
+蹋	daap6	
 踏	daap6	
 錔	daap6	
 遝	daap6	
@@ -5646,6 +5645,7 @@ use_preset_vocabulary: true
 斗	dau2	
 豆	dau2	3%
 赳	dau2	
+纠	dau2	
 蚪	dau2	
 唗	dau2	0%
 抖	dau2	
@@ -5837,8 +5837,6 @@ use_preset_vocabulary: true
 飿	deot1	
 柮	deot1	
 咄	deot1	
-掉	deu6	0%
-調	deu6	0%
 啲	di1	
 的	di1	0%
 啲	di2	0%
@@ -5979,7 +5977,6 @@ use_preset_vocabulary: true
 碘	din2	
 錪	din2	0%
 蕇	din2	
-靦	din2	
 瑱	din3	0%
 殿	din3	0%
 墊	din3	
@@ -7289,7 +7286,7 @@ use_preset_vocabulary: true
 寣	fat1	0%
 匢	fat1	
 咈	fat1	0%
-唿	fat1	0%
+唿	fat1	
 啒	fat1	0%
 囫	fat1	
 圣	fat1	
@@ -8244,7 +8241,6 @@ use_preset_vocabulary: true
 𢔓	fung6	
 奉	fung6	
 賵	fung6	
-唿	fut1	
 阔	fut3	
 蛞	fut3	
 闊	fut3	
@@ -8868,7 +8864,6 @@ use_preset_vocabulary: true
 鈙	gam6	0%
 笒	gam6	
 扲	gam6	
-撢	gam6	
 搇	gam6	0%
 揿	gam6	
 噤	gam6	0%
@@ -9531,7 +9526,6 @@ use_preset_vocabulary: true
 鉅	geoi6	
 喼	gep1	0%
 夾	gep6	0%
-𠼻	gi1	
 击	gik1	
 革	gik1	
 隔	gik1	3%
@@ -10666,9 +10660,6 @@ use_preset_vocabulary: true
 䳍	gung6	
 共	gung6	
 㓋	gung6	
-嗗	gut2	
-嗗	gut4	
-嗗	gut6	
 呱	gwaa1	
 腡	gwaa1	0%
 䒷	gwaa1	
@@ -10784,7 +10775,7 @@ use_preset_vocabulary: true
 捖	gwaat3	0%
 趏	gwaat3	
 刮	gwaat3	
-括	gwaat3	0%
+括	gwaat3	
 劀	gwaat3	
 䴜	gwaat3	
 颳	gwaat3	
@@ -11058,7 +11049,6 @@ use_preset_vocabulary: true
 餶	gwat1	
 骨	gwat1	
 㓉	gwat3	
-括	gwat3	
 㑹	gwat3	
 㻕	gwat6	
 㭾	gwat6	
@@ -11205,7 +11195,7 @@ use_preset_vocabulary: true
 𩼣	gwo3	
 过	gwo3	
 過	gwo3	
-和	gwo3	3%
+和	gwo3	0%
 㗻	gwo3	
 㳀	gwo3	
 鐹	gwo3	0%
@@ -11749,7 +11739,7 @@ use_preset_vocabulary: true
 冾	haap6	0%
 俠	haap6	
 匧	haap6	
-匣	haap6	3%
+匣	haap6	
 䕣	haap6	
 侠	haap6	
 䱑	haap6	
@@ -12156,7 +12146,6 @@ use_preset_vocabulary: true
 盖	hap1	
 瞌	hap1	3%
 葢	hap1	
-嗑	hap3	
 䶗	hap3	0%
 铪	hap6	
 閤	hap6	
@@ -12178,10 +12167,9 @@ use_preset_vocabulary: true
 劐	hap6	
 侠	hap6	
 䢔	hap6	
-匣	hap6	
 合	hap6	
 俠	hap6	
-嗑	hap6	3%
+嗑	hap6	
 噈	hap6	
 廅	hap6	
 姶	hap6	
@@ -12217,7 +12205,7 @@ use_preset_vocabulary: true
 乞	hat1	
 䎢	hat1	
 釳	hat1	
-迄	hat1	0%
+迄	hat1	3%
 恄	hat1	
 犵	hat1	
 忔	hat1	0%
@@ -12614,8 +12602,6 @@ use_preset_vocabulary: true
 麮	heoi3	
 佢	heoi5	0%
 䭮	heoi6	
-咦	hi1	3%
-𠺪	hi1	
 虩	hik1	0%
 衋	hik1	0%
 赩	hik1	0%
@@ -12933,9 +12919,6 @@ use_preset_vocabulary: true
 撬	hiu3	0%
 鼼	hiu3	
 膮	hiu6	0%
-噷	hm1	
-啈	hng6	
-哼	hng6	
 㱒	ho1	
 㪃	ho1	
 䄬	ho1	
@@ -14065,7 +14048,6 @@ use_preset_vocabulary: true
 粌	jan5	
 纼	jan5	
 縯	jan5	0%
-飪	jan5	
 刃	jan6	
 匁	jan6	
 仞	jan6	
@@ -15286,11 +15268,6 @@ use_preset_vocabulary: true
 璎	jing1	
 瓔	jing1	
 英	jing1	
-呎	jing1 cek3	3%
-吋	jing1 cyun3	3%
-啢	jing1 loeng2	
-𠺖	jing1 mau5	
-𠺖	jing1mau5	0%
 旲	jing2	
 映	jing2	
 影	jing2	
@@ -17385,8 +17362,7 @@ use_preset_vocabulary: true
 拒	keoi5	
 佢	keoi5	
 喼	kep1	0%
-𠵇	keu4	
-𠼻	ki1	
+𠵇	kiu4
 揢	kik1	
 𢲈	kik1	
 𠽤	kik1	
@@ -19308,7 +19284,7 @@ use_preset_vocabulary: true
 癧	lek6	0%
 瀝	lek6	3%
 壢	lek6	
-舐	lem2	0%
+舐	lim2	0%
 䈊	leng1	
 𡃁	leng1	
 僆	leng1	
@@ -19682,7 +19658,7 @@ use_preset_vocabulary: true
 鱊	leot6	0%
 麜	leot6	
 𠷈	leot6	
-𠺫	leu1	
+𠺫	liu1
 哩	li1	3%
 唎	li1	0%
 𨉖	li1	
@@ -23549,7 +23525,7 @@ use_preset_vocabulary: true
 䳡	ngaan3	
 颜	ngaan4	
 顏	ngaan4	
-研	ngaan4	0%
+研	ngaan4	3%
 揅	ngaan4	0%
 楌	ngaan4	
 䴦	ngaan4	
@@ -23835,6 +23811,7 @@ use_preset_vocabulary: true
 雸	ngam4	
 㒄	ngam4	
 㺂	ngam4	
+撢	ngam4	
 喑	ngam6	3%
 唅	ngam6	0%
 贋	ngam6	0%
@@ -23864,7 +23841,6 @@ use_preset_vocabulary: true
 珢	ngan4	
 狺	ngan4	
 狋	ngan4	0%
-研	ngan4	3%
 檭	ngan4	
 嚚	ngan4	
 唅	ngan4	0%
@@ -23898,7 +23874,6 @@ use_preset_vocabulary: true
 圾	ngap6	0%
 岋	ngap6	0%
 扤	ngat1	
-迄	ngat3	
 仡	ngat6	
 圪	ngat6	3%
 啮	ngat6	
@@ -23915,7 +23890,7 @@ use_preset_vocabulary: true
 矻	ngat6	3%
 耴	ngat6	
 疙	ngat6	3%
-迄	ngat6	3%
+迄	ngat6	
 訖	ngat6	
 讫	ngat6	
 齀	ngat6	
@@ -26601,7 +26576,6 @@ use_preset_vocabulary: true
 婶	sam2	
 嬸	sam2	
 槮	sam2	
-沁	sam2	3%
 沈	sam2	
 淰	sam2	3%
 渖	sam2	
@@ -26821,7 +26795,6 @@ use_preset_vocabulary: true
 馊	sau1	
 馐	sau1	
 騪	sau1	0%
-鞘	sau1	3%
 鎀	sau1	
 鎪	sau1	
 锼	sau1	
@@ -29364,7 +29337,6 @@ use_preset_vocabulary: true
 闒	taap3	3%
 闟	taap3	0%
 阘	taap3	
-蹋	taap6	
 誻	taap6	0%
 撻	taat1	3%
 㣵	taat3	
@@ -29508,7 +29480,6 @@ use_preset_vocabulary: true
 氹	tam3	0%
 𧨾	tam3	
 氹	tam4	0%
-湛	tam4	3%
 䶨	tam4	
 䉡	tam4	
 䃲	tam4	
@@ -29792,7 +29763,7 @@ use_preset_vocabulary: true
 倎	tin2	0%
 㙉	tin2	
 錪	tin2	
-靦	tin2	3%
+靦	tin2	
 腼	tin2	0%
 覥	tin2	
 賟	tin2	
@@ -30799,7 +30770,7 @@ use_preset_vocabulary: true
 瘣	waai6	
 䇋	waai6	
 壞	waai6	
-坏	waai6	0%
+坏	waai6	
 恚	waai6	0%
 㥜	waai6	
 㦣	waai6	
@@ -36792,111 +36763,6 @@ use_preset_vocabulary: true
 𫵱	cat6
 
 # 粵語詞彙
-21三體綜合症	ji6 jat1 saam1 tai2 zung3 hap6 zing3
-3C	saam1 si1
-AA制	aa zai3
-AA制	ei1 ei1 zai3
-AB制	ab zai3
-A咖	ei1 gaa3
-A圈兒	ei1 hyun1 ji4
-A片	ei1 pin2
-BB機	bi1 bi1 gei1
-B超	bi1 ciu1
-B型超聲	bi1 jing4 ciu1 sing1
-CIB	cib
-CIB	si1 aai1 bi1
-C盤	cpun4
-C盤	si1 pun4
-DNA	dna
-DNA鑒定	dna gaam3 ding6
-E仔	ji1 zai2
-G弦褲	zi1 jin4 fu3
-G點	zyu1 dim2
-IP	ip
-IP	aai1 pi1
-K仔	kei1 zai2
-K他命	kei1 taa1 ming6
-K房	kei1 fong2
-K書	kei1 syu1
-K歌	kei1 go1
-K粉	kei1 fan2
-M巾	em1 gan1
-O.T.	ou1 ti1
-OK	ou1 kei1
-OK繃	ou1 kei1 bang1
-OK鏡	ou1 kei1 geng3
-O型腿	ou1 jing4 teoi2
-O記	ou1 gei3
-PC	pc
-PC	pi1 si1
-PTU	pi1 ti1 jiu1
-P圖	pi1 tou4
-P民	pi1 man4
-T字帳	ti1 zi6 zoeng3
-T字褲	ti1 zi6 fu3
-T恤	ti1 seot1
-T裇	ti1 seot1
-USB	usb
-USB手指	usb sau2 zi2
-USB記憶棒	usb gei3 jik1 paang5
-U凸內褲	ju1 dat6 noi6 fu3
-U型枕	ju1 jing4 zam2
-U形轉彎	ju1 jing4 zyun3 waan1
-U盤	upun2
-U盤	ju1 pun2
-V溝	wi1 kau1
-X光	xgwong1
-X光	ik1 si4 gwong1
-book	buk1
-book位	buk1 wai2
-book唔到位	buk1 m4 dou2 wai2
-book機票	buk1 gei1 piu3
-book酒店	buk1 zau2 dim3
-call	ko1
-call機	ko1 gei1
-call白車	ko1 baak6 ce1
-cancer	ken1 saa2
-cash	ke1 syu4
-cheap	cip1
-cheap嘢	cip1 je5
-check	cek1
-check吓	cek1 haa5
-claim	kem1
-claim保險	kem1 bou2 him2
-claim稅	kem1 seoi3
-click	kik1
-click入去	kik1 jap6 heoi3
-cool	ku1
-cut	kat1
-cute	kiu1
-fax	fet1 si2
-feel	fiu1
-foul	fau1
-foul出局	fau1 ceot1 guk6
-friend	fen1
-gag	gek1
-high	haai1
-jacket	zek1 kek6
-keep	kip1
-label	lei1 bou2
-miss	mi1 si4
-out	au1
-paper	pei1 paa4
-part-time	paak1 taai1
-party	paat1 ti4
-passport	paa1 si4 pot1
-pat pat	pet1 pet1
-pizza	pi1 saa4
-quali	ko1 li2
-short short哋	sot1 sot1 dei2
-short	sot1
-sorry	so1 li4
-sorry囉	so1 li4 lo1
-talk	tok1
-tissue	ti1 su4
-title	taai1 tou4
-van	wen1
-van仔	weng1 zai2
 …到	dou2
 …到	dou3
 …到死	dou3 sei2
@@ -45189,7 +45055,7 @@ van仔	weng1 zai2
 作手腳	zok3 sau2 goek3
 作揖	zok3 jap1
 作數	zok3 sou3
-作文	zok3 man2一絲不苟
+作文	zok3 man2
 作文	zok3 man4
 作料	zok3 liu2
 作曲	zok3 kuk1
@@ -45478,7 +45344,6 @@ van仔	weng1 zai2
 侄仔	zat6 zai2
 侄婦	zat6 fu5
 侄心抱	zat6 sam1 pou5
-來M	lei4 em
 來不及	loi4 bat1 kap6
 來不得	loi4 bat1 dak1
 來世	loi4 sai3
@@ -53987,7 +53852,6 @@ van仔	weng1 zai2
 勒逼	lak6 bik1
 勒馬	lak6 maa5
 勒龐	lak6 pong4
-動L	dung6 el1
 動不動	dung6 bat1 dung6
 動之以情	dung6 zi1 ji5 cing4
 動亂	dung6 lyun6
@@ -54413,7 +54277,6 @@ van仔	weng1 zai2
 厲行節約	lai6 hang4 zit3 joek3
 厲轉身	lai2 zyun2 san1
 厲鬼	lai6 gwai2
-去wet	heoi3 wet
 去世	heoi3 sai3
 去你的	heoi3 nei5 dik1
 去偽存真	heoi3 ngai6 cyun4 zan1
@@ -57110,7 +56973,8 @@ van仔	weng1 zai2
 反骨仔	faan2 gwat1 zai2
 反骨無情	faan2 gwat1 mou4 cing4
 反高潮	faan2 gou1 ciu4
-反鬥	faan2 dau3 (反斗 'faan2 dau2')
+反鬥	faan2 dau3
+反鬥	faan2 dau2
 反黑組	faan2 hak1 zou2
 反黨	faan2 dong2
 叔丈人	suk1 zoeng6 jan4
@@ -59931,10 +59795,10 @@ van仔	weng1 zai2
 嗤鼻	ci1 bei6
 嗥叫	hou4 giu3
 嗦嗦聲	sok3 sok3 seng1
-嗨喲	hei1 yo1
+嗨喲	hei1 jo1
 嗨藥	haai1 joek6
 嗩吶	so2 naap6
-嗯哼	ng6 hng6
+嗯哼	ng6 hang6
 嗰一晚	go2 jat1 maan5
 嗰位	go2 wai6
 嗰便	go2 bin6
@@ -60141,13 +60005,10 @@ van仔	weng1 zai2
 嘰咋柳鶯	gei1 zaa2 lau5 ang1
 嘰咕	gei1 gu1
 嘰哩咕嚕	gei1 li1 gu1 lou1
-嘰哩咕嚕	gi1 li1 gu1 lu1
 嘰嘰喳喳	gei1 gei1 zaa1 zaa1
 嘰嘰嘎嘎	gei1 gei1 gaa1 gaa1
 嘰嘰趷趷	gei1 gei1 gat6 gat6
-嘰嘰趷趷	gi1 gi1 gat6 gat6
 嘰趷	gei1 gat6
-嘰趷	gi1 gat6
 嘰里咕嚕	gei1 lei5 gu1 lou1
 嘲哳	zaau1 zaat3
 嘲弄	zaau1 lung6
@@ -62181,9 +62042,6 @@ van仔	weng1 zai2
 啫啫	zoe1 zoe1
 啫喱	ze1 lei2
 啫屐	ze1 kek6
-啱feel	ngaam1 feel
-啱feel	ngaam1 fiu1
-啱key	ngaam1 ki1
 啱使	ngaam1 sai2
 啱偈	ngaam1 gai2
 啱傾	ngaam1 king1
@@ -62392,7 +62250,8 @@ van仔	weng1 zai2
 喐喐下	juk1 juk1 haa2
 喐喐貢	juk1 juk1 gung1
 喐喐貢	juk1 juk1 gung3
-喐嚟喐去	juk1 lai4 (lei4) juk1 heoi3
+喐嚟喐去	juk1 lai4 juk1 heoi3
+喐嚟喐去	juk1 lei4 juk1 heoi3
 喐手	juk1 sau2
 喐手喐腳	juk1 sau2 juk1 goek3
 喐手打人	juk1 sau2 daa2 jan4
@@ -62859,7 +62718,6 @@ van仔	weng1 zai2
 嗔視	can1 si6
 嗔詬	can1 gau3
 嗖嗖	sau1 sau1
-嗗嗗聲	gut6 gut6 seng1
 嗚呼	wu1 fu1
 嗚呼哀哉	wu1 fu1 oi1 zoi1
 嗚咽	wu1 jit3
@@ -67229,8 +67087,6 @@ van仔	weng1 zai2
 夜麻麻	je6 maa1 maa1
 夜麻麻	je6 maa4 maa4
 够𦢊	gau3 pok1
-夠power	gau3 power
-夠quali	gau3 ko1 li2
 夠不著	gau3 bat1 zoek6
 夠勁	gau3 ging6
 夠受的	gau3 sau6 dik1
@@ -67732,7 +67588,6 @@ van仔	weng1 zai2
 好唔好	hou2 m4 hou2
 好唔掂	hou2 m4 dim6
 好唱口	hou2 coeng3 hau2
-好啱key	hou2 ngaam1 ki1
 好啱偈	hou2 ngaam1 gai2
 好啲	hou2 di1
 好喝	hou2 hot3
@@ -70347,9 +70202,6 @@ van仔	weng1 zai2
 她經濟	taa1 ging1 zai3
 奼女	caa3 neoi5
 奼紫嫣紅	caa3 zi2 jin1 hung4
-好Yeah	hou2 yeah
-好friend	hou2 fen1
-好high	hou2 haai1
 好不	hou2 bat1
 好不好	hou2 bat1 hou2
 好不容易	hou2 bat1 jung4 ji6
@@ -76861,7 +76713,6 @@ van仔	weng1 zai2
 巴中地區	baa1 zung1 dei6 keoi1
 巴中市	baa1 zung1 si5
 巴仙	baa1 sin1
-巴仙	pe3 sen1
 巴以	baa1 ji5
 巴伊蘭大學	baa1 ji1 laan4 daai6 hok6
 巴伐利亞	baa1 fat6 lei6 aa3
@@ -79650,7 +79501,7 @@ van仔	weng1 zai2
 弛張熱	ci4 zoeng1 jit6
 弛禁	ci4 gam3
 弛緩	ci4 wun6
-弟兄	弟dai6 hing1
+弟兄	dai6 hing1
 弟兄們	dai6 hing1 mun4
 弟妹	dai6 mui6
 弟婦	dai6 fu5
@@ -79900,7 +79751,8 @@ van仔	weng1 zai2
 強積金	koeng5 zik1 gam1
 強腳樹鶯	koeng4 goek3 syu6 ang1
 強行	koeng5 hang4
-強記	koeng5 gei3; koeng4 gei3
+強記	koeng5 gei3
+強記	koeng4 gei3
 強詞奪理	koeng5 ci4 dyut6 lei5
 強調	koeng4 diu6
 強買強賣	koeng5 maai5 koeng5 maai6
@@ -84950,7 +84802,6 @@ van仔	weng1 zai2
 打嗝兒	daa2 gaak3 ji4
 打嘴	daa2 zeoi2
 打嘴巴	daa2 zeoi2 baa1
-打噎	daa2 ik1
 打噎	daa2 jik1
 打噴嚏	daa2 pan3 tai3
 打嚏噴	daa2 tai3 pan3
@@ -89295,10 +89146,6 @@ van仔	weng1 zai2
 援藏	wun4 zong6
 援軍	wun4 gwan1
 揶揄	je4 jyu4
-揸fit	zaa1 fit
-揸fit	zaa1 fit1
-揸fit人	zaa1 fit jan4
-揸fit人	zaa1 fit1 jan4
 揸主意	zaa1 zyu2 ji3
 揸二攤	zaa1 ji6 taan1
 揸住	zaa1 zyu6
@@ -89581,7 +89428,6 @@ van仔	weng1 zai2
 搬遷戶	bun1 cin1 wu6
 搬鋪	bun1 pou3
 搬龍門	bun1 lung4 mun4
-搭van仔	daap3 weng1 zai2
 搭上搭	daap3 soeng6 daap3
 搭乘	daap3 sing4
 搭伙	daap3 fo2
@@ -91871,7 +91717,6 @@ van仔	weng1 zai2
 敢為人先	gam2 wai4 jan4 sin1
 敢當	gam2 dong1
 敢達	gam2 daat6
-散band	saan3 band
 散亂	saan2 lyun6
 散亡	saan3 mong4
 散仔	saan2 zai2
@@ -98082,9 +97927,7 @@ van仔	weng1 zai2
 果仁	gwo2 jan4
 果仁兒	gwo2 jan4 ji4
 果凍	gwo2 dung3
-果占	gwo2 zem1
 果占	gwo2 zim1
-果占麵包	gwo2 zem1 min6 baau1
 果味膠糖	gwo2 mei6 gaau1 tong2
 果品	gwo2 ban2
 果啤	gwo2 be1
@@ -103348,7 +103191,6 @@ van仔	weng1 zai2
 民政部	man4 zing3 bou6
 民數記	man4 sou3 gei3
 民族	man4 zuk6
-民族LOOK	man4 zuk6 look
 民族主義	man4 zuk6 zyu2 ji6
 民族主義情緒	man4 zuk6 zyu2 ji6 cing4 seoi5
 民族團結	man4 zuk6 tyun4 git3
@@ -108862,7 +108704,7 @@ van仔	weng1 zai2
 演講家	jin2 gong2 gaa1
 演變	jin2 bin3
 演進	jin2 zeon3
-演野	jin2 ye5
+演野	jin2 je5
 漕運	cou4 wan6
 漚仔	au1 zai2
 漚仔婆	au1 zai2 po2
@@ -111491,7 +111333,6 @@ van仔	weng1 zai2
 煦仁孑義	heoi2 jan4 kit3 ji6
 煦暖	heoi2 nyun5
 煦煦	heoi2 heoi2
-照X光	ziu3 ik1 si4 gwong1
 照亮	ziu3 loeng6
 照住	ziu3 zyu6
 照作不誤	ziu3 zok3 bat1 ng6
@@ -116868,14 +116709,14 @@ van仔	weng1 zai2
 當食生菜	dong1 sik6 saang1 coi3
 當駕	dong1 gaa3
 當黑	dong1 hak1
-畸卡	ki1 kaa1
-畸卡咁笑	ki1 kaa1 gam3 siu3
+畸卡	kei1 kaa1
+畸卡咁笑	kei1 kaa1 gam3 siu3
 畸型	kei1 jing4
 畸士	kei1 si2
 畸形	kei1 jing4
 畸形兒	kei1 jing4 ji4
 畸態	kei1 taai3
-畸畸卡卡	ki1 ki1 kaa1 kaa1
+畸畸卡卡	kei1 kei1 kaa1 kaa1
 畸胎	kei1 toi1
 畸胎瘤	kei1 toi1 lau4
 畸變	kei1 bin3
@@ -123906,7 +123747,7 @@ van仔	weng1 zai2
 笏板	fat1 baan2
 笑不可仰	siu3 bat1 ho2 joeng5
 笑不可抑	siu3 bat1 ho2 jik1
-笑到畸畸聲	siu3 dou3 ki1 ki1 seng1
+笑到畸畸聲	siu3 dou3 kei1 kei1 seng1
 笑到碌地	siu3 dou3 luk1 dei2
 笑到肚刺	siu3 dou3 tou5 cek3
 笑到見牙唔見眼	siu3 dou3 gin3 ngaa4 m4 gin3 ngaan5
@@ -124942,7 +124783,7 @@ van仔	weng1 zai2
 粉紅腹嶺雀	fan2 hung4 fuk1 ling5 zoek3
 粉紅色	fan2 hung4 sik1
 粉絲	fan2 si1
-粉絲	fen1 si2
+粉絲	fan1 si2
 粉腸	fan2 coeng2
 粉色	fan2 sik1
 粉芡	fan2 him3
@@ -133709,7 +133550,7 @@ van仔	weng1 zai2
 舍友	se3 jau2
 舍弟	se3 dai6
 舍監	se3 gaam1
-舐嘴	lem2 zeoi2
+舐嘴	lim2 zeoi2
 舐犢	saai5 duk6
 舐犢之愛	saai5 duk6 zi1 oi3
 舐犢情深	saai5 duk6 cing4 sam1
@@ -143843,8 +143684,6 @@ van仔	weng1 zai2
 貧道	pan4 dou6
 貧鈾	pan4 jau4
 貧雇農	pan4 gu3 nung4
-貨Van	fo3 van
-貨van	fo3 wen1
 貨不對辦	fo3 bat1 deoi3 baan6
 貨仔	fo3 zai2
 貨倉	fo3 cong1
@@ -152520,7 +152359,7 @@ van仔	weng1 zai2
 鋤草	co4 cou2
 鋤頭	co4 tau4
 鋥亮	caang6 loeng6
-鋥亮	鋥loeng6
+鋥亮	caang3 loeng6
 鋦子	guk6 zi2
 鋪位	pou3 wai2
 鋪保	pou3 bou2
@@ -154515,7 +154354,6 @@ van仔	weng1 zai2
 阻雨	zo2 jyu5
 阻頭阻勢	zo2 tau4 zo2 sai3
 阿Q正傳	aa3 kiu1 zing3 zyun6
-阿sir	aa3 sir
 阿三	aa3 saam1
 阿丹	aa3 daan1
 阿乜人	aa3 mat1 jan4
@@ -160419,7 +160257,6 @@ van仔	weng1 zai2
 飛吻	fei1 man5
 飛咁快	fei1 gam3 faai3
 飛咗	fei1 zo2
-飛哩啡呢	fi4 li1 fe4 le4
 飛單	fei1 daan1
 飛地	fei1 dei6
 飛塵	fei1 can4
