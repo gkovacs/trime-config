@@ -235,6 +235,7 @@ jyutping_lookup:
   prefix: "`"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
   dictionary: leimaau_jyutping
+  prism: double_jyutping
   preedit_format:
     #- xform/([aeioumngptk])qq/$1⁴/
     #- xform/([aeioumngptk])q/$1¹/
@@ -242,12 +243,12 @@ jyutping_lookup:
     #- xform/([aeioumngptk])v/$1²/
     #- xform/([aeioumngptk])xx/$1⁶/
     #- xform/([aeioumngptk])x/$1³/
-    - 'xform ([aeioumngptkqrwy]); $1¹'
-    - 'xform ([aeioumngptkqrwy])x $1⁴'
-    - 'xform ([aeioumngptkqrwy])/ $1²'
-    - 'xform ([aeioumngptkqrwy])\. $1⁶'
-    - 'xform ([aeioumngptkqrwy]), $1³'
-    - 'xform ([aeioumngptkqrwy])v $1⁵'
+    # - 'xform ([aeioumngptkqrwy]); $1¹'
+    # - 'xform ([aeioumngptkqrwy])x $1⁴'
+    # - 'xform ([aeioumngptkqrwy])/ $1²'
+    # - 'xform ([aeioumngptkqrwy])\. $1⁶'
+    # - 'xform ([aeioumngptkqrwy]), $1³'
+    # - 'xform ([aeioumngptkqrwy])v $1⁵'
     #- 'xform r aa'
     #- 'xform q ng'
   tips: 【粵】
@@ -258,6 +259,7 @@ jyutping_to_putonghua_lookup:
   prefix: "`Y"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
   dictionary: leimaau_jyutping
+  prism: double_jyutping
   preedit_format:
     #- xform/([aeioumngptk])qq/$1⁴/
     #- xform/([aeioumngptk])q/$1¹/
@@ -265,12 +267,12 @@ jyutping_to_putonghua_lookup:
     #- xform/([aeioumngptk])v/$1²/
     #- xform/([aeioumngptk])xx/$1⁶/
     #- xform/([aeioumngptk])x/$1³/
-    - 'xform ([aeioumngptkqrwy]); $1¹'
-    - 'xform ([aeioumngptkqrwy])x $1⁴'
-    - 'xform ([aeioumngptkqrwy])/ $1²'
-    - 'xform ([aeioumngptkqrwy])\. $1⁶'
-    - 'xform ([aeioumngptkqrwy]), $1³'
-    - 'xform ([aeioumngptkqrwy])v $1⁵'
+    # - 'xform ([aeioumngptkqrwy]); $1¹'
+    # - 'xform ([aeioumngptkqrwy])x $1⁴'
+    # - 'xform ([aeioumngptkqrwy])/ $1²'
+    # - 'xform ([aeioumngptkqrwy])\. $1⁶'
+    # - 'xform ([aeioumngptkqrwy]), $1³'
+    # - 'xform ([aeioumngptkqrwy])v $1⁵'
     #- 'xform r aa'
     #- 'xform q ng'
   tips: 【粵查普】
