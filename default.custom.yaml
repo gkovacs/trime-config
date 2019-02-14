@@ -14,6 +14,7 @@ patch:
   schema_list:
     - {schema: hangyl}
     - {schema: hannomPS}
+    - {schema: double_jyutping}
     - {schema: leimaau_jyutping}
     - {schema: "nihongo-hybrid"}
     - {schema: td_pinyin_flypy_jyutping}
