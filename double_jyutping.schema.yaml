@@ -96,31 +96,33 @@ speller:
     - xform/^([a|o|e|u|aa].*)([1-6]?)$/O$1$2/ # this line needs to be fixed
 
     # shorthands for ng endings
-    - xform/aang([1-6]?)$/H$1/
-    - xform/ang([1-6]?)$/G$1/
-    - xform/oeng([1-6]?)$/9$1/
-    - xform/ing([1-6]?)$/8$1/
-    - xform/eng([1-6]?)$/À$1/
-    - xform/ong([1-6]?)$/L$1/
-    - xform/ung([1-6]?)$/S$1/
+    - xform/(.)aang([1-6]?)$/$1H$2/
+    - xform/(.)ang([1-6]?)$/$1G$2/
+    - xform/(.)oeng([1-6]?)$/$1P$2/
+    - xform/(.)ing([1-6]?)$/$1Ó$2/
+    - xform/(.)eng([1-6]?)$/$1À$2/
+    - xform/(.)ong([1-6]?)$/$1L$2/
+    - xform/(.)ung([1-6]?)$/$1S$2/
 
     # shorthand i => ei
-    - xform/(^[bpmfdnlgkh])ei([1-6]?)$/$1I$2/
+    # w => ei for s (d n l added for convenience)
+    - derive/^(s|d|n|l)ei([1-6]?)$/$1W$2/
+    # i => for all others
+    - xform/^(b|d|f|g|h|k|l|m|n|p|gw)ei([1-6]?)$/$1I$2/
 
     # codas not ending in ng/p/t/k
 
     # aa codas
-    - xform/(.)aau([1-6]?)$/$1C$2/
+    - xform/(.)aau([1-6]?)$/$1Í$2/
     - xform/(.)aam([1-6]?)$/$1È$2/
     - xform/(.)aan([1-6]?)$/$1J$2/
     - xform/(.)aai([1-6]?)$/$1K$2/
-    - xform/(.)aa(ng|p|t|k)?([1-6]?)$/$1R$2$3/
 
     # a codas
     - xform/(.)ai([1-6]?)$/$1D$2/
     - xform/(.)an([1-6]?)$/$1F$2/
     - xform/(.)am([1-6]?)$/$1A$2/
-    - xform/(.)au([1-6]?)$/$1X$2/
+    - xform/(.)au([1-6]?)$/$1C$2/
 
     # nasal codas
     - xform/(.)eon([1-6]?)$/$1N$2/
@@ -129,27 +131,32 @@ speller:
     - xform/(.)oen([1-6]?)$/$1N$2/
     - xform/(.)on([1-6]?)$/$1N$2/
     - xform/(.)im([1-6]?)$/$1M$2/
-    - xform/(.)m([1-6]?)$/$1M$2/
 
     # # o codas
     - xform/(.)eoi([1-6]?)$/$1V$2/
-    - xform/(.)oi([1-6]?)$/$1T$2/
+    - xform/(.)oi([1-6]?)$/$1X$2/
     - xform/(.)oe(t|k)?([1-6]?)$/$1W$2$3/
     - xform/(.)eo(t|k)?([1-6]?)$/$1W$2$3/
     - xform/(.)ou([1-6]?)$/$1Z$2/
-    - xform/(.)o(t|k)?([1-6]?)$/$1O$2$3/
 
     # u and y codas
-    - xform/(.)yun([1-6]?)$/$1P$2/
+    - xform/(.)yun([1-6]?)$/$1T$2/
     - xform/(.)un([1-6]?)$/$1Y$2/
     - xform/(.)yu(t)?([1-6]?)$/$1U$2$3/
     - xform/(.)ui([1-6]?)$/$1W$2/
-    - xform/(.)u(t|k)?([1-6]?)$/$1U$2$3/
 
     # i codas
-    - xform/(.)in([1-6]?)$/$1B$2/
     - xform/(.)iu([1-6]?)$/$1Q$2/
+    - xform/(.)in([1-6]?)$/$1B$2/
+
+    # single letters
+    - xform/(.)u(t|k)?([1-6]?)$/$1U$2$3/
+    - xform/(.)o(t|k)?([1-6]?)$/$1O$2$3/
     - xform/(.)i(p|t|k)?([1-6]?)$/$1I$2$3/
+    - xform/(.)m([1-6]?)$/$1M$2/
+    - xform/(.)aa(p|t|k)?([1-6]?)$/$1R$2$3/
+    - xform/(.)a(p|t|k)?([1-6]?)$/$1A$2$3/
+
 
     # # nasal codas part 2
     #- xform/(.)n([1-6]?)$/$1N$2/
@@ -171,6 +178,7 @@ speller:
     - xform/^s/S/
     - xform/^d/D/
     - xform/^f/F/
+    - xform/^g/G/
     - xform/^h/H/
     - xform/^j/J/
     - xform/^k/K/
@@ -183,8 +191,8 @@ speller:
 
     - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
     - 'xform È ;'
-    - 'xform 8 ,'
-    - 'xform 9 .'
+    - 'xform Í ,'
+    - 'xform Ó .'
     - 'xform À /'
     - 'xform 1 ;'
     - 'xform 2 /'
