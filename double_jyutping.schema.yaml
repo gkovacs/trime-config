@@ -92,8 +92,13 @@ speller:
     - erase/^xx$/
     - derive/^([a-z]+)[1-6]$/$1/
 
-    # o is for null initials
-    - xform/^([a|o|e|u|aa].*)([1-6]?)$/O$1$2/ # this line needs to be fixed
+    # aa is for ng
+    - xform/^ng([1-6]?)$/AA$1/
+    # mm is for m
+    - xform/^m([1-6]?)$/MM$1/
+
+    # r is for null initials
+    - xform/^([a|o|e|u|aa].*)([1-6]?)$/E$1$2/ # this line needs to be fixed
 
     # shorthands for ng endings
     - xform/(.)aang([1-6]?)$/$1H$2/
@@ -161,13 +166,13 @@ speller:
     # # nasal codas part 2
     #- xform/(.)n([1-6]?)$/$1N$2/
 
-    # initials: kw=Q, gw=Y, ng=R
-    - xform/^kw/Q/
-    - xform/^gw/Y/
-    - xform/^ng/R/
-    # finals: k=e, t=i, p=u. a=ng
-    - xform/(.)(.)p([1-6]?)$/$1$2U$3/
-    - xform/(.)(.)t([1-6]?)$/$1$2E$3/
+    # initials: kw=Y, gw=U, ng=R
+    - xform/^kw/Y/
+    - xform/^gw/U/
+    - xform/^ng/A/
+    # finals: p=o, t=r, k=i
+    - xform/(.)(.)p([1-6]?)$/$1$2O$3/
+    - xform/(.)(.)t([1-6]?)$/$1$2R$3/
     - xform/(.)(.)k([1-6]?)$/$1$2I$3/
     #- xform/ng([1-6]?)$/A$1/
 
@@ -282,7 +287,7 @@ jyutping_to_stroke_lookup:
 
 pinyin_lookup:
   tag: pinyin_lookup
-  prefix: "`J"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  prefix: "`"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
   dictionary: terra_pinyin.extended
   prism: td_pinyin_flypy
@@ -352,7 +357,7 @@ pinyin_lookup:
 
 putonghua_to_jyutping_lookup:
   tag: putonghua_to_jyutping_lookup
-  prefix: "`"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  prefix: "q"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
   dictionary: terra_pinyin.extended
   prism: td_pinyin_flypy
@@ -711,8 +716,8 @@ recognizer:
     uppercase: "^[A-Z][-_+.'0-9A-Za-z]*$"
     url: "^(www[.]|https?:|ftp:|mailto:).*$"
     #reverse_lookup: "`[a-z]*;?$"
-    pinyin_lookup: "`J[a-z;/,.]*`?$"
-    putonghua_to_jyutping_lookup: "`[a-z;/,.]*`?$"
+    pinyin_lookup: "`[a-z;/,.]*`?$"
+    putonghua_to_jyutping_lookup: "q[a-z;/,.]*`?$"
     jyutping_to_putonghua_lookup: "`Y[a-z;/,.]*`?$"
     jyutping_to_stroke_lookup: "`S[a-z;/,.]*`?$"
     reverse_lookup: "`H[a-z]*`?$"
