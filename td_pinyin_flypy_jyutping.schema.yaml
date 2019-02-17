@@ -25,6 +25,7 @@ switches:
     reset: 0
     states: [ 中文, 西文 ]
   - name: full_shape
+    reset: 0
     states: [ 半角, 全角 ]
   #- name: simplification
   #  states: [ 漢字, 汉字 ]
@@ -719,6 +720,10 @@ key_binder:
     - {accept: "Control+Shift+F", toggle: zh_simp, when: always}
     - {accept: "Control+Shift+t", toggle: zh_tw, when: always}
     - {accept: "Control+Shift+T", toggle: zh_tw, when: always}
+    - {accept: "Control+Shift+space", select: colemak, when: always}
+    - {accept: "Control+space", select: qwerty, when: always}
+    - {accept: "F35", select: double_jyutping, when: always}
+    - {accept: "Alt+space", select: double_jyutping, when: always}
 
 recognizer:
   patterns:

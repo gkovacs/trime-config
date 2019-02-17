@@ -1,0 +1,142 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: qwerty_jyutping
+  name: qwerty_jyutping
+  version: "0.10"
+  author:
+    - Geza Kovacs gkovacs.com
+  description: |
+    qwerty
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    reset: 0
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+
+engine:
+  processors:
+    - ascii_composer
+    #- recognizer
+    - key_binder
+    #- navigator
+    #- speller
+    - punctuator
+    #- selector
+    #- navigator
+#    - fluency_editor
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    #- matcher
+    #- abc_segmentor
+    #- affix_segmentor@putonghua_to_hannom_lookup
+    #- affix_segmentor@kanji_lookup
+    #- affix_segmentor@hanja_lookup
+    - punct_segmentor
+    #- fallback_segmentor
+  translators:
+    #- echo_translator
+    - punct_translator
+    #- table_translator
+    #- r10n_translator
+    #- reverse_lookup_translator
+    #- script_translator@putonghua_to_hannom_lookup
+    #- script_translator@kanji_lookup
+    #- script_translator@hanja_lookup
+  #filters:
+  #  - simplifier
+  #  - uniquifier
+  #  - reverse_lookup_filter@putonghua_to_hannom_reverse_lookup
+  #  - reverse_lookup_filter@kanji_reverse_lookup
+  #  - reverse_lookup_filter@hanja_reverse_lookup
+
+punctuator:
+  half_shape: &symtable
+    'e': e
+    'r': r
+    't': t
+    'y': y
+    'u': u
+    'i': i
+    'o': o
+    'p': p
+    's': s
+    'd': d
+    'f': f
+    'g': g
+    'j': j
+    'k': k
+    'l': l
+    ';': ';'
+    'n': n
+    'E': E
+    'R': R
+    'T': T
+    'Y': Y
+    'U': U
+    'I': I
+    'O': O
+    'P': P
+    'S': S
+    'D': D
+    'F': F
+    'G': G
+    'J': J
+    'K': K
+    'L': L
+    ':': ':'
+    'N': N
+  full_shape: &symtable
+    'e': e
+    'r': r
+    't': t
+    'y': y
+    'u': u
+    'i': i
+    'o': o
+    'p': p
+    's': s
+    'd': d
+    'f': f
+    'g': g
+    'j': j
+    'k': k
+    'l': l
+    ';': ';'
+    'n': n
+    'E': E
+    'R': R
+    'T': T
+    'Y': Y
+    'U': U
+    'I': I
+    'O': O
+    'P': P
+    'S': S
+    'D': D
+    'F': F
+    'G': G
+    'J': J
+    'K': K
+    'L': L
+    ':': ':'
+    'N': N
+
+key_binder:
+  import_preset: default
+  bindings:
+    - {accept: "Control+Shift+f", toggle: simplification, when: always}
+    - {accept: "Control+Shift+F", toggle: simplification, when: always}
+    - {accept: "Control+Shift+t", toggle: simplification, when: always}
+    - {accept: "Control+Shift+T", toggle: simplification, when: always}
+    - {accept: "Control+Shift+space", select: colemak_jyutping, when: always}
+    - {accept: "Control+space", select: double_jyutping, when: always}
+    - {accept: "F35", select: td_pinyin_flypy_jyutping, when: always}
+    - {accept: "Alt+space", select: td_pinyin_flypy_jyutping, when: always}

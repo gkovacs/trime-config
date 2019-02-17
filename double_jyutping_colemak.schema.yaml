@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 schema:
-  schema_id: double_jyutping
+  schema_id: double_jyutping_colemak
   name: "粵雙拼"
   version: "20180428"
   author:
@@ -712,10 +712,10 @@ key_binder:
     - {accept: "Control+Shift+T", toggle: zh_tw, when: always}
     - {accept: "q", send: q, when: composing}
     - {accept: "q", send: "&", when: always}
-    - {accept: "Control+Shift+space", select: colemak_jyutping, when: always}
-    - {accept: "Control+space", select: qwerty_jyutping, when: always}
-    - {accept: "F35", select: td_pinyin_flypy_jyutping, when: always}
-    - {accept: "Alt+space", select: td_pinyin_flypy_jyutping, when: always}
+    - {accept: "Control+Shift+space", select: qwerty_jyutping, when: always}
+    - {accept: "Control+space", select: colemak_jyutping, when: always}
+    - {accept: "F35", select: td_pinyin_flypy_jyutping_colemak, when: always}
+    - {accept: "Alt+space", select: td_pinyin_flypy_jyutping_colemak, when: always}
 
 recognizer:
   patterns:
