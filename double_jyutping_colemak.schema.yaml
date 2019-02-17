@@ -653,6 +653,16 @@
         "when": "always"
       },
       {
+        "accept": "q",
+        "send": "q",
+        "when": "composing"
+      },
+      {
+        "accept": "q",
+        "send": "&",
+        "when": "always"
+      },
+      {
         "accept": "Control+Shift+space",
         "select": "qwerty_double_jyutping",
         "when": "always"
