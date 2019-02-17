@@ -242,9 +242,10 @@ translator:
 
 jyutping_to_putonghua_lookup:
   tag: jyutping_to_putonghua_lookup
-  prefix: "`Y"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  prefix: "`J"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
   dictionary: leimaau_jyutping
+  prism: double_jyutping
   preedit_format:
     #- xform/([aeioumngptk])qq/$1⁴/
     #- xform/([aeioumngptk])q/$1¹/
@@ -252,12 +253,12 @@ jyutping_to_putonghua_lookup:
     #- xform/([aeioumngptk])v/$1²/
     #- xform/([aeioumngptk])xx/$1⁶/
     #- xform/([aeioumngptk])x/$1³/
-    - 'xform ([aeioumngptkqrwy]); $1¹'
-    - 'xform ([aeioumngptkqrwy])x $1⁴'
-    - 'xform ([aeioumngptkqrwy])/ $1²'
-    - 'xform ([aeioumngptkqrwy])\. $1⁶'
-    - 'xform ([aeioumngptkqrwy]), $1³'
-    - 'xform ([aeioumngptkqrwy])v $1⁵'
+    # - 'xform ([aeioumngptkqrwy]); $1¹'
+    # - 'xform ([aeioumngptkqrwy])x $1⁴'
+    # - 'xform ([aeioumngptkqrwy])/ $1²'
+    # - 'xform ([aeioumngptkqrwy])\. $1⁶'
+    # - 'xform ([aeioumngptkqrwy]), $1³'
+    # - 'xform ([aeioumngptkqrwy])v $1⁵'
     #- 'xform r aa'
     #- 'xform q ng'
   tips: 【粵查普】
@@ -268,6 +269,7 @@ jyutping_to_stroke_lookup:
   prefix: "`S"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
   dictionary: leimaau_jyutping
+  prism: double_jyutping
   preedit_format:
     #- xform/([aeioumngptk])qq/$1⁴/
     #- xform/([aeioumngptk])q/$1¹/
@@ -275,12 +277,12 @@ jyutping_to_stroke_lookup:
     #- xform/([aeioumngptk])v/$1²/
     #- xform/([aeioumngptk])xx/$1⁶/
     #- xform/([aeioumngptk])x/$1³/
-    - 'xform ([aeioumngptkqrwy]); $1¹'
-    - 'xform ([aeioumngptkqrwy])x $1⁴'
-    - 'xform ([aeioumngptkqrwy])/ $1²'
-    - 'xform ([aeioumngptkqrwy])\. $1⁶'
-    - 'xform ([aeioumngptkqrwy]), $1³'
-    - 'xform ([aeioumngptkqrwy])v $1⁵'
+    # - 'xform ([aeioumngptkqrwy]); $1¹'
+    # - 'xform ([aeioumngptkqrwy])x $1⁴'
+    # - 'xform ([aeioumngptkqrwy])/ $1²'
+    # - 'xform ([aeioumngptkqrwy])\. $1⁶'
+    # - 'xform ([aeioumngptkqrwy]), $1³'
+    # - 'xform ([aeioumngptkqrwy])v $1⁵'
     #- 'xform r aa'
     #- 'xform q ng'
   tips: 【粵查笔】
@@ -353,7 +355,7 @@ pinyin_lookup:
     - 'xform ü/ ǘ'
     - 'xform ü, ǚ'
     - 'xform ü\. ǜ'
-  tips: 【粵】
+  tips: 【普】
   #closing_tips: 【粵拼】
 
 putonghua_to_jyutping_lookup:
@@ -458,7 +460,7 @@ putonghua_to_jyutping_lookup:
 
 pinyin_reverse_lookup:
   tags: [ pinyin_lookup ]
-  dictionary: terra_pinyin.extended
+  dictionary: terra_pinyin_nospaces.extended
   #  overwrite_comment: true  # 覆蓋其他提示
   #comment_format:
   #  - xform/ /\｜/
@@ -725,7 +727,7 @@ recognizer:
     #reverse_lookup: "`[a-z]*;?$"
     pinyin_lookup: "`[a-z;/,.]*`?$"
     putonghua_to_jyutping_lookup: "&[a-z;/,.]*`?$"
-    jyutping_to_putonghua_lookup: "`Y[a-z;/,.]*`?$"
+    jyutping_to_putonghua_lookup: "`J[a-z;/,.]*`?$"
     jyutping_to_stroke_lookup: "`S[a-z;/,.]*`?$"
     reverse_lookup: "`H[a-z]*`?$"
     hannom_lookup: "`V[a-z]*?$"

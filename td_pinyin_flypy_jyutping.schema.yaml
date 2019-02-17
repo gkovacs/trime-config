@@ -257,7 +257,7 @@ jyutping_lookup:
 
 jyutping_to_putonghua_lookup:
   tag: jyutping_to_putonghua_lookup
-  prefix: "`Y"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  prefix: "`J"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
   dictionary: leimaau_jyutping
   prism: double_jyutping
@@ -281,7 +281,7 @@ jyutping_to_putonghua_lookup:
 
 putonghua_to_jyutping_lookup:
   tag: putonghua_to_jyutping_lookup
-  prefix: "`J"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  prefix: "`Y"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
   suffix: "`"
   dictionary: terra_pinyin.extended
   prism: td_pinyin_flypy
@@ -381,7 +381,7 @@ putonghua_to_jyutping_lookup:
 
 jyutping_reverse_lookup:
   tags: [ jyutping_lookup ]
-  dictionary: leimaau_jyutping
+  dictionary: leimaau_jyutping_nospaces
   #  overwrite_comment: true  # 覆蓋其他提示
   #comment_format:
   #  - xform/ /\｜/
@@ -733,8 +733,8 @@ recognizer:
     reverse_lookup: "`H[a-z]*`?$"
     putonghua_to_stroke_lookup: "`S[a-z;/,.]*`?$"
     jyutping_lookup: "`[a-z;/,.]*`?$"
-    putonghua_to_jyutping_lookup: "`J[a-z;/,.]*`?$"
-    jyutping_to_putonghua_lookup: "`Y[a-z;/,.]*`?$"
+    putonghua_to_jyutping_lookup: "`Y[a-z;/,.]*`?$"
+    jyutping_to_putonghua_lookup: "`J[a-z;/,.]*`?$"
     hannom_lookup: "`V[a-z]*?$"
     kanji_lookup: "`N[a-z]*?$"
     hanja_lookup: "`K[a-z]*?$"

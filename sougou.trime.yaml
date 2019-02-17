@@ -226,9 +226,9 @@ preset_keyboards:
       - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
       - {click: z, long_click: '`H', swipe_down: 
 '`S', key_back_color: bh3, key_text_color: th3}
-      - {click: x, long_click: '`Y', swipe_down: 
-'`N', key_back_color: bh3, key_text_color: th3}
-      - {click: c, long_click: '`J', swipe_down: 
+      - {click: x, long_click: '`J', swipe_down: 
+'`Y', key_back_color: bh3, key_text_color: th3}
+      - {click: c, long_click: '`N', swipe_down: 
 '`K', key_back_color: bh3, key_text_color: th3}
       - {click: v, long_click: '^', swipe_down: 
 "\\", key_back_color: bh3, key_text_color: th3}
@@ -254,31 +254,31 @@ preset_keyboards:
     keys:
       - {click: '{}{Left}', long_click: '【】{Left}', key_back_color: bgn, key_text_color: tgn}
       - {click: '+', long_click: '#', key_back_color: bgn, key_text_color: tgn}
-      - {click: 1}
-      - {click: 2}
+      - {click: 1, long_click: copy}
+      - {click: 2, long_click: Up}
       - {click: 3}
       - {click: space1, key_back_color: bgn, key_text_color: tgn}
 
       - {click: '_', long_click: '[]{Left}', key_back_color: bgn, key_text_color: tgn}
       - {click: '-', long_click: '%', key_back_color: bgn, key_text_color: tgn}
-      - {click: 4}
+      - {click: 4, long_click: Left}
       - {click: 5}
-      - {click: 6}
+      - {click: 6, long_click: Right}
       - {click: Return, key_back_color: bgn, key_text_color: tgn}
 
       - {click: '「」{Left}{Keyboard_default}', long_click: '『』{Left}', key_back_color: bgn, key_text_color: tgn}
       - {click: '*', long_click: '±', key_back_color: bgn, key_text_color: tgn}
       - {click: 7, long_click: select_all}
-      - {click: 8, long_click: copy}
+      - {click: 8, long_click: Down}
       - {click: 9, long_click: paste}
       - {click: BackSpace, key_back_color: bbs, key_text_color: tbs}
 
-      - {click: '=', long_click: '≠', key_back_color: bgn, key_text_color: tgn}
-      - {click: '/', long_click: '\', key_back_color: bgn, key_text_color: tgn}
-      - {click: ., long_click: Keyboard_bqrw, key_back_color: bgn, key_text_color: tgn}
-      - {click: 0, long_click: cut}
-      - {click: Schema_switchen, key_back_color: bgn, key_text_color: tgn}
       - {click: Keyboard_default, long_click: Menu, key_back_color: benter, key_text_color: tenter}
+      - {click: '/', long_click: '\', key_back_color: bgn, key_text_color: tgn}
+      - {click: '=', long_click: '≠', key_back_color: bgn, key_text_color: tgn}
+      - {click: 0, long_click: cut}
+      - {click: ., long_click: Keyboard_bqrw, key_back_color: bgn, key_text_color: tgn}
+      - {click: Schema_switchen, key_back_color: bgn, key_text_color: tgn}
 
 #符号键盘之二
   symbols:
