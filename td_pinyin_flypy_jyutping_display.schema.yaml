@@ -1,17 +1,22 @@
 {
   "schema": {
-    "schema_id": "double_jyutping_colemak",
-    "name": "粵雙拼",
-    "version": "20180428",
+    "schema_id": "td_pinyin_flypy_jyutping_display",
+    "name": "小鶴雙拼（粵）",
+    "version": "0.1",
     "author": [
-      "LeiMaau"
+      "double pinyin layout by 鶴",
+      "Rime schema by 佛振 <chen.sst@gmail.com>",
+      "zaqzrh"
     ],
-    "description": "採用『香港語言學會粵語拼音方案』\n聲調輸入 q平 v上 x去 （雙擊爲陽調）\n提供多種字體轉換方案\n",
+    "description": "地球拼音＋小鶴雙拼方案。\n",
     "dependencies": [
-      "terra_pinyin.extended",
-      "terra_pinyin_nospaces.extended",
       "stroke",
-      "leimaau_jyutping_nospaces"
+      "leimaau_jyutping",
+      "leimaau_jyutping_nospaces",
+      "terra_pinyin_nospaces.extended",
+      "hannomPS",
+      "nihongo-hybrid",
+      "hangyl_hanja"
     ]
   },
   "switches": [
@@ -50,6 +55,14 @@
       ]
     }
   ],
+  "custom_phrase": {
+    "db_class": "stabledb",
+    "dictionary": "",
+    "enable_completion": false,
+    "enable_sentence": false,
+    "initial_quality": 1,
+    "user_dict": "custom_phrase"
+  },
   "engine": {
     "processors": [
       "ascii_composer",
@@ -65,10 +78,10 @@
       "ascii_segmentor",
       "matcher",
       "abc_segmentor",
-      "affix_segmentor@pinyin_lookup",
+      "affix_segmentor@jyutping_lookup",
       "affix_segmentor@putonghua_to_jyutping_lookup",
+      "affix_segmentor@putonghua_to_stroke_lookup",
       "affix_segmentor@jyutping_to_putonghua_lookup",
-      "affix_segmentor@jyutping_to_stroke_lookup",
       "affix_segmentor@hannom_lookup",
       "affix_segmentor@kanji_lookup",
       "affix_segmentor@hanja_lookup",
@@ -77,12 +90,12 @@
     ],
     "translators": [
       "punct_translator",
-      "script_translator",
       "reverse_lookup_translator",
-      "script_translator@pinyin_lookup",
+      "script_translator",
+      "script_translator@jyutping_lookup",
       "script_translator@putonghua_to_jyutping_lookup",
+      "script_translator@putonghua_to_stroke_lookup",
       "script_translator@jyutping_to_putonghua_lookup",
-      "script_translator@jyutping_to_stroke_lookup",
       "script_translator@hannom_lookup",
       "script_translator@kanji_lookup",
       "script_translator@hanja_lookup"
@@ -91,109 +104,36 @@
       "simplifier@zh_simp",
       "simplifier@zh_tw",
       "uniquifier",
-      "reverse_lookup_filter@pinyin_reverse_lookup",
+      "reverse_lookup_filter@jyutping_reverse_lookup",
       "reverse_lookup_filter@putonghua_to_jyutping_reverse_lookup",
+      "reverse_lookup_filter@putonghua_to_stroke_reverse_lookup",
       "reverse_lookup_filter@jyutping_to_putonghua_reverse_lookup",
-      "reverse_lookup_filter@jyutping_to_stroke_reverse_lookup",
       "reverse_lookup_filter@hannom_reverse_lookup",
       "reverse_lookup_filter@kanji_reverse_lookup",
       "reverse_lookup_filter@hanja_reverse_lookup"
     ]
   },
-  "speller": {
-    "alphabet": "zyxwvutsrqponmlkjihgfedcba;/,.",
-    "initials": "zyxwvutsrqponmlkjihgfedcba",
-    "delimiter": " '",
-    "algebra": [
-      "erase/^xx$/",
-      "derive/^([a-z]+)[1-6]$/$1/",
-      "xform/^ng([1-6]?)$/AA$1/",
-      "xform/^m([1-6]?)$/MM$1/",
-      "xform/^([a|o|e|u|aa].*)([1-6]?)$/E$1$2/",
-      "xform/(.)aang([1-6]?)$/$1H$2/",
-      "xform/(.)ang([1-6]?)$/$1G$2/",
-      "xform/(.)oeng([1-6]?)$/$1Ó$2/",
-      "xform/(.)ing([1-6]?)$/$1P$2/",
-      "xform/(.)eng([1-6]?)$/$1À$2/",
-      "xform/(.)ong([1-6]?)$/$1L$2/",
-      "xform/(.)ung([1-6]?)$/$1S$2/",
-      "derive/^(s|d|n|l)ei([1-6]?)$/$1W$2/",
-      "xform/^(b|f|g|h|k|l|m|p|gw)ei([1-6]?)$/$1I$2/",
-      "xform/(.)aau([1-6]?)$/$1Í$2/",
-      "xform/(.)aam([1-6]?)$/$1È$2/",
-      "xform/(.)aan([1-6]?)$/$1J$2/",
-      "xform/(.)aai([1-6]?)$/$1K$2/",
-      "xform/(.)ai([1-6]?)$/$1D$2/",
-      "xform/(.)an([1-6]?)$/$1F$2/",
-      "xform/(.)am([1-6]?)$/$1A$2/",
-      "xform/(.)au([1-6]?)$/$1C$2/",
-      "xform/(.)eon([1-6]?)$/$1N$2/",
-      "xform/(.)on([1-6]?)$/$1N$2/",
-      "xform/(.)en([1-6]?)$/$1N$2/",
-      "xform/(.)oen([1-6]?)$/$1N$2/",
-      "xform/(.)on([1-6]?)$/$1N$2/",
-      "xform/(.)im([1-6]?)$/$1M$2/",
-      "xform/(.)eoi([1-6]?)$/$1V$2/",
-      "xform/(.)oi([1-6]?)$/$1X$2/",
-      "xform/(.)oe(t|k)?([1-6]?)$/$1W$2$3/",
-      "xform/(.)eo(t|k)?([1-6]?)$/$1W$2$3/",
-      "xform/(.)ou([1-6]?)$/$1Z$2/",
-      "xform/(.)yun([1-6]?)$/$1T$2/",
-      "xform/(.)un([1-6]?)$/$1Y$2/",
-      "xform/(.)yu(t)?([1-6]?)$/$1U$2$3/",
-      "xform/(.)ui([1-6]?)$/$1W$2/",
-      "xform/(.)iu([1-6]?)$/$1Q$2/",
-      "xform/(.)in([1-6]?)$/$1B$2/",
-      "xform/(.)u(t|k)?([1-6]?)$/$1U$2$3/",
-      "xform/(.)o(t|k)?([1-6]?)$/$1O$2$3/",
-      "xform/(.)i(p|t|k)?([1-6]?)$/$1I$2$3/",
-      "xform/(.)m([1-6]?)$/$1M$2/",
-      "xform/(.)aa(p|t|k)?([1-6]?)$/$1R$2$3/",
-      "xform/(.)a(p|t|k)?([1-6]?)$/$1A$2$3/",
-      "xform/^kw/Y/",
-      "xform/^gw/U/",
-      "xform/^ng/A/",
-      "xform/(.)(.)p([1-6]?)$/$1$2O$3/",
-      "xform/(.)(.)t([1-6]?)$/$1$2R$3/",
-      "xform/(.)(.)k([1-6]?)$/$1$2I$3/",
-      "xform/^w/W/",
-      "xform/^t/T/",
-      "xform/^p/P/",
-      "xform/^s/S/",
-      "xform/^d/D/",
-      "xform/^f/F/",
-      "xform/^g/G/",
-      "xform/^h/H/",
-      "xform/^j/J/",
-      "xform/^k/K/",
-      "xform/^l/L/",
-      "xform/^z/Z/",
-      "xform/^c/C/",
-      "xform/^b/B/",
-      "xform/^n/N/",
-      "xform/^m/M/",
-      "xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/",
-      "xform È ;",
-      "xform Í ,",
-      "xform Ó .",
-      "xform À /",
-      "xform 1 ;",
-      "xform 2 /",
-      "xform 3 ,",
-      "xform 6 \\.",
-      "xform 5 v",
-      "xform 4 x"
+  "reverse_lookup": {
+    "dictionary": "stroke",
+    "enable_completion": true,
+    "prefix": "`H",
+    "suffix": "`",
+    "tips": "〔筆畫〕",
+    "preedit_format": [
+      "xlit/hspnz/一丨丿丶乙/"
+    ],
+    "comment_format": [
+      "xform/([nl])v/$1ü/"
     ]
   },
-  "menu": {
-    "alternative_select_keys": "123456789",
-    "page_size": 9
-  },
-  "translator": {
+  "jyutping_lookup": {
+    "tag": "jyutping_lookup",
+    "prefix": "`",
+    "suffix": "`",
     "dictionary": "leimaau_jyutping",
-    "spelling_hints": 9,
     "prism": "double_jyutping",
-    "preedit_format": null
+    "preedit_format": null,
+    "tips": "【粵】"
   },
   "jyutping_to_putonghua_lookup": {
     "tag": "jyutping_to_putonghua_lookup",
@@ -204,18 +144,9 @@
     "preedit_format": null,
     "tips": "【粵查普】"
   },
-  "jyutping_to_stroke_lookup": {
-    "tag": "jyutping_to_stroke_lookup",
-    "prefix": "`S",
-    "suffix": "`",
-    "dictionary": "leimaau_jyutping",
-    "prism": "double_jyutping",
-    "preedit_format": null,
-    "tips": "【粵查笔】"
-  },
-  "pinyin_lookup": {
-    "tag": "pinyin_lookup",
-    "prefix": "`",
+  "putonghua_to_jyutping_lookup": {
+    "tag": "putonghua_to_jyutping_lookup",
+    "prefix": "`Y",
     "suffix": "`",
     "dictionary": "terra_pinyin.extended",
     "prism": "td_pinyin_flypy",
@@ -281,76 +212,6 @@
       "xform ü, ǚ",
       "xform ü\\. ǜ"
     ],
-    "tips": "【普】"
-  },
-  "putonghua_to_jyutping_lookup": {
-    "tag": "putonghua_to_jyutping_lookup",
-    "prefix": "&",
-    "suffix": "`",
-    "dictionary": "terra_pinyin.extended",
-    "prism": "td_pinyin_flypy",
-    "preedit_format": [
-      "xform/([bpmfdtnljqx])n/$1iao/",
-      "xform/(\\w)g/$1eng/",
-      "xform/(\\w)q/$1iu/",
-      "xform/(\\w)w/$1ei/",
-      "xform/([dtnlgkhjqxyvuirzcs])r/$1uan/",
-      "xform/(\\w)t/$1ve/",
-      "xform/(\\w)y/$1un/",
-      "xform/([dtnlgkhvuirzcs])o/$1uo/",
-      "xform/(\\w)p/$1ie/",
-      "xform/([jqx])s/$1iong/",
-      "xform/(\\w)s/$1ong/",
-      "xform/(\\w)d/$1ai/",
-      "xform/(\\w)f/$1en/",
-      "xform/(\\w)h/$1ang/",
-      "xform/(\\w)j/$1an/",
-      "xform/([gkhvuirzcs])k/$1uai/",
-      "xform/(\\w)k/$1ing/",
-      "xform/([jqxnl])l/$1iang/",
-      "xform/(\\w)l/$1uang/",
-      "xform/(\\w)z/$1ou/",
-      "xform/([gkhvuirzcs])x/$1ua/",
-      "xform/(\\w)x/$1ia/",
-      "xform/(\\w)c/$1ao/",
-      "xform/([dtgkhvuirzcs])v/$1ui/",
-      "xform/(\\w)b/$1in/",
-      "xform/(\\w)m/$1ian/",
-      "xform/([aoe])\\1(\\w)/$1$2/",
-      "xform/(^|[ '])v/$1zh/",
-      "xform/(^|[ '])i/$1ch/",
-      "xform/(^|[ '])u/$1sh/",
-      "xform/([nl])v/$1ü/",
-      "xform/([nl])ue/$1üe/",
-      "xform/([jqxy])v/$1u/",
-      "xform/eh/ê/",
-      "xform ([aeiou])(ng?|r)([-;/<,>\\\\.]) $1$3$2",
-      "xform ([aeo])([iuo])([-;/<,>\\\\.]) $1$3$2",
-      "xform a[-;] ā",
-      "xform a/ á",
-      "xform a[<,] ǎ",
-      "xform a[>\\\\.] à",
-      "xform e[-;] ē",
-      "xform e/ é",
-      "xform e[<,] ě",
-      "xform e[>\\\\.] è",
-      "xform o[-;] ō",
-      "xform o/ ó",
-      "xform o[<,] ǒ",
-      "xform o[>\\\\.] ò",
-      "xform i[-;] ī",
-      "xform i/ í",
-      "xform i[<,] ǐ",
-      "xform i[>\\\\.] ì",
-      "xform u[-;] ū",
-      "xform u/ ú",
-      "xform u[<,] ǔ",
-      "xform u[>\\\\.] ù",
-      "xform ü[-;] ǖ",
-      "xform ü/ ǘ",
-      "xform ü[<,] ǚ",
-      "xform ü[>\\\\.] ǜ"
-    ],
     "comment_format": [
       "xform ([aeiou])(ng?|r)([1234]) $1$3$2",
       "xform ([aeo])([iuo])([1234]) $1$3$2",
@@ -384,42 +245,11 @@
     ],
     "tips": "【普查粵】"
   },
-  "pinyin_reverse_lookup": {
+  "jyutping_reverse_lookup": {
     "tags": [
-      "pinyin_lookup"
-    ],
-    "dictionary": "terra_pinyin_nospaces.extended"
-  },
-  "putonghua_to_jyutping_reverse_lookup": {
-    "tags": [
-      "putonghua_to_jyutping_lookup"
+      "jyutping_lookup"
     ],
     "dictionary": "leimaau_jyutping_nospaces"
-  },
-  "jyutping_to_putonghua_reverse_lookup": {
-    "tags": [
-      "jyutping_to_putonghua_lookup"
-    ],
-    "dictionary": "terra_pinyin_nospaces.extended"
-  },
-  "jyutping_to_stroke_reverse_lookup": {
-    "tags": [
-      "jyutping_to_stroke_lookup"
-    ],
-    "dictionary": "stroke"
-  },
-  "reverse_lookup": {
-    "dictionary": "stroke",
-    "enable_completion": true,
-    "prefix": "`H",
-    "suffix": "`",
-    "tips": "〔筆畫〕",
-    "preedit_format": [
-      "xlit/hspnz/一丨丿丶乙/"
-    ],
-    "comment_format": [
-      "xform/([nl])v/$1ü/"
-    ]
   },
   "hannom_lookup": {
     "tag": "hannom_lookup",
@@ -616,6 +446,113 @@
     ],
     "tips": "【韓】"
   },
+  "putonghua_to_stroke_lookup": {
+    "tag": "putonghua_to_stroke_lookup",
+    "prefix": "`S",
+    "suffix": "`",
+    "dictionary": "terra_pinyin.extended",
+    "prism": "td_pinyin_flypy",
+    "preedit_format": [
+      "xform/([bpmfdtnljqx])n/$1iao/",
+      "xform/(\\w)g/$1eng/",
+      "xform/(\\w)q/$1iu/",
+      "xform/(\\w)w/$1ei/",
+      "xform/([dtnlgkhjqxyvuirzcs])r/$1uan/",
+      "xform/(\\w)t/$1ve/",
+      "xform/(\\w)y/$1un/",
+      "xform/([dtnlgkhvuirzcs])o/$1uo/",
+      "xform/(\\w)p/$1ie/",
+      "xform/([jqx])s/$1iong/",
+      "xform/(\\w)s/$1ong/",
+      "xform/(\\w)d/$1ai/",
+      "xform/(\\w)f/$1en/",
+      "xform/(\\w)h/$1ang/",
+      "xform/(\\w)j/$1an/",
+      "xform/([gkhvuirzcs])k/$1uai/",
+      "xform/(\\w)k/$1ing/",
+      "xform/([jqxnl])l/$1iang/",
+      "xform/(\\w)l/$1uang/",
+      "xform/(\\w)z/$1ou/",
+      "xform/([gkhvuirzcs])x/$1ua/",
+      "xform/(\\w)x/$1ia/",
+      "xform/(\\w)c/$1ao/",
+      "xform/([dtgkhvuirzcs])v/$1ui/",
+      "xform/(\\w)b/$1in/",
+      "xform/(\\w)m/$1ian/",
+      "xform/([aoe])\\1(\\w)/$1$2/",
+      "xform/(^|[ '])v/$1zh/",
+      "xform/(^|[ '])i/$1ch/",
+      "xform/(^|[ '])u/$1sh/",
+      "xform/([nl])v/$1ü/",
+      "xform/([nl])ue/$1üe/",
+      "xform/([jqxy])v/$1u/",
+      "xform/eh/ê/",
+      "xform ([aeiou])(ng?|r)([;/,\\.]) $1$3$2",
+      "xform ([aeo])([iuo])([;/,\\.]) $1$3$2",
+      "xform a; ā",
+      "xform a/ á",
+      "xform a, ǎ",
+      "xform a\\. à",
+      "xform e; ē",
+      "xform e/ é",
+      "xform e, ě",
+      "xform e\\. è",
+      "xform o; ō",
+      "xform o/ ó",
+      "xform o, ǒ",
+      "xform o\\. ò",
+      "xform i; ī",
+      "xform i/ í",
+      "xform i, ǐ",
+      "xform i\\. ì",
+      "xform u; ū",
+      "xform u/ ú",
+      "xform u, ǔ",
+      "xform u\\. ù",
+      "xform ü; ǖ",
+      "xform ü/ ǘ",
+      "xform ü, ǚ",
+      "xform ü\\. ǜ"
+    ],
+    "comment_format": [
+      "xform ([aeiou])(ng?|r)([1234]) $1$3$2",
+      "xform ([aeo])([iuo])([1234]) $1$3$2",
+      "xform a1 ā",
+      "xform a2 á",
+      "xform a3 ǎ",
+      "xform a4 à",
+      "xform e1 ē",
+      "xform e2 é",
+      "xform e3 ě",
+      "xform e4 è",
+      "xform o1 ō",
+      "xform o2 ó",
+      "xform o3 ǒ",
+      "xform o4 ò",
+      "xform i1 ī",
+      "xform i2 í",
+      "xform i3 ǐ",
+      "xform i4 ì",
+      "xform u1 ū",
+      "xform u2 ú",
+      "xform u3 ǔ",
+      "xform u4 ù",
+      "xform v1 ǖ",
+      "xform v2 ǘ",
+      "xform v3 ǚ",
+      "xform v4 ǜ",
+      "xform/([nljqxy])v/$1ü/",
+      "xform/eh[0-5]?/ê/",
+      "xform/([a-z]+)[0-5]/$1/"
+    ],
+    "tips": "【普查笔】"
+  },
+  "putonghua_to_stroke_reverse_lookup": {
+    "tags": [
+      "putonghua_to_stroke_lookup"
+    ],
+    "dictionary": "stroke"
+  },
   "hanja_reverse_lookup": {
     "tags": [
       "hanja_lookup"
@@ -625,6 +562,18 @@
       "xform/(^|[ '])q/$1/",
       "xform/q/ng/"
     ]
+  },
+  "putonghua_to_jyutping_reverse_lookup": {
+    "tags": [
+      "putonghua_to_jyutping_lookup"
+    ],
+    "dictionary": "leimaau_jyutping_nospaces"
+  },
+  "jyutping_to_putonghua_reverse_lookup": {
+    "tags": [
+      "jyutping_to_putonghua_lookup"
+    ],
+    "dictionary": "terra_pinyin_nospaces.extended"
   },
   "punctuator": {
     "import_preset": "default"
@@ -654,22 +603,22 @@
       },
       {
         "accept": "Control+Shift+space",
-        "select": "qwerty_double_jyutping",
+        "select": "colemak_td_pinyin_flypy_jyutping_display",
         "when": "always"
       },
       {
         "accept": "Control+space",
-        "select": "colemak_double_jyutping",
+        "select": "qwerty_td_pinyin_flypy_jyutping_display",
         "when": "always"
       },
       {
         "accept": "F35",
-        "select": "td_pinyin_flypy_jyutping_colemak",
+        "select": "double_jyutping_display",
         "when": "always"
       },
       {
         "accept": "Alt+space",
-        "select": "td_pinyin_flypy_jyutping_colemak",
+        "select": "double_jyutping_display",
         "when": "always"
       }
     ]
@@ -679,11 +628,11 @@
       "email": "^[a-z][-_.0-9a-z]*@.*$",
       "uppercase": "^[A-Z][-_+.'0-9A-Za-z]*$",
       "url": "^(www[.]|https?:|ftp:|mailto:).*$",
-      "pinyin_lookup": "`[a-z;/,.]*`?$",
-      "putonghua_to_jyutping_lookup": "&[a-z;/,.]*`?$",
-      "jyutping_to_putonghua_lookup": "`J[a-z;/,.]*`?$",
-      "jyutping_to_stroke_lookup": "`S[a-z;/,.]*`?$",
       "reverse_lookup": "`H[a-z]*`?$",
+      "putonghua_to_stroke_lookup": "`S[a-z;/,.]*`?$",
+      "jyutping_lookup": "`[a-z;/,.]*`?$",
+      "putonghua_to_jyutping_lookup": "^[a-z;/,.]*$",
+      "jyutping_to_putonghua_lookup": "`J[a-z;/,.]*`?$",
       "hannom_lookup": "`V[a-z]*?$",
       "kanji_lookup": "`N[a-z]*?$",
       "hanja_lookup": "`K[a-z]*?$",

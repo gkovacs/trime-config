@@ -1,756 +1,758 @@
-# Rime schema
-# encoding: utf-8
-
-schema:
-  schema_id: td_pinyin_flypy_jyutping_colemak
-  name: 小鶴雙粵拼
-  version: "0.1"
-  author:
-    - double pinyin layout by 鶴
-    - Rime schema by 佛振 <chen.sst@gmail.com>
-    - zaqzrh
-  description: |
-    地球拼音＋小鶴雙拼方案。
-  dependencies:
-    - stroke
-    - leimaau_jyutping
-    - leimaau_jyutping_nospaces
-    - terra_pinyin_nospaces.extended
-    - hannomPS
-    - nihongo-hybrid
-    - hangyl_hanja
-
-switches:
-  - name: ascii_mode
-    reset: 0
-    states: [ 中文, 西文 ]
-  - name: full_shape
-    reset: 0
-    states: [ 半角, 全角 ]
-  #- name: simplification
-  #  states: [ 漢字, 汉字 ]
-  - options: [zh_simp, zh_tw ]
-    reset: 0
-    states:
-      - 汉字
-      - 漢字
-  - name: ascii_punct
-    states: [ 。，, ．， ]
-
-custom_phrase:
-  db_class: stabledb
-  dictionary: ""
-  enable_completion: false
-  enable_sentence: false
-  initial_quality: 1
-  user_dict: custom_phrase
-
-engine:
-  processors:
-    - ascii_composer
-    - recognizer
-    - key_binder
-    - speller
-    - punctuator
-    - selector
-    - navigator
-    - express_editor
-  segmentors:
-    - ascii_segmentor
-    - matcher
-    - abc_segmentor
-    - affix_segmentor@jyutping_lookup
-    - affix_segmentor@putonghua_to_jyutping_lookup
-    - affix_segmentor@putonghua_to_stroke_lookup
-    - affix_segmentor@jyutping_to_putonghua_lookup
-    - affix_segmentor@hannom_lookup
-    - affix_segmentor@kanji_lookup
-    - affix_segmentor@hanja_lookup
-    - punct_segmentor
-    - fallback_segmentor
-  translators:
-    - punct_translator
-    - reverse_lookup_translator
-    - script_translator
-    - script_translator@jyutping_lookup
-    - script_translator@putonghua_to_jyutping_lookup
-    - script_translator@putonghua_to_stroke_lookup
-    - script_translator@jyutping_to_putonghua_lookup
-    - script_translator@hannom_lookup
-    - script_translator@kanji_lookup
-    - script_translator@hanja_lookup
-  filters:
-    #- reverse_lookup_filter
-    #- simplifier
-    - simplifier@zh_simp
-    - simplifier@zh_tw
-    - uniquifier
-    - reverse_lookup_filter@jyutping_reverse_lookup
-    - reverse_lookup_filter@putonghua_to_jyutping_reverse_lookup
-    - reverse_lookup_filter@putonghua_to_stroke_reverse_lookup
-    - reverse_lookup_filter@jyutping_to_putonghua_reverse_lookup
-    - reverse_lookup_filter@hannom_reverse_lookup
-    - reverse_lookup_filter@kanji_reverse_lookup
-    - reverse_lookup_filter@hanja_reverse_lookup
-speller:
-  alphabet: 'zyxwvutsrqponmlkjihgfedcba;,./'
-  initials: zyxwvutsrqponmlkjihgfedcba
-  delimiter: " '"
-  algebra:
-    - erase/^xx$/
-    - derive/^([jqxy])u$/$1v/
-    - derive/^([aoe])([ioun])([0-5])$/$1$1$2$3/
-    - xform/^([aoe])(ng)?([0-5])$/$1$1$2$3/
-    - xform/iu([0-5])$/Q$1/
-    - xform/(.)ei([0-5])$/$1W$2/
-    - xform/uan([0-5])$/R$1/
-    - xform/[uv]e([0-5])$/T$1/
-    - xform/un([0-5])$/Y$1/
-    - xform/^sh/U/
-    - xform/^ch/I/
-    - xform/^zh/V/
-    - xform/uo([0-5])$/O$1/
-    - xform/ie([0-5])$/P$1/
-    - xform/i?ong([0-5])$/S$1/
-    - xform/(ing|uai)([0-5])$/K$2/
-    - xform/(.)ai([0-5])$/$1D$2/
-    - xform/(.)en([0-5])$/$1F$2/
-    - xform/(.)eng([0-5])$/$1G$2/
-    - xform/[iu]ang([0-5])$/L$1/
-    - xform/(.)ang([0-5])$/$1H$2/
-    - xform/ian([0-5])$/M$1/
-    - xform/(.)an([0-5])$/$1J$2/
-    - xform/(.)ou([0-5])$/$1Z$2/
-    - xform/[iu]a([0-5])$/X$1/
-    - xform/iao([0-5])$/N$1/
-    - xform/(.)ao([0-5])$/$1C$2/
-    - xform/ui([0-5])$/V$1/
-    - xform/in([0-5])$/B$1/
-    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
-    #- abbrev/^(.).+$/$1/
-    - derive/^([a-z]+)[0-5]$/$1/
-    - 'xlit 1234 ;/,.'
-
-translator:
-  dictionary: terra_pinyin.extended
-  spelling_hints: 5  # ～字以內候選標註完整帶調拼音
-  prism: td_pinyin_flypy
-  preedit_format:
-    - xform/([bpmfdtnljqx])n/$1iao/
-    - xform/(\w)g/$1eng/
-    - xform/(\w)q/$1iu/
-    - xform/(\w)w/$1ei/
-    - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
-    - xform/(\w)t/$1ve/
-    - xform/(\w)y/$1un/
-    - xform/([dtnlgkhvuirzcs])o/$1uo/
-    - xform/(\w)p/$1ie/
-    - xform/([jqx])s/$1iong/
-    - xform/(\w)s/$1ong/
-    - xform/(\w)d/$1ai/
-    - xform/(\w)f/$1en/
-    - xform/(\w)h/$1ang/
-    - xform/(\w)j/$1an/
-    - xform/([gkhvuirzcs])k/$1uai/
-    - xform/(\w)k/$1ing/
-    - xform/([jqxnl])l/$1iang/
-    - xform/(\w)l/$1uang/
-    - xform/(\w)z/$1ou/
-    - xform/([gkhvuirzcs])x/$1ua/
-    - xform/(\w)x/$1ia/
-    - xform/(\w)c/$1ao/
-    - xform/([dtgkhvuirzcs])v/$1ui/
-    - xform/(\w)b/$1in/
-    - xform/(\w)m/$1ian/
-    - xform/([aoe])\1(\w)/$1$2/
-    - "xform/(^|[ '])v/$1zh/"
-    - "xform/(^|[ '])i/$1ch/"
-    - "xform/(^|[ '])u/$1sh/"
-    - xform/([nl])v/$1ü/
-    - xform/([nl])ue/$1üe/
-    - xform/([jqxy])v/$1u/
-    - xform/eh/ê/
-    - 'xform ([aeiou])(ng?|r)([;/,\.]) $1$3$2'
-    - 'xform ([aeo])([iuo])([;/,\.]) $1$3$2'
-    - 'xform a; ā'
-    - 'xform a/ á'
-    - 'xform a, ǎ'
-    - 'xform a\. à'
-    - 'xform e; ē'
-    - 'xform e/ é'
-    - 'xform e, ě'
-    - 'xform e\. è'
-    - 'xform o; ō'
-    - 'xform o/ ó'
-    - 'xform o, ǒ'
-    - 'xform o\. ò'
-    - 'xform i; ī'
-    - 'xform i/ í'
-    - 'xform i, ǐ'
-    - 'xform i\. ì'
-    - 'xform u; ū'
-    - 'xform u/ ú'
-    - 'xform u, ǔ'
-    - 'xform u\. ù'
-    - 'xform ü; ǖ'
-    - 'xform ü/ ǘ'
-    - 'xform ü, ǚ'
-    - 'xform ü\. ǜ'
-
-reverse_lookup:
-  dictionary: stroke
-  enable_completion: true
-  prefix: "`H"
-  suffix: "`"
-  tips: 〔筆畫〕
-  preedit_format:
-    - xlit/hspnz/一丨丿丶乙/
-  comment_format:
-    - xform/([nl])v/$1ü/
-
-#reverse_lookup:
-#  tag: reverse_lookup
-#  prefix: "`"  # 反查引導鍵「`」
-#  suffix: ";"
-#  tips: 【反查】
-#  closing_tips: 【粵拼】
-#  extra_tags:
-#    - jyutping_lookup
-#    - ipa_lookup
-#    - zyenpheng_lookup
-#    - naambaak_lookup
-
-#reverse_lookup:
-#  dictionary: stroke
-#  enable_completion: true
-#  prefix: "`H"
-#  suffix: ";"
-#  tips: 〔筆畫〕
-#  preedit_format:
-#    - xlit/hspnz/一丨丿丶乙/
-#  comment_format:
-#    - xform/([nl])v/$1ü/
-
-jyutping_lookup:
-  tag: jyutping_lookup
-  prefix: "`"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
-  suffix: "`"
-  dictionary: leimaau_jyutping
-  prism: double_jyutping
-  preedit_format:
-    #- xform/([aeioumngptk])qq/$1⁴/
-    #- xform/([aeioumngptk])q/$1¹/
-    #- xform/([aeioumngptk])vv/$1⁵/
-    #- xform/([aeioumngptk])v/$1²/
-    #- xform/([aeioumngptk])xx/$1⁶/
-    #- xform/([aeioumngptk])x/$1³/
-    # - 'xform ([aeioumngptkqrwy]); $1¹'
-    # - 'xform ([aeioumngptkqrwy])x $1⁴'
-    # - 'xform ([aeioumngptkqrwy])/ $1²'
-    # - 'xform ([aeioumngptkqrwy])\. $1⁶'
-    # - 'xform ([aeioumngptkqrwy]), $1³'
-    # - 'xform ([aeioumngptkqrwy])v $1⁵'
-    #- 'xform r aa'
-    #- 'xform q ng'
-  tips: 【粵】
-  #closing_tips: 【粵拼】
-
-jyutping_to_putonghua_lookup:
-  tag: jyutping_to_putonghua_lookup
-  prefix: "`J"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
-  suffix: "`"
-  dictionary: leimaau_jyutping
-  prism: double_jyutping
-  preedit_format:
-    #- xform/([aeioumngptk])qq/$1⁴/
-    #- xform/([aeioumngptk])q/$1¹/
-    #- xform/([aeioumngptk])vv/$1⁵/
-    #- xform/([aeioumngptk])v/$1²/
-    #- xform/([aeioumngptk])xx/$1⁶/
-    #- xform/([aeioumngptk])x/$1³/
-    # - 'xform ([aeioumngptkqrwy]); $1¹'
-    # - 'xform ([aeioumngptkqrwy])x $1⁴'
-    # - 'xform ([aeioumngptkqrwy])/ $1²'
-    # - 'xform ([aeioumngptkqrwy])\. $1⁶'
-    # - 'xform ([aeioumngptkqrwy]), $1³'
-    # - 'xform ([aeioumngptkqrwy])v $1⁵'
-    #- 'xform r aa'
-    #- 'xform q ng'
-  tips: 【粵查普】
-  #closing_tips: 【粵拼】
-
-putonghua_to_jyutping_lookup:
-  tag: putonghua_to_jyutping_lookup
-  prefix: "`Y"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
-  suffix: "`"
-  dictionary: terra_pinyin.extended
-  prism: td_pinyin_flypy
-  preedit_format:
-    - xform/([bpmfdtnljqx])n/$1iao/
-    - xform/(\w)g/$1eng/
-    - xform/(\w)q/$1iu/
-    - xform/(\w)w/$1ei/
-    - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
-    - xform/(\w)t/$1ve/
-    - xform/(\w)y/$1un/
-    - xform/([dtnlgkhvuirzcs])o/$1uo/
-    - xform/(\w)p/$1ie/
-    - xform/([jqx])s/$1iong/
-    - xform/(\w)s/$1ong/
-    - xform/(\w)d/$1ai/
-    - xform/(\w)f/$1en/
-    - xform/(\w)h/$1ang/
-    - xform/(\w)j/$1an/
-    - xform/([gkhvuirzcs])k/$1uai/
-    - xform/(\w)k/$1ing/
-    - xform/([jqxnl])l/$1iang/
-    - xform/(\w)l/$1uang/
-    - xform/(\w)z/$1ou/
-    - xform/([gkhvuirzcs])x/$1ua/
-    - xform/(\w)x/$1ia/
-    - xform/(\w)c/$1ao/
-    - xform/([dtgkhvuirzcs])v/$1ui/
-    - xform/(\w)b/$1in/
-    - xform/(\w)m/$1ian/
-    - xform/([aoe])\1(\w)/$1$2/
-    - "xform/(^|[ '])v/$1zh/"
-    - "xform/(^|[ '])i/$1ch/"
-    - "xform/(^|[ '])u/$1sh/"
-    - xform/([nl])v/$1ü/
-    - xform/([nl])ue/$1üe/
-    - xform/([jqxy])v/$1u/
-    - xform/eh/ê/
-    - 'xform ([aeiou])(ng?|r)([;/,\.]) $1$3$2'
-    - 'xform ([aeo])([iuo])([;/,\.]) $1$3$2'
-    - 'xform a; ā'
-    - 'xform a/ á'
-    - 'xform a, ǎ'
-    - 'xform a\. à'
-    - 'xform e; ē'
-    - 'xform e/ é'
-    - 'xform e, ě'
-    - 'xform e\. è'
-    - 'xform o; ō'
-    - 'xform o/ ó'
-    - 'xform o, ǒ'
-    - 'xform o\. ò'
-    - 'xform i; ī'
-    - 'xform i/ í'
-    - 'xform i, ǐ'
-    - 'xform i\. ì'
-    - 'xform u; ū'
-    - 'xform u/ ú'
-    - 'xform u, ǔ'
-    - 'xform u\. ù'
-    - 'xform ü; ǖ'
-    - 'xform ü/ ǘ'
-    - 'xform ü, ǚ'
-    - 'xform ü\. ǜ'
-  comment_format:
-    - xform ([aeiou])(ng?|r)([1234]) $1$3$2
-    - xform ([aeo])([iuo])([1234]) $1$3$2
-    - xform a1 ā
-    - xform a2 á
-    - xform a3 ǎ
-    - xform a4 à
-    - xform e1 ē
-    - xform e2 é
-    - xform e3 ě
-    - xform e4 è
-    - xform o1 ō
-    - xform o2 ó
-    - xform o3 ǒ
-    - xform o4 ò
-    - xform i1 ī
-    - xform i2 í
-    - xform i3 ǐ
-    - xform i4 ì
-    - xform u1 ū
-    - xform u2 ú
-    - xform u3 ǔ
-    - xform u4 ù
-    - xform v1 ǖ
-    - xform v2 ǘ
-    - xform v3 ǚ
-    - xform v4 ǜ
-    - xform/([nljqxy])v/$1ü/
-    - xform/eh[0-5]?/ê/
-    - xform/([a-z]+)[0-5]/$1/
-  tips: 【普查粵】
-  #closing_tips: 【粵拼】
-
-jyutping_reverse_lookup:
-  tags: [ jyutping_lookup ]
-  dictionary: leimaau_jyutping_nospaces
-  #  overwrite_comment: true  # 覆蓋其他提示
-  #comment_format:
-  #  - xform/ /\｜/
-  #  - xform/^/（粵拼：〔/
-  #  - xform/$/〕）/
-
-hannom_lookup:
-  tag: hannom_lookup
-  prefix: "`V"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
-  suffix: "`"
-  dictionary: hannomPS
-  preedit_format:
-    - 'xform ([aeiouâăôê])(ng|nh|ch)([sfjxr]) $1$3$2'
-    - 'xform ([aeiouâăôê])([iunptcmy])([sfjxr]) $1$3$2'
-    - 'xform ([ae])([ou])([sfjxr]) $1$3$2'
-    - 'xform (aw|ow|uw)([iunptcmy])([sfjxr]) $1$3$2'
-    - 'xform (aw|ow|uw)(ng|nh|ch)([sfjxr]) $1$3$2'
-    - 'xform z '
-    #- 'xform , '
-    - 'xform A 　'
-    - 'xform dd đ'
-    - 'xform aa â'
-    - 'xform âs ấ'
-    - 'xform âf ầ'
-    - 'xform âj ậ'
-    - 'xform âx ẫ'
-    - 'xform âr ẩ'
-    - 'xform aw ă'
-    - 'xform ăs ắ'
-    - 'xform ăf ằ'
-    - 'xform ăj ặ'
-    - 'xform ăx ẵ'
-    - 'xform ăr ẳ'
-    - 'xform oo ô'
-    - 'xform ôs ố'
-    - 'xform ôf ồ'
-    - 'xform ôj ộ'
-    - 'xform ôx ỗ'
-    - 'xform ôr ổ'
-    - 'xform ee ê'
-    - 'xform ês ế'
-    - 'xform êf ề'
-    - 'xform êj ệ'
-    - 'xform êx ễ'
-    - 'xform êr ể'
-    - 'xform uw ư'
-    - 'xform ưs ứ'
-    - 'xform ưf ừ'
-    - 'xform ưj ự'
-    - 'xform ưx ữ'
-    - 'xform ưr ử'
-    - 'xform ow ơ'
-    - 'xform ơs ớ'
-    - 'xform ơf ờ'
-    - 'xform ơj ợ'
-    - 'xform ơx ỡ'
-    - 'xform ơr ở'
-    - 'xform as á'
-    - 'xform af à'
-    - 'xform aj ạ'
-    - 'xform ax ã'
-    - 'xform ar ả'
-    - 'xform is í'
-    - 'xform if ì'
-    - 'xform ij ị'
-    - 'xform ix ĩ'
-    - 'xform ir ỉ'
-    - 'xform us ú'
-    - 'xform uf ù'
-    - 'xform uj ụ'
-    - 'xform ux ũ'
-    - 'xform ur ủ'
-    - 'xform es é'
-    - 'xform ef è'
-    - 'xform ej ẹ'
-    - 'xform ex ẽ'
-    - 'xform er ẻ'
-    - 'xform os ó'
-    - 'xform of ò'
-    - 'xform oj ọ'
-    - 'xform ox õ'
-    - 'xform or ỏ'
-    - 'xform ys ý'
-    - 'xform yf ỳ'
-    - 'xform yj ỵ'
-    - 'xform yx ỹ'
-    - 'xform yr ỷ'
-  tips: 【越】
-
-hannom_reverse_lookup:
-  tags: [ hannom_lookup ]
-  dictionary: hannomPS
-  comment_format:
-    - 'xform ([aeiouâăôê])(ng|nh|ch)([sfjxr]) $1$3$2'
-    - 'xform ([aeiouâăôê])([iunptcmy])([sfjxr]) $1$3$2'
-    - 'xform ([ae])([ou])([sfjxr]) $1$3$2'
-    - 'xform (aw|ow|uw)([iunptcmy])([sfjxr]) $1$3$2'
-    - 'xform (aw|ow|uw)(ng|nh|ch)([sfjxr]) $1$3$2'
-#    - 'xform z ，【𡨸標準】'
-#    - 'xform , ，【𡨸異體】'
-    - 'xform z '
-    - 'xform dd đ'
-    - 'xform aa â'
-    - 'xform âs ấ'
-    - 'xform âf ầ'
-    - 'xform âj ậ'
-    - 'xform âx ẫ'
-    - 'xform âr ẩ'
-    - 'xform aw ă'
-    - 'xform ăs ắ'
-    - 'xform ăf ằ'
-    - 'xform ăj ặ'
-    - 'xform ăx ẵ'
-    - 'xform ăr ẳ'
-    - 'xform oo ô'
-    - 'xform ôs ố'
-    - 'xform ôf ồ'
-    - 'xform ôj ộ'
-    - 'xform ôx ỗ'
-    - 'xform ôr ổ'
-    - 'xform ee ê'
-    - 'xform ês ế'
-    - 'xform êf ề'
-    - 'xform êj ệ'
-    - 'xform êx ễ'
-    - 'xform êr ể'
-    - 'xform uw ư'
-    - 'xform ưs ứ'
-    - 'xform ưf ừ'
-    - 'xform ưj ự'
-    - 'xform ưx ữ'
-    - 'xform ưr ử'
-    - 'xform ow ơ'
-    - 'xform ơs ớ'
-    - 'xform ơf ờ'
-    - 'xform ơj ợ'
-    - 'xform ơx ỡ'
-    - 'xform ơr ở'
-    - 'xform as á'
-    - 'xform af à'
-    - 'xform aj ạ'
-    - 'xform ax ã'
-    - 'xform ar ả'
-    - 'xform is í'
-    - 'xform if ì'
-    - 'xform ij ị'
-    - 'xform ix ĩ'
-    - 'xform ir ỉ'
-    - 'xform us ú'
-    - 'xform uf ù'
-    - 'xform uj ụ'
-    - 'xform ux ũ'
-    - 'xform ur ủ'
-    - 'xform es é'
-    - 'xform ef è'
-    - 'xform ej ẹ'
-    - 'xform ex ẽ'
-    - 'xform er ẻ'
-    - 'xform os ó'
-    - 'xform of ò'
-    - 'xform oj ọ'
-    - 'xform ox õ'
-    - 'xform or ỏ'
-    - 'xform ys ý'
-    - 'xform yf ỳ'
-    - 'xform yj ỵ'
-    - 'xform yx ỹ'
-    - 'xform yr ỷ'
-  #closing_tips: 【粵拼】
-
-kanji_lookup:
-  tag: kanji_lookup
-  prefix: "`N"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
-  suffix: "`"
-  dictionary: "nihongo-hybrid"
-  preedit_format:
-    - 'xlit|q|ー|'
-  tips: 【日】
-
-kanji_reverse_lookup:
-  tags: [ kanji_lookup ]
-  dictionary: "nihongo-hybrid"
-  comment_format:
-    - 'xlit|q|ー|'
-
-hanja_lookup:
-  tag: hanja_lookup
-  prefix: "`K"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
-  suffix: "`"
-  dictionary: "hangyl"
-  preedit_format:
-    - xform/'/ /
-    - xform/(^|[ '])([qx])/$1/
-    - xform/([qx])/ng/
-  tips: 【韓】
-
-putonghua_to_stroke_lookup:
-  tag: putonghua_to_stroke_lookup
-  prefix: "`S"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
-  suffix: "`"
-  dictionary: terra_pinyin.extended
-  prism: td_pinyin_flypy
-  preedit_format:
-    - xform/([bpmfdtnljqx])n/$1iao/
-    - xform/(\w)g/$1eng/
-    - xform/(\w)q/$1iu/
-    - xform/(\w)w/$1ei/
-    - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
-    - xform/(\w)t/$1ve/
-    - xform/(\w)y/$1un/
-    - xform/([dtnlgkhvuirzcs])o/$1uo/
-    - xform/(\w)p/$1ie/
-    - xform/([jqx])s/$1iong/
-    - xform/(\w)s/$1ong/
-    - xform/(\w)d/$1ai/
-    - xform/(\w)f/$1en/
-    - xform/(\w)h/$1ang/
-    - xform/(\w)j/$1an/
-    - xform/([gkhvuirzcs])k/$1uai/
-    - xform/(\w)k/$1ing/
-    - xform/([jqxnl])l/$1iang/
-    - xform/(\w)l/$1uang/
-    - xform/(\w)z/$1ou/
-    - xform/([gkhvuirzcs])x/$1ua/
-    - xform/(\w)x/$1ia/
-    - xform/(\w)c/$1ao/
-    - xform/([dtgkhvuirzcs])v/$1ui/
-    - xform/(\w)b/$1in/
-    - xform/(\w)m/$1ian/
-    - xform/([aoe])\1(\w)/$1$2/
-    - "xform/(^|[ '])v/$1zh/"
-    - "xform/(^|[ '])i/$1ch/"
-    - "xform/(^|[ '])u/$1sh/"
-    - xform/([nl])v/$1ü/
-    - xform/([nl])ue/$1üe/
-    - xform/([jqxy])v/$1u/
-    - xform/eh/ê/
-    - 'xform ([aeiou])(ng?|r)([;/,\.]) $1$3$2'
-    - 'xform ([aeo])([iuo])([;/,\.]) $1$3$2'
-    - 'xform a; ā'
-    - 'xform a/ á'
-    - 'xform a, ǎ'
-    - 'xform a\. à'
-    - 'xform e; ē'
-    - 'xform e/ é'
-    - 'xform e, ě'
-    - 'xform e\. è'
-    - 'xform o; ō'
-    - 'xform o/ ó'
-    - 'xform o, ǒ'
-    - 'xform o\. ò'
-    - 'xform i; ī'
-    - 'xform i/ í'
-    - 'xform i, ǐ'
-    - 'xform i\. ì'
-    - 'xform u; ū'
-    - 'xform u/ ú'
-    - 'xform u, ǔ'
-    - 'xform u\. ù'
-    - 'xform ü; ǖ'
-    - 'xform ü/ ǘ'
-    - 'xform ü, ǚ'
-    - 'xform ü\. ǜ'
-  comment_format:
-    - xform ([aeiou])(ng?|r)([1234]) $1$3$2
-    - xform ([aeo])([iuo])([1234]) $1$3$2
-    - xform a1 ā
-    - xform a2 á
-    - xform a3 ǎ
-    - xform a4 à
-    - xform e1 ē
-    - xform e2 é
-    - xform e3 ě
-    - xform e4 è
-    - xform o1 ō
-    - xform o2 ó
-    - xform o3 ǒ
-    - xform o4 ò
-    - xform i1 ī
-    - xform i2 í
-    - xform i3 ǐ
-    - xform i4 ì
-    - xform u1 ū
-    - xform u2 ú
-    - xform u3 ǔ
-    - xform u4 ù
-    - xform v1 ǖ
-    - xform v2 ǘ
-    - xform v3 ǚ
-    - xform v4 ǜ
-    - xform/([nljqxy])v/$1ü/
-    - xform/eh[0-5]?/ê/
-    - xform/([a-z]+)[0-5]/$1/
-  tips: 【普查笔】
-  #closing_tips: 【粵拼】
-
-putonghua_to_stroke_reverse_lookup:
-  tags: [ putonghua_to_stroke_lookup ]
-  dictionary: "stroke"
-  #comment_format:
-  #  - xform/(^|[ '])q/$1/
-  #  - xform/q/ng/
-
-hanja_reverse_lookup:
-  tags: [ hanja_lookup ]
-  dictionary: "hangyl"
-  comment_format:
-    - xform/(^|[ '])q/$1/
-    - xform/q/ng/
-
-putonghua_to_jyutping_reverse_lookup:
-  tags: [ putonghua_to_jyutping_lookup ]
-  dictionary: leimaau_jyutping_nospaces
-  #  overwrite_comment: true  # 覆蓋其他提示
-  #comment_format:
-  #  - xform/ /\｜/
-  #  - xform/^/（粵拼：〔/
-  #  - xform/$/〕）/
-
-jyutping_to_putonghua_reverse_lookup:
-  tags: [ jyutping_to_putonghua_lookup ]
-  dictionary: terra_pinyin_nospaces.extended
-  #  overwrite_comment: true  # 覆蓋其他提示
-  #comment_format:
-  #  - xform/ /\｜/
-  #  - xform/^/（粵拼：〔/
-  #  - xform/$/〕）/
-
-punctuator:
-  import_preset: default
-
-key_binder:
-  import_preset: default
-  bindings:
-    - {accept: "Control+Shift+f", toggle: zh_simp, when: always}
-    - {accept: "Control+Shift+F", toggle: zh_simp, when: always}
-    - {accept: "Control+Shift+t", toggle: zh_tw, when: always}
-    - {accept: "Control+Shift+T", toggle: zh_tw, when: always}
-    - {accept: "Control+Shift+space", select: qwerty, when: always}
-    - {accept: "Control+space", select: colemak, when: always}
-    - {accept: "F35", select: double_jyutping_colemak, when: always}
-    - {accept: "Alt+space", select: double_jyutping_colemak, when: always}
-
-recognizer:
-  patterns:
-    email: "^[a-z][-_.0-9a-z]*@.*$"
-    uppercase: "^[A-Z][-_+.'0-9A-Za-z]*$"
-    url: "^(www[.]|https?:|ftp:|mailto:).*$"
-    reverse_lookup: "`H[a-z]*`?$"
-    putonghua_to_stroke_lookup: "`S[a-z;/,.]*`?$"
-    jyutping_lookup: "`[a-z;/,.]*`?$"
-    putonghua_to_jyutping_lookup: "`Y[a-z;/,.]*`?$"
-    jyutping_to_putonghua_lookup: "`J[a-z;/,.]*`?$"
-    hannom_lookup: "`V[a-z]*?$"
-    kanji_lookup: "`N[a-z]*?$"
-    hanja_lookup: "`K[a-z]*?$"
-    #ipa_lookup: "`I[a-z]*;?$"
-    #zyenpheng_lookup: "`Z[a-z]*;?$"
-    #naambaak_lookup: "`N[a-z]*;?$"
-    punct: ^/[0-9]?[a-z]*$
-
-
-zh_simp:
-  option_name: zh_simp
-  opencc_config: t2s.json
-  tips: none
-
-zh_tw:
-  option_name: zh_tw
-  opencc_config: t2tw.json
-  tips: none
-
+{
+  "schema": {
+    "schema_id": "td_pinyin_flypy_jyutping_colemak",
+    "name": "小鶴雙拼",
+    "version": "0.1",
+    "author": [
+      "double pinyin layout by 鶴",
+      "Rime schema by 佛振 <chen.sst@gmail.com>",
+      "zaqzrh"
+    ],
+    "description": "地球拼音＋小鶴雙拼方案。\n",
+    "dependencies": [
+      "stroke",
+      "leimaau_jyutping",
+      "leimaau_jyutping_nospaces",
+      "terra_pinyin_nospaces.extended",
+      "hannomPS",
+      "nihongo-hybrid",
+      "hangyl_hanja"
+    ]
+  },
+  "switches": [
+    {
+      "name": "ascii_mode",
+      "reset": 0,
+      "states": [
+        "中文",
+        "西文"
+      ]
+    },
+    {
+      "name": "full_shape",
+      "reset": 0,
+      "states": [
+        "半角",
+        "全角"
+      ]
+    },
+    {
+      "options": [
+        "zh_simp",
+        "zh_tw"
+      ],
+      "reset": 0,
+      "states": [
+        "汉字",
+        "漢字"
+      ]
+    },
+    {
+      "name": "ascii_punct",
+      "states": [
+        "。，",
+        "．，"
+      ]
+    }
+  ],
+  "custom_phrase": {
+    "db_class": "stabledb",
+    "dictionary": "",
+    "enable_completion": false,
+    "enable_sentence": false,
+    "initial_quality": 1,
+    "user_dict": "custom_phrase"
+  },
+  "engine": {
+    "processors": [
+      "ascii_composer",
+      "recognizer",
+      "key_binder",
+      "speller",
+      "punctuator",
+      "selector",
+      "navigator",
+      "express_editor"
+    ],
+    "segmentors": [
+      "ascii_segmentor",
+      "matcher",
+      "abc_segmentor",
+      "affix_segmentor@jyutping_lookup",
+      "affix_segmentor@putonghua_to_jyutping_lookup",
+      "affix_segmentor@putonghua_to_stroke_lookup",
+      "affix_segmentor@jyutping_to_putonghua_lookup",
+      "affix_segmentor@hannom_lookup",
+      "affix_segmentor@kanji_lookup",
+      "affix_segmentor@hanja_lookup",
+      "punct_segmentor",
+      "fallback_segmentor"
+    ],
+    "translators": [
+      "punct_translator",
+      "reverse_lookup_translator",
+      "script_translator",
+      "script_translator@jyutping_lookup",
+      "script_translator@putonghua_to_jyutping_lookup",
+      "script_translator@putonghua_to_stroke_lookup",
+      "script_translator@jyutping_to_putonghua_lookup",
+      "script_translator@hannom_lookup",
+      "script_translator@kanji_lookup",
+      "script_translator@hanja_lookup"
+    ],
+    "filters": [
+      "simplifier@zh_simp",
+      "simplifier@zh_tw",
+      "uniquifier",
+      "reverse_lookup_filter@jyutping_reverse_lookup",
+      "reverse_lookup_filter@putonghua_to_jyutping_reverse_lookup",
+      "reverse_lookup_filter@putonghua_to_stroke_reverse_lookup",
+      "reverse_lookup_filter@jyutping_to_putonghua_reverse_lookup",
+      "reverse_lookup_filter@hannom_reverse_lookup",
+      "reverse_lookup_filter@kanji_reverse_lookup",
+      "reverse_lookup_filter@hanja_reverse_lookup"
+    ]
+  },
+  "speller": {
+    "alphabet": "zyxwvutsrqponmlkjihgfedcba;,./",
+    "initials": "zyxwvutsrqponmlkjihgfedcba",
+    "delimiter": " '",
+    "algebra": [
+      "erase/^xx$/",
+      "derive/^([jqxy])u$/$1v/",
+      "derive/^([aoe])([ioun])([0-5])$/$1$1$2$3/",
+      "xform/^([aoe])(ng)?([0-5])$/$1$1$2$3/",
+      "xform/iu([0-5])$/Q$1/",
+      "xform/(.)ei([0-5])$/$1W$2/",
+      "xform/uan([0-5])$/R$1/",
+      "xform/[uv]e([0-5])$/T$1/",
+      "xform/un([0-5])$/Y$1/",
+      "xform/^sh/U/",
+      "xform/^ch/I/",
+      "xform/^zh/V/",
+      "xform/uo([0-5])$/O$1/",
+      "xform/ie([0-5])$/P$1/",
+      "xform/i?ong([0-5])$/S$1/",
+      "xform/(ing|uai)([0-5])$/K$2/",
+      "xform/(.)ai([0-5])$/$1D$2/",
+      "xform/(.)en([0-5])$/$1F$2/",
+      "xform/(.)eng([0-5])$/$1G$2/",
+      "xform/[iu]ang([0-5])$/L$1/",
+      "xform/(.)ang([0-5])$/$1H$2/",
+      "xform/ian([0-5])$/M$1/",
+      "xform/(.)an([0-5])$/$1J$2/",
+      "xform/(.)ou([0-5])$/$1Z$2/",
+      "xform/[iu]a([0-5])$/X$1/",
+      "xform/iao([0-5])$/N$1/",
+      "xform/(.)ao([0-5])$/$1C$2/",
+      "xform/ui([0-5])$/V$1/",
+      "xform/in([0-5])$/B$1/",
+      "xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/",
+      "derive/^([a-z]+)[0-5]$/$1/",
+      "xlit 1234 ;/,."
+    ]
+  },
+  "translator": {
+    "dictionary": "terra_pinyin.extended",
+    "spelling_hints": 5,
+    "prism": "td_pinyin_flypy",
+    "preedit_format": [
+      "xform/([bpmfdtnljqx])n/$1iao/",
+      "xform/(\\w)g/$1eng/",
+      "xform/(\\w)q/$1iu/",
+      "xform/(\\w)w/$1ei/",
+      "xform/([dtnlgkhjqxyvuirzcs])r/$1uan/",
+      "xform/(\\w)t/$1ve/",
+      "xform/(\\w)y/$1un/",
+      "xform/([dtnlgkhvuirzcs])o/$1uo/",
+      "xform/(\\w)p/$1ie/",
+      "xform/([jqx])s/$1iong/",
+      "xform/(\\w)s/$1ong/",
+      "xform/(\\w)d/$1ai/",
+      "xform/(\\w)f/$1en/",
+      "xform/(\\w)h/$1ang/",
+      "xform/(\\w)j/$1an/",
+      "xform/([gkhvuirzcs])k/$1uai/",
+      "xform/(\\w)k/$1ing/",
+      "xform/([jqxnl])l/$1iang/",
+      "xform/(\\w)l/$1uang/",
+      "xform/(\\w)z/$1ou/",
+      "xform/([gkhvuirzcs])x/$1ua/",
+      "xform/(\\w)x/$1ia/",
+      "xform/(\\w)c/$1ao/",
+      "xform/([dtgkhvuirzcs])v/$1ui/",
+      "xform/(\\w)b/$1in/",
+      "xform/(\\w)m/$1ian/",
+      "xform/([aoe])\\1(\\w)/$1$2/",
+      "xform/(^|[ '])v/$1zh/",
+      "xform/(^|[ '])i/$1ch/",
+      "xform/(^|[ '])u/$1sh/",
+      "xform/([nl])v/$1ü/",
+      "xform/([nl])ue/$1üe/",
+      "xform/([jqxy])v/$1u/",
+      "xform/eh/ê/",
+      "xform ([aeiou])(ng?|r)([;/,\\.]) $1$3$2",
+      "xform ([aeo])([iuo])([;/,\\.]) $1$3$2",
+      "xform a; ā",
+      "xform a/ á",
+      "xform a, ǎ",
+      "xform a\\. à",
+      "xform e; ē",
+      "xform e/ é",
+      "xform e, ě",
+      "xform e\\. è",
+      "xform o; ō",
+      "xform o/ ó",
+      "xform o, ǒ",
+      "xform o\\. ò",
+      "xform i; ī",
+      "xform i/ í",
+      "xform i, ǐ",
+      "xform i\\. ì",
+      "xform u; ū",
+      "xform u/ ú",
+      "xform u, ǔ",
+      "xform u\\. ù",
+      "xform ü; ǖ",
+      "xform ü/ ǘ",
+      "xform ü, ǚ",
+      "xform ü\\. ǜ"
+    ]
+  },
+  "reverse_lookup": {
+    "dictionary": "stroke",
+    "enable_completion": true,
+    "prefix": "`H",
+    "suffix": "`",
+    "tips": "〔筆畫〕",
+    "preedit_format": [
+      "xlit/hspnz/一丨丿丶乙/"
+    ],
+    "comment_format": [
+      "xform/([nl])v/$1ü/"
+    ]
+  },
+  "jyutping_lookup": {
+    "tag": "jyutping_lookup",
+    "prefix": "`",
+    "suffix": "`",
+    "dictionary": "leimaau_jyutping",
+    "prism": "double_jyutping",
+    "preedit_format": null,
+    "tips": "【粵】"
+  },
+  "jyutping_to_putonghua_lookup": {
+    "tag": "jyutping_to_putonghua_lookup",
+    "prefix": "`J",
+    "suffix": "`",
+    "dictionary": "leimaau_jyutping",
+    "prism": "double_jyutping",
+    "preedit_format": null,
+    "tips": "【粵查普】"
+  },
+  "putonghua_to_jyutping_lookup": {
+    "tag": "putonghua_to_jyutping_lookup",
+    "prefix": "`Y",
+    "suffix": "`",
+    "dictionary": "terra_pinyin.extended",
+    "prism": "td_pinyin_flypy",
+    "preedit_format": [
+      "xform/([bpmfdtnljqx])n/$1iao/",
+      "xform/(\\w)g/$1eng/",
+      "xform/(\\w)q/$1iu/",
+      "xform/(\\w)w/$1ei/",
+      "xform/([dtnlgkhjqxyvuirzcs])r/$1uan/",
+      "xform/(\\w)t/$1ve/",
+      "xform/(\\w)y/$1un/",
+      "xform/([dtnlgkhvuirzcs])o/$1uo/",
+      "xform/(\\w)p/$1ie/",
+      "xform/([jqx])s/$1iong/",
+      "xform/(\\w)s/$1ong/",
+      "xform/(\\w)d/$1ai/",
+      "xform/(\\w)f/$1en/",
+      "xform/(\\w)h/$1ang/",
+      "xform/(\\w)j/$1an/",
+      "xform/([gkhvuirzcs])k/$1uai/",
+      "xform/(\\w)k/$1ing/",
+      "xform/([jqxnl])l/$1iang/",
+      "xform/(\\w)l/$1uang/",
+      "xform/(\\w)z/$1ou/",
+      "xform/([gkhvuirzcs])x/$1ua/",
+      "xform/(\\w)x/$1ia/",
+      "xform/(\\w)c/$1ao/",
+      "xform/([dtgkhvuirzcs])v/$1ui/",
+      "xform/(\\w)b/$1in/",
+      "xform/(\\w)m/$1ian/",
+      "xform/([aoe])\\1(\\w)/$1$2/",
+      "xform/(^|[ '])v/$1zh/",
+      "xform/(^|[ '])i/$1ch/",
+      "xform/(^|[ '])u/$1sh/",
+      "xform/([nl])v/$1ü/",
+      "xform/([nl])ue/$1üe/",
+      "xform/([jqxy])v/$1u/",
+      "xform/eh/ê/",
+      "xform ([aeiou])(ng?|r)([;/,\\.]) $1$3$2",
+      "xform ([aeo])([iuo])([;/,\\.]) $1$3$2",
+      "xform a; ā",
+      "xform a/ á",
+      "xform a, ǎ",
+      "xform a\\. à",
+      "xform e; ē",
+      "xform e/ é",
+      "xform e, ě",
+      "xform e\\. è",
+      "xform o; ō",
+      "xform o/ ó",
+      "xform o, ǒ",
+      "xform o\\. ò",
+      "xform i; ī",
+      "xform i/ í",
+      "xform i, ǐ",
+      "xform i\\. ì",
+      "xform u; ū",
+      "xform u/ ú",
+      "xform u, ǔ",
+      "xform u\\. ù",
+      "xform ü; ǖ",
+      "xform ü/ ǘ",
+      "xform ü, ǚ",
+      "xform ü\\. ǜ"
+    ],
+    "comment_format": [
+      "xform ([aeiou])(ng?|r)([1234]) $1$3$2",
+      "xform ([aeo])([iuo])([1234]) $1$3$2",
+      "xform a1 ā",
+      "xform a2 á",
+      "xform a3 ǎ",
+      "xform a4 à",
+      "xform e1 ē",
+      "xform e2 é",
+      "xform e3 ě",
+      "xform e4 è",
+      "xform o1 ō",
+      "xform o2 ó",
+      "xform o3 ǒ",
+      "xform o4 ò",
+      "xform i1 ī",
+      "xform i2 í",
+      "xform i3 ǐ",
+      "xform i4 ì",
+      "xform u1 ū",
+      "xform u2 ú",
+      "xform u3 ǔ",
+      "xform u4 ù",
+      "xform v1 ǖ",
+      "xform v2 ǘ",
+      "xform v3 ǚ",
+      "xform v4 ǜ",
+      "xform/([nljqxy])v/$1ü/",
+      "xform/eh[0-5]?/ê/",
+      "xform/([a-z]+)[0-5]/$1/"
+    ],
+    "tips": "【普查粵】"
+  },
+  "jyutping_reverse_lookup": {
+    "tags": [
+      "jyutping_lookup"
+    ],
+    "dictionary": "leimaau_jyutping_nospaces"
+  },
+  "hannom_lookup": {
+    "tag": "hannom_lookup",
+    "prefix": "`V",
+    "suffix": "`",
+    "dictionary": "hannomPS",
+    "preedit_format": [
+      "xform ([aeiouâăôê])(ng|nh|ch)([sfjxr]) $1$3$2",
+      "xform ([aeiouâăôê])([iunptcmy])([sfjxr]) $1$3$2",
+      "xform ([ae])([ou])([sfjxr]) $1$3$2",
+      "xform (aw|ow|uw)([iunptcmy])([sfjxr]) $1$3$2",
+      "xform (aw|ow|uw)(ng|nh|ch)([sfjxr]) $1$3$2",
+      "xform z ",
+      "xform A 　",
+      "xform dd đ",
+      "xform aa â",
+      "xform âs ấ",
+      "xform âf ầ",
+      "xform âj ậ",
+      "xform âx ẫ",
+      "xform âr ẩ",
+      "xform aw ă",
+      "xform ăs ắ",
+      "xform ăf ằ",
+      "xform ăj ặ",
+      "xform ăx ẵ",
+      "xform ăr ẳ",
+      "xform oo ô",
+      "xform ôs ố",
+      "xform ôf ồ",
+      "xform ôj ộ",
+      "xform ôx ỗ",
+      "xform ôr ổ",
+      "xform ee ê",
+      "xform ês ế",
+      "xform êf ề",
+      "xform êj ệ",
+      "xform êx ễ",
+      "xform êr ể",
+      "xform uw ư",
+      "xform ưs ứ",
+      "xform ưf ừ",
+      "xform ưj ự",
+      "xform ưx ữ",
+      "xform ưr ử",
+      "xform ow ơ",
+      "xform ơs ớ",
+      "xform ơf ờ",
+      "xform ơj ợ",
+      "xform ơx ỡ",
+      "xform ơr ở",
+      "xform as á",
+      "xform af à",
+      "xform aj ạ",
+      "xform ax ã",
+      "xform ar ả",
+      "xform is í",
+      "xform if ì",
+      "xform ij ị",
+      "xform ix ĩ",
+      "xform ir ỉ",
+      "xform us ú",
+      "xform uf ù",
+      "xform uj ụ",
+      "xform ux ũ",
+      "xform ur ủ",
+      "xform es é",
+      "xform ef è",
+      "xform ej ẹ",
+      "xform ex ẽ",
+      "xform er ẻ",
+      "xform os ó",
+      "xform of ò",
+      "xform oj ọ",
+      "xform ox õ",
+      "xform or ỏ",
+      "xform ys ý",
+      "xform yf ỳ",
+      "xform yj ỵ",
+      "xform yx ỹ",
+      "xform yr ỷ"
+    ],
+    "tips": "【越】"
+  },
+  "hannom_reverse_lookup": {
+    "tags": [
+      "hannom_lookup"
+    ],
+    "dictionary": "hannomPS",
+    "comment_format": [
+      "xform ([aeiouâăôê])(ng|nh|ch)([sfjxr]) $1$3$2",
+      "xform ([aeiouâăôê])([iunptcmy])([sfjxr]) $1$3$2",
+      "xform ([ae])([ou])([sfjxr]) $1$3$2",
+      "xform (aw|ow|uw)([iunptcmy])([sfjxr]) $1$3$2",
+      "xform (aw|ow|uw)(ng|nh|ch)([sfjxr]) $1$3$2",
+      "xform z ",
+      "xform dd đ",
+      "xform aa â",
+      "xform âs ấ",
+      "xform âf ầ",
+      "xform âj ậ",
+      "xform âx ẫ",
+      "xform âr ẩ",
+      "xform aw ă",
+      "xform ăs ắ",
+      "xform ăf ằ",
+      "xform ăj ặ",
+      "xform ăx ẵ",
+      "xform ăr ẳ",
+      "xform oo ô",
+      "xform ôs ố",
+      "xform ôf ồ",
+      "xform ôj ộ",
+      "xform ôx ỗ",
+      "xform ôr ổ",
+      "xform ee ê",
+      "xform ês ế",
+      "xform êf ề",
+      "xform êj ệ",
+      "xform êx ễ",
+      "xform êr ể",
+      "xform uw ư",
+      "xform ưs ứ",
+      "xform ưf ừ",
+      "xform ưj ự",
+      "xform ưx ữ",
+      "xform ưr ử",
+      "xform ow ơ",
+      "xform ơs ớ",
+      "xform ơf ờ",
+      "xform ơj ợ",
+      "xform ơx ỡ",
+      "xform ơr ở",
+      "xform as á",
+      "xform af à",
+      "xform aj ạ",
+      "xform ax ã",
+      "xform ar ả",
+      "xform is í",
+      "xform if ì",
+      "xform ij ị",
+      "xform ix ĩ",
+      "xform ir ỉ",
+      "xform us ú",
+      "xform uf ù",
+      "xform uj ụ",
+      "xform ux ũ",
+      "xform ur ủ",
+      "xform es é",
+      "xform ef è",
+      "xform ej ẹ",
+      "xform ex ẽ",
+      "xform er ẻ",
+      "xform os ó",
+      "xform of ò",
+      "xform oj ọ",
+      "xform ox õ",
+      "xform or ỏ",
+      "xform ys ý",
+      "xform yf ỳ",
+      "xform yj ỵ",
+      "xform yx ỹ",
+      "xform yr ỷ"
+    ]
+  },
+  "kanji_lookup": {
+    "tag": "kanji_lookup",
+    "prefix": "`N",
+    "suffix": "`",
+    "dictionary": "nihongo-hybrid",
+    "preedit_format": [
+      "xlit|q|ー|"
+    ],
+    "tips": "【日】"
+  },
+  "kanji_reverse_lookup": {
+    "tags": [
+      "kanji_lookup"
+    ],
+    "dictionary": "nihongo-hybrid",
+    "comment_format": [
+      "xlit|q|ー|"
+    ]
+  },
+  "hanja_lookup": {
+    "tag": "hanja_lookup",
+    "prefix": "`K",
+    "suffix": "`",
+    "dictionary": "hangyl",
+    "preedit_format": [
+      "xform/'/ /",
+      "xform/(^|[ '])([qx])/$1/",
+      "xform/([qx])/ng/"
+    ],
+    "tips": "【韓】"
+  },
+  "putonghua_to_stroke_lookup": {
+    "tag": "putonghua_to_stroke_lookup",
+    "prefix": "`S",
+    "suffix": "`",
+    "dictionary": "terra_pinyin.extended",
+    "prism": "td_pinyin_flypy",
+    "preedit_format": [
+      "xform/([bpmfdtnljqx])n/$1iao/",
+      "xform/(\\w)g/$1eng/",
+      "xform/(\\w)q/$1iu/",
+      "xform/(\\w)w/$1ei/",
+      "xform/([dtnlgkhjqxyvuirzcs])r/$1uan/",
+      "xform/(\\w)t/$1ve/",
+      "xform/(\\w)y/$1un/",
+      "xform/([dtnlgkhvuirzcs])o/$1uo/",
+      "xform/(\\w)p/$1ie/",
+      "xform/([jqx])s/$1iong/",
+      "xform/(\\w)s/$1ong/",
+      "xform/(\\w)d/$1ai/",
+      "xform/(\\w)f/$1en/",
+      "xform/(\\w)h/$1ang/",
+      "xform/(\\w)j/$1an/",
+      "xform/([gkhvuirzcs])k/$1uai/",
+      "xform/(\\w)k/$1ing/",
+      "xform/([jqxnl])l/$1iang/",
+      "xform/(\\w)l/$1uang/",
+      "xform/(\\w)z/$1ou/",
+      "xform/([gkhvuirzcs])x/$1ua/",
+      "xform/(\\w)x/$1ia/",
+      "xform/(\\w)c/$1ao/",
+      "xform/([dtgkhvuirzcs])v/$1ui/",
+      "xform/(\\w)b/$1in/",
+      "xform/(\\w)m/$1ian/",
+      "xform/([aoe])\\1(\\w)/$1$2/",
+      "xform/(^|[ '])v/$1zh/",
+      "xform/(^|[ '])i/$1ch/",
+      "xform/(^|[ '])u/$1sh/",
+      "xform/([nl])v/$1ü/",
+      "xform/([nl])ue/$1üe/",
+      "xform/([jqxy])v/$1u/",
+      "xform/eh/ê/",
+      "xform ([aeiou])(ng?|r)([;/,\\.]) $1$3$2",
+      "xform ([aeo])([iuo])([;/,\\.]) $1$3$2",
+      "xform a; ā",
+      "xform a/ á",
+      "xform a, ǎ",
+      "xform a\\. à",
+      "xform e; ē",
+      "xform e/ é",
+      "xform e, ě",
+      "xform e\\. è",
+      "xform o; ō",
+      "xform o/ ó",
+      "xform o, ǒ",
+      "xform o\\. ò",
+      "xform i; ī",
+      "xform i/ í",
+      "xform i, ǐ",
+      "xform i\\. ì",
+      "xform u; ū",
+      "xform u/ ú",
+      "xform u, ǔ",
+      "xform u\\. ù",
+      "xform ü; ǖ",
+      "xform ü/ ǘ",
+      "xform ü, ǚ",
+      "xform ü\\. ǜ"
+    ],
+    "comment_format": [
+      "xform ([aeiou])(ng?|r)([1234]) $1$3$2",
+      "xform ([aeo])([iuo])([1234]) $1$3$2",
+      "xform a1 ā",
+      "xform a2 á",
+      "xform a3 ǎ",
+      "xform a4 à",
+      "xform e1 ē",
+      "xform e2 é",
+      "xform e3 ě",
+      "xform e4 è",
+      "xform o1 ō",
+      "xform o2 ó",
+      "xform o3 ǒ",
+      "xform o4 ò",
+      "xform i1 ī",
+      "xform i2 í",
+      "xform i3 ǐ",
+      "xform i4 ì",
+      "xform u1 ū",
+      "xform u2 ú",
+      "xform u3 ǔ",
+      "xform u4 ù",
+      "xform v1 ǖ",
+      "xform v2 ǘ",
+      "xform v3 ǚ",
+      "xform v4 ǜ",
+      "xform/([nljqxy])v/$1ü/",
+      "xform/eh[0-5]?/ê/",
+      "xform/([a-z]+)[0-5]/$1/"
+    ],
+    "tips": "【普查笔】"
+  },
+  "putonghua_to_stroke_reverse_lookup": {
+    "tags": [
+      "putonghua_to_stroke_lookup"
+    ],
+    "dictionary": "stroke"
+  },
+  "hanja_reverse_lookup": {
+    "tags": [
+      "hanja_lookup"
+    ],
+    "dictionary": "hangyl",
+    "comment_format": [
+      "xform/(^|[ '])q/$1/",
+      "xform/q/ng/"
+    ]
+  },
+  "putonghua_to_jyutping_reverse_lookup": {
+    "tags": [
+      "putonghua_to_jyutping_lookup"
+    ],
+    "dictionary": "leimaau_jyutping_nospaces"
+  },
+  "jyutping_to_putonghua_reverse_lookup": {
+    "tags": [
+      "jyutping_to_putonghua_lookup"
+    ],
+    "dictionary": "terra_pinyin_nospaces.extended"
+  },
+  "punctuator": {
+    "import_preset": "default"
+  },
+  "key_binder": {
+    "import_preset": "default",
+    "bindings": [
+      {
+        "accept": "Control+Shift+f",
+        "toggle": "zh_simp",
+        "when": "always"
+      },
+      {
+        "accept": "Control+Shift+F",
+        "toggle": "zh_simp",
+        "when": "always"
+      },
+      {
+        "accept": "Control+Shift+t",
+        "toggle": "zh_tw",
+        "when": "always"
+      },
+      {
+        "accept": "Control+Shift+T",
+        "toggle": "zh_tw",
+        "when": "always"
+      },
+      {
+        "accept": "Control+Shift+space",
+        "select": "qwerty_td_pinyin_flypy_jyutping",
+        "when": "always"
+      },
+      {
+        "accept": "Control+space",
+        "select": "colemak_td_pinyin_flypy_jyutping",
+        "when": "always"
+      },
+      {
+        "accept": "F35",
+        "select": "double_jyutping_colemak",
+        "when": "always"
+      },
+      {
+        "accept": "Alt+space",
+        "select": "double_jyutping_colemak",
+        "when": "always"
+      }
+    ]
+  },
+  "recognizer": {
+    "patterns": {
+      "email": "^[a-z][-_.0-9a-z]*@.*$",
+      "uppercase": "^[A-Z][-_+.'0-9A-Za-z]*$",
+      "url": "^(www[.]|https?:|ftp:|mailto:).*$",
+      "reverse_lookup": "`H[a-z]*`?$",
+      "putonghua_to_stroke_lookup": "`S[a-z;/,.]*`?$",
+      "jyutping_lookup": "`[a-z;/,.]*`?$",
+      "putonghua_to_jyutping_lookup": "`Y[a-z;/,.]*`?$",
+      "jyutping_to_putonghua_lookup": "`J[a-z;/,.]*`?$",
+      "hannom_lookup": "`V[a-z]*?$",
+      "kanji_lookup": "`N[a-z]*?$",
+      "hanja_lookup": "`K[a-z]*?$",
+      "punct": "^/[0-9]?[a-z]*$"
+    }
+  },
+  "zh_simp": {
+    "option_name": "zh_simp",
+    "opencc_config": "t2s.json",
+    "tips": "none"
+  },
+  "zh_tw": {
+    "option_name": "zh_tw",
+    "opencc_config": "t2tw.json",
+    "tips": "none"
+  }
+}
