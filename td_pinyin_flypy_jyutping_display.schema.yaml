@@ -1,7 +1,7 @@
 {
   "schema": {
     "schema_id": "td_pinyin_flypy_jyutping_display",
-    "name": "小鶴雙拼（粵）",
+    "name": "注粵雙拼",
     "version": "0.1",
     "author": [
       "double pinyin layout by 鶴",
@@ -16,7 +16,8 @@
       "terra_pinyin_nospaces.extended",
       "hannomPS",
       "nihongo-hybrid",
-      "hangyl_hanja"
+      "hangyl_hanja",
+      "leimaau_jyutping_zhuyin_nospaces"
     ]
   },
   "switches": [
@@ -567,7 +568,7 @@
     "tags": [
       "putonghua_to_jyutping_lookup"
     ],
-    "dictionary": "leimaau_jyutping_nospaces"
+    "dictionary": "leimaau_jyutping_zhuyin_nospaces"
   },
   "jyutping_to_putonghua_reverse_lookup": {
     "tags": [
