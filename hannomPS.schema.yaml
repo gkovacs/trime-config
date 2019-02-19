@@ -548,6 +548,7 @@ key_binder:
     - {accept: "space", send: "Shift+Return", when: composing}
     - {accept: ";", send: "space", when: composing}
     #- {accept: "Return", send: "space", when: composing}
+    - {accept: "Control+space", toggle: ascii_mode, when: always}
 
 editor:
   

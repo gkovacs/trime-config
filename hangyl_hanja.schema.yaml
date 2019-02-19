@@ -100,6 +100,12 @@ key_binder:
     "$" : [ ￦, ￥, "$", "€", "£", "¥", "¢", "¤" ]
   half_shape:
     "$" : [ ₩, "$", "€", "£", "¥", "¢", "¤" ]
+  bindings:
+    - {accept: "Control+Shift+f", toggle: simplification, when: always}
+    - {accept: "Control+Shift+F", toggle: simplification, when: always}
+    - {accept: "Control+Shift+t", toggle: simplification, when: always}
+    - {accept: "Control+Shift+T", toggle: simplification, when: always}
+    - {accept: "Control+space", toggle: ascii_mode, when: always}
 
 recognizer:
   import_preset: default
