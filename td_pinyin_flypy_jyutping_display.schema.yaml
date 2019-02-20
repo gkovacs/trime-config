@@ -632,7 +632,7 @@
       "reverse_lookup": "`H[a-z]*`?$",
       "putonghua_to_stroke_lookup": "`S[a-z;/,.]*`?$",
       "jyutping_lookup": "`[a-z;/,.]*`?$",
-      "putonghua_to_jyutping_lookup": "^[a-z]*$",
+      "putonghua_to_jyutping_lookup": "^[a-z]+[a-z;/,.]*$",
       "jyutping_to_putonghua_lookup": "`J[a-z;/,.]*`?$",
       "hannom_lookup": "`V[a-z]*?$",
       "kanji_lookup": "`N[a-z]*?$",
