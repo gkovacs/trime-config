@@ -168,7 +168,7 @@
       "xform/(^|[ '])(\\w),/$1$2aau/",
       "xform/(^|[ '])(\\w)\\./$1$2oeng/",
       "xform/(^|[ '])(\\w)Á/$1$2eng/",
-      "xform/(^|[ '])(z|s|c|j)u($|[^PTK])/$1$2yu$3/",
+      "xform/(^|[ '])(z|s|c|j)u(?!(P|T|K|n|i))/$1$2yu$3/",
       "xform/(^|[ '])(z|s|c|k|g|j|d|t|h|l)uT/$1$2yuT/",
       "xform/A/aa/",
       "xform/G/gw/",
