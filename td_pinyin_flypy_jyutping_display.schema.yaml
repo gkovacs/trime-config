@@ -127,7 +127,8 @@
     ],
     "comment_format": [
       "xform/~//",
-      "xform/^·//"
+      "xform/^·//",
+      "xform/^~·//"
     ]
   },
   "jyutping_lookup": {

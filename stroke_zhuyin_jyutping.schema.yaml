@@ -90,7 +90,7 @@ menu:
 
 translator:
   dictionary: stroke_zhuyin_jyutping
-  #enable_completion: true
+  enable_completion: true
   preedit_format:
     - xlit/hspnz/一丨丿丶乙/
   comment_format:
