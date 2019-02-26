@@ -803,6 +803,16 @@
         "when": "always"
       },
       {
+        "accept": "q",
+        "send": "q",
+        "when": "composing"
+      },
+      {
+        "accept": "q",
+        "send": "&",
+        "when": "always"
+      },
+      {
         "accept": "Control+Shift+space",
         "select": "colemak_double_jyutping_display",
         "when": "always"
@@ -831,7 +841,7 @@
       "url": "^(www[.]|https?:|ftp:|mailto:).*$",
       "pinyin_lookup": "`[a-z;/,.]*`?$",
       "putonghua_to_jyutping_lookup": "&[a-z;/,.]*`?$",
-      "jyutping_to_putonghua_lookup": "^[a-z]+[a-z;/,.]*$",
+      "jyutping_to_putonghua_lookup": "^[abcdefghijklmnoprstuvwxyz]+[a-z;/,.]*$",
       "jyutping_to_stroke_lookup": "`S[a-z;/,.]*`?$",
       "reverse_lookup": "`H[a-z]*`?$",
       "hannom_lookup": "`V[a-z]*?$",
