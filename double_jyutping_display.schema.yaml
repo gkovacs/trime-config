@@ -10,7 +10,7 @@
     "dependencies": [
       "terra_pinyin.extended",
       "terra_pinyin_nospaces.extended",
-      "stroke",
+      "stroke_zhuyin_jyutping",
       "leimaau_zhuyin_jyutping_nospaces"
     ]
   },
@@ -564,8 +564,10 @@
     "dictionary": "stroke"
   },
   "reverse_lookup": {
-    "dictionary": "stroke",
+    "dictionary": "stroke_zhuyin_jyutping",
+    "prism": "stroke_zhuyin_jyutping",
     "enable_completion": true,
+    "spelling_hints": 10,
     "prefix": "`H",
     "suffix": "`",
     "tips": "〔筆畫〕",
@@ -573,7 +575,8 @@
       "xlit/hspnz/一丨丿丶乙/"
     ],
     "comment_format": [
-      "xform/([nl])v/$1ü/"
+      "xform/~//",
+      "xform/^·//"
     ]
   },
   "hannom_lookup": {

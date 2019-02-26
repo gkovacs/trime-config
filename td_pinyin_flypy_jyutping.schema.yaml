@@ -10,7 +10,7 @@
     ],
     "description": "地球拼音＋小鶴雙拼方案。\n",
     "dependencies": [
-      "stroke",
+      "stroke_zhuyin_jyutping",
       "leimaau_jyutping",
       "leimaau_jyutping_nospaces",
       "terra_pinyin_nospaces.extended",
@@ -320,8 +320,10 @@
     ]
   },
   "reverse_lookup": {
-    "dictionary": "stroke",
+    "dictionary": "stroke_zhuyin_jyutping",
+    "prism": "stroke_zhuyin_jyutping",
     "enable_completion": true,
+    "spelling_hints": 10,
     "prefix": "`H",
     "suffix": "`",
     "tips": "〔筆畫〕",
@@ -329,7 +331,8 @@
       "xlit/hspnz/一丨丿丶乙/"
     ],
     "comment_format": [
-      "xform/([nl])v/$1ü/"
+      "xform/~//",
+      "xform/^·//"
     ]
   },
   "jyutping_lookup": {
