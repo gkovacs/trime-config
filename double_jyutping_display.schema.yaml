@@ -12,7 +12,9 @@
       "terra_pinyin_nospaces.extended",
       "stroke_zhuyin_jyutping",
       "leimaau_zhuyin_jyutping_nospaces",
-      "double_jyutping"
+      "leimaau_jyutping_zhuyin_nospaces",
+      "double_jyutping",
+      "td_pinyin_flypy_jyutping"
     ]
   },
   "switches": [
