@@ -17,7 +17,8 @@
       "hannomPS",
       "nihongo-hybrid",
       "hangyl_hanja",
-      "leimaau_jyutping_zhuyin_nospaces"
+      "leimaau_jyutping_zhuyin_nospaces",
+      "td_pinyin_flypy_jyutping"
     ]
   },
   "switches": [
