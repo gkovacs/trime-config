@@ -1,0 +1,145 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: jyutping_simp
+  name: "貍貓粵拼"
+  version: "20180428"
+  author:
+    - LeiMaau
+  description: |
+    採用『香港語言學會粵語拼音方案』
+    聲調輸入 q平 v上 x去 （雙擊爲陽調）
+    提供多種字體轉換方案
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  #- name: simplification
+  #  states: [ 漢字, 汉字 ]
+  - options: [zh_simp, zh_tw ]
+    reset: 0
+    states:
+      - 汉字
+      - 漢字
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+    - reverse_lookup_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: 'zyxwvutsrqponmlkjihgfedcba;/,.'
+  initials: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+  algebra:
+    - derive/([123456])//         # 忽略声调
+    #- derive/^([aeiou])/q$1/      # 增加 q 表示喉塞
+    #- xform/1/q/
+    #- xform/4/qq/
+    #- xform/2/v/
+    #- xform/5/vv/
+    #- xform/3/x/
+    #- xform/6/xx/
+    - derive/^ng/q/                # 容錯 ng -> q
+    - derive/ng([123456]?)$/q$1/                # 容錯 ng -> q
+    - derive/^kw/x/                # 容錯 x -> kw
+    - derive/^gw/v/                # 容錯 x -> gw
+    - derive/eo/w/                # 容錯 eo -> w
+    - derive/oe/w/                # 容錯 oe -> w
+    #- derive/^(z|c|s)i$/$1z/      # 模糊 (zcs)i -> (zcs)z
+    #- derive/^(z|c|s)i$/$1y/      # 模糊 (zcs)i -> (zcs)y
+    #- derive/^jy?([aeiour])/y$1/  # 容錯 j -> y
+    #- derive/^jyu/yu/             # 容錯 jyu -> yu
+    #- derive/^jyu/ju/             # 容錯 jyu -> ju
+    - derive/aa/r/                # 容錯 aa -> r
+    #- derive/aa$/a/               # 容錯 aa -> a
+    #- derive/dik$/d/              # 快出「的」字
+    #- derive/oe(ng|k)$/eo$1/      # 容錯 oe(ng|k) -> eo(ng|k)
+    #- derive/eo([int])$/oe$1/     # 容錯 eo(int) -> oe(int)
+    #- derive/^(g|k)w/$1u/         # 廣州式
+    #- derive/aau$/ao/             # 廣州式 aau -> ao
+    - derive/^([ltdghnkszc])yu/$1y/                # 教院式 jyu -> jy，yu -> y
+    - derive/^jyu/y/                # 教院式 jyu -> jy，yu -> y
+    #- derive/yu/y/                # 教院式 jyu -> jy，yu -> y
+    #- derive/eoi$/eoy/            # 教院式 eoi <-> eoy
+    #- derive/eo([int])$/u$1/      # 模糊 eo(int) -> u(int)
+    - derive/(^[bpmfdnlgkh])ei([123456]?)$/$1i$2/         # 模糊 ei -> i
+    #- derive/ou([123456]?)$/u$1/              # 模糊 ou -> u
+    - derive/(^[zcbnmsdhltpq])ou([123456]?)$/$1u$2/         # 模糊 ou -> u zou cou bou nou mou sou dou hou lou  tou pou
+    - derive/^ngou([123456]?)$/ngu$1/ # ngou
+    #- derive/e(m|n|ng|k)$/i$1/    # 模糊 e(m|n|ng|k) -> i(m|n|ng|k)
+    #- derive/a(m|p)$/o$1/         # 模糊 a(m|p) -> o(m|p)
+    - 'xform 1 ;'
+    - 'xform 2 /'
+    - 'xform 3 ,'
+    - 'xform 6 \.'
+    - 'xform 5 v'
+    - 'xform 4 x'
+    #- abbrev/^([a-z]).+$/$1/      # 首字母簡拼
+    #- abbrev/^([gk]w).+$/$1/      # 聲母簡拼
+
+menu:
+  alternative_select_keys: "123456789"
+  page_size: 9
+
+translator:
+  dictionary: jyutping_simp
+  spelling_hints: 9
+  preedit_format:
+    #- xform/([aeioumngptk])qq/$1⁴/
+    #- xform/([aeioumngptk])q/$1¹/
+    #- xform/([aeioumngptk])vv/$1⁵/
+    #- xform/([aeioumngptk])v/$1²/
+    #- xform/([aeioumngptk])xx/$1⁶/
+    #- xform/([aeioumngptk])x/$1³/
+    - 'xform ([aeioumngptkqrwy]); $1¹'
+    - 'xform ([aeioumngptkqrwy])x $1⁴'
+    - 'xform ([aeioumngptkqrwy])/ $1²'
+    - 'xform ([aeioumngptkqrwy])\. $1⁶'
+    - 'xform ([aeioumngptkqrwy]), $1³'
+    - 'xform ([aeioumngptkqrwy])v $1⁵'
+    #- 'xform r aa'
+    #- 'xform q ng'
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+  bindings:
+    - {accept: "Control+Shift+f", toggle: zh_simp, when: always}
+    - {accept: "Control+Shift+F", toggle: zh_simp, when: always}
+    - {accept: "Control+Shift+t", toggle: zh_tw, when: always}
+    - {accept: "Control+Shift+T", toggle: zh_tw, when: always}
+
+recognizer:
+  patterns:
+    email: "^[a-z][-_.0-9a-z]*@.*$"
+    uppercase: "^[A-Z][-_+.'0-9A-Za-z]*$"
+    url: "^(www[.]|https?:|ftp:|mailto:).*$"
+    punct: ^/[0-9]?[a-z]*$

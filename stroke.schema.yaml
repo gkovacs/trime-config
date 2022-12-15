@@ -54,28 +54,27 @@ menu:
 
 translator:
   dictionary: stroke
-  enable_completion: true
   preedit_format:
     - xlit/hspnz/一丨丿丶乙/
-  #comment_format:
-  #  - xform/~//
-  #  - xlit/hspnz/一丨丿丶乙/
+  comment_format:
+    - xform/~//
+    - xlit/hspnz/一丨丿丶乙/
 
-# abc_segmentor:
-#   extra_tags:
-#     - reverse_lookup
+abc_segmentor:
+  extra_tags:
+    - reverse_lookup
 
-# reverse_lookup:
-#   dictionary: luna_pinyin
-#   prefix: "`"
-#   suffix: "'"
-#   tips: 〔拼音〕
-#   preedit_format:
-#     - xform/([nl])v/$1ü/
-#     - xform/([nl])ue/$1üe/
-#     - xform/([jqxy])v/$1u/
-#   comment_format:
-#     - xlit/hspnz/一丨丿丶乙/
+reverse_lookup:
+  dictionary: luna_pinyin
+  prefix: "`"
+  suffix: "'"
+  tips: 〔拼音〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+  comment_format:
+    - xlit/hspnz/一丨丿丶乙/
 
 punctuator:
   import_preset: default
@@ -85,5 +84,5 @@ key_binder:
 
 recognizer:
   import_preset: default
-  # patterns:
-  #   reverse_lookup: "`[a-z]*'?$"
+  patterns:
+    reverse_lookup: "`[a-z]*'?$"

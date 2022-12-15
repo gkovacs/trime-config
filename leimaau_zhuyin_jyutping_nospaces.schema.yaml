@@ -591,7 +591,14 @@ hanja_reverse_lookup:
     - xform/q/ng/
 
 punctuator:
-  import_preset: default
+  full_shape:
+    # ……其他……
+    "/" : [ ／, "/", ÷ ]
+    # ……其他……
+  half_shape:
+    # ……其他……
+    "/" : [ "/", ／, ÷ ]
+    # ……其他……
 
 key_binder:
   import_preset: default

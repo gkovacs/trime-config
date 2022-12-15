@@ -1,0 +1,1564 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: td_pinyin_flypy_extra
+  name: 帶調小鶴雙拼
+  version: "0.1"
+  author:
+    - double pinyin layout by 鶴
+    - Rime schema by 佛振 <chen.sst@gmail.com>
+    - zaqzrh
+  description: |
+    地球拼音＋小鶴雙拼方案。
+  dependencies:
+    - jyutping_tradsimp
+    - terra_pinyin_tradsimp
+    - td_pinyin_flypy
+    - terra_pinyin.extended
+    - terra_pinyin.extended.cangjie5
+    - double_jyutping
+    - leimaau_jyutping
+    - leimaau_jyutping_zhuyin_nospaces
+    - leimaau_zhuyin_jyutping_nospaces
+    - double_jyutping_display
+    - td_pinyin_flypy_display
+    - japanese
+    - korean
+    - korean_hanja
+    - vietnamese
+    - vietnamese_hannom
+    - spanish
+    - stroke
+    - cangjie5_tradsimp
+    - liangfen_shuangpin
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    reset: 0
+    states: [ 半角, 全角 ]
+  #- name: simplification
+  #  states: [ 漢字, 汉字 ]
+  - options: [zh_simp, zh_tw ]
+    reset: 0
+    states:
+      - 汉字
+      - 漢字
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - affix_segmentor@jyutping_lookup
+    - affix_segmentor@putonghua_to_jyutping_lookup
+    - affix_segmentor@jyutping_to_cangjie_lookup
+    - affix_segmentor@putonghua_to_cangjie_lookup
+    - affix_segmentor@japanese_lookup
+    - affix_segmentor@korean_lookup
+    - affix_segmentor@hanja_lookup
+    - affix_segmentor@vietnamese_lookup
+    - affix_segmentor@hannom_lookup
+    - affix_segmentor@international_lookup
+    - affix_segmentor@stroke_lookup
+    - affix_segmentor@cangjie5_lookup
+    - affix_segmentor@liangfen_lookup
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - script_translator
+    - script_translator@jyutping_lookup
+    - script_translator@putonghua_to_jyutping_lookup
+    - script_translator@jyutping_to_cangjie_lookup
+    - script_translator@putonghua_to_cangjie_lookup
+    - script_translator@japanese_lookup
+    - script_translator@korean_lookup
+    - script_translator@hanja_lookup
+    - script_translator@vietnamese_lookup
+    - script_translator@hannom_lookup
+    - script_translator@international_lookup
+    - table_translator@stroke_lookup
+    - table_translator@cangjie5_lookup
+    - table_translator@liangfen_lookup
+  filters:
+    - simplifier@zh_simp
+    - simplifier@zh_tw
+    - uniquifier
+    - reverse_lookup_filter@jyutping_reverse_lookup
+    - reverse_lookup_filter@putonghua_to_jyutping_reverse_lookup
+    - reverse_lookup_filter@jyutping_to_cangjie_reverse_lookup
+    - reverse_lookup_filter@putonghua_to_cangjie_reverse_lookup
+    - reverse_lookup_filter@japanese_reverse_lookup
+    - reverse_lookup_filter@korean_reverse_lookup
+    - reverse_lookup_filter@hanja_reverse_lookup
+    - reverse_lookup_filter@vietnamese_reverse_lookup
+    - reverse_lookup_filter@hannom_reverse_lookup
+    - reverse_lookup_filter@international_reverse_lookup
+    - reverse_lookup_filter@liangfen_reverse_lookup
+    - reverse_lookup_filter@reverse_lookup
+
+speller:
+  alphabet: 'ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba;,./'
+  initials: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+  algebra:
+    - erase/^xx$/
+    - derive/^([jqxy])u$/$1v/
+    - derive/^([aoe])([ioun])([0-5])([A-Z])$/$1$1$2$3$4/
+    - xform/^([aoe])(ng)?([0-5])([A-Z])$/$1$1$2$3$4/
+    - xform/iu([0-5])([A-Z])$/手$1$2/
+    - xform/(.)ei([0-5])([A-Z])$/$1田$2$3/
+    - xform/uan([0-5])([A-Z])$/口$1$2/
+    - xform/[uv]e([0-5])([A-Z])$/廿$1$2/
+    - xform/un([0-5])([A-Z])$/卜$1$2/
+    - xform/^sh/山/
+    - xform/^ch/戈/
+    - xform/^zh/女/
+    - xform/uo([0-5])([A-Z])$/人$1$2/
+    - xform/ie([0-5])([A-Z])$/心$1$2/
+    - xform/i?ong([0-5])([A-Z])$/尸$1$2/
+    - xform/(ing|uai)([0-5])([A-Z])$/大$2$3/
+    - xform/(.)ai([0-5])([A-Z])$/$1木$2$3/
+    - xform/(.)en([0-5])([A-Z])$/$1火$2$3/
+    - xform/(.)eng([0-5])([A-Z])$/$1土$2$3/
+    - xform/[iu]ang([0-5])([A-Z])$/中$1$2/
+    - xform/(.)ang([0-5])([A-Z])$/$1竹$2$3/
+    - xform/ian([0-5])([A-Z])$/一$1$2/
+    - xform/(.)an([0-5])([A-Z])$/$1十$2$3/
+    - xform/(.)ou([0-5])([A-Z])$/$1重$2$3/
+    - xform/[iu]a([0-5])([A-Z])$/難$1$2/
+    - xform/iao([0-5])([A-Z])$/弓$1$2/
+    - xform/(.)ao([0-5])([A-Z])$/$1金$2$3/
+    - xform/ui([0-5])([A-Z])$/女$1$2/
+    - xform/in([0-5])([A-Z])$/月$1$2/
+    #- 'xlit QWRTYUIOPSDFGHJKLZXCVBNM qwrtyuiopsdfghjklzxcvbnm'
+    - 'xlit 月女金弓難重十一竹中土火木大尸心人戈山卜廿口田手 bvcnxzjmhlgfdkspoiuytrwq'
+    # 日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重
+    #- abbrev/^(.).+$/$1/
+    - derive/^([abcdefghijklmnopqrstuvwxyz]+)([0-5])([A-Z])$/$1/
+    - derive/^([abcdefghijklmnopqrstuvwxyz]+)([0-5])([A-Z])$/$1$2/
+    - derive/^([abcdefghijklmnopqrstuvwxyz]+)([0-5])([A-Z])$/$1$3/
+    - derive/^([abcdefghijklmnopqrstuvwxyz]+)([0-5])([A-Z])$/$1$3$2/
+    - 'xlit 1234 ;/,.'
+
+menu:
+  alternative_select_keys: "123456789"
+  page_size: 9
+
+translator:
+  dictionary: terra_pinyin.extended.cangjie5
+  spelling_hints: 5 # ～字以內候選標註完整帶調拼音
+  prism: td_pinyin_flypy_cangjie5
+  preedit_format:
+    - xform/([bpmfdtnljqx])n/$1iao/
+    - xform/(\w)g/$1eng/
+    - xform/(\w)q/$1iu/
+    - xform/(\w)w/$1ei/
+    - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
+    - xform/(\w)t/$1ve/
+    - xform/(\w)y/$1un/
+    - xform/([dtnlgkhvuirzcs])o/$1uo/
+    - xform/(\w)p/$1ie/
+    - xform/([jqx])s/$1iong/
+    - xform/(\w)s/$1ong/
+    - xform/(\w)d/$1ai/
+    - xform/(\w)f/$1en/
+    - xform/(\w)h/$1ang/
+    - xform/(\w)j/$1an/
+    - xform/([gkhvuirzcs])k/$1uai/
+    - xform/(\w)k/$1ing/
+    - xform/([jqxnl])l/$1iang/
+    - xform/(\w)l/$1uang/
+    - xform/(\w)z/$1ou/
+    - xform/([gkhvuirzcs])x/$1ua/
+    - xform/(\w)x/$1ia/
+    - xform/(\w)c/$1ao/
+    - xform/([dtgkhvuirzcs])v/$1ui/
+    - xform/(\w)b/$1in/
+    - xform/(\w)m/$1ian/
+    - xform/([aoe])\1(\w)/$1$2/
+    - "xform/(^|[ '])v/$1zh/"
+    - "xform/(^|[ '])i/$1ch/"
+    - "xform/(^|[ '])u/$1sh/"
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+    - xform/eh/ê/
+    - 'xform ([aeiou])(ng?|r)([;/,\.]) $1$3$2'
+    - 'xform ([aeo])([iuo])([;/,\.]) $1$3$2'
+    - 'xform a; ā'
+    - 'xform a/ á'
+    - 'xform a, ǎ'
+    - 'xform a\. à'
+    - 'xform e; ē'
+    - 'xform e/ é'
+    - 'xform e, ě'
+    - 'xform e\. è'
+    - 'xform o; ō'
+    - 'xform o/ ó'
+    - 'xform o, ǒ'
+    - 'xform o\. ò'
+    - 'xform i; ī'
+    - 'xform i/ í'
+    - 'xform i, ǐ'
+    - 'xform i\. ì'
+    - 'xform u; ū'
+    - 'xform u/ ú'
+    - 'xform u, ǔ'
+    - 'xform u\. ù'
+    - 'xform ü; ǖ'
+    - 'xform ü/ ǘ'
+    - 'xform ü, ǚ'
+    - 'xform ü\. ǜ'
+    - 'xlit ABCDEFGHIJKLMNOPQRSTUVWXYZ 日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重'
+  comment_format:
+    - xform zhi ㄓ
+    - xform chi ㄔ
+    - xform shi ㄕ
+    - xform ri ㄖ
+    - xform zi ㄗ
+    - xform ci ㄘ
+    - xform si ㄙ
+    - xform zh ㄓ
+    - xform ch ㄔ
+    - xform sh ㄕ
+    - xform er ㄦ
+    - xform ruan ㄖㄨㄢ
+    - xform rua ㄖㄨㄚ
+    - xform run ㄖㄨㄣ
+    - xform rong ㄖㄨㄥ
+    - xform rang ㄖㄤ
+    - xform reng ㄖㄥ
+    - xform ruo ㄖㄨㄛ
+    - xform rui ㄖㄨㄟ
+    - xform ran ㄖㄢ
+    - xform ren ㄖㄣ
+    - xform rou ㄖㄡ
+    - xform rao ㄖㄠ
+    - xform ru ㄖㄨ
+    - xform re ㄖㄜ
+    - xform ying ㄧㄥ
+    - xform wang ㄨㄤ
+    - xform uang ㄨㄤ
+    - xform yang ㄧㄤ
+    - xform iang ㄧㄤ
+    - xform yong ㄩㄥ
+    - xform iong ㄩㄥ
+    - xform weng ㄨㄥ
+    - xform wo ㄨㄛ
+    - xform yun ㄩㄣ
+    - xform yue ㄩㄝ
+    - xform yuan ㄩㄢ
+    - xform you ㄧㄡ
+    - xform ye ㄧㄝ
+    - xform yao ㄧㄠ
+    - xform yin ㄧㄣ
+    - xform yan ㄧㄢ
+    - xform wan ㄨㄢ
+    - xform wai ㄨㄞ
+    - xform wei ㄨㄟ
+    - xform wen ㄨㄣ
+    - xform wa ㄨㄚ
+    - xform wu ㄨ
+    - xform yi ㄧ
+    - xform yu ㄩ
+    - xform un ㄨㄣ
+    - xform ui ㄨㄟ
+    - xform ju ㄐㄩ
+    - xform xu ㄒㄩ
+    - xform qu ㄑㄩ
+    - xform ve ㄩㄝ
+    - xform ing ㄧㄥ
+    - xform ong ㄨㄥ
+    - xform ang ㄤ
+    - xform eng ㄥ
+    - xform ai ㄞ
+    - xform ei ㄟ
+    - xform ao ㄠ
+    - xform ou ㄡ
+    - xform ian ㄧㄢ
+    - xform ya ㄧㄚ
+    - xform in ㄧㄣ
+    - xform an ㄢ
+    - xform en ㄣ
+    - xform r ㄦ
+    - xform v ㄩ
+    - xform b ㄅ
+    - xform p ㄆ
+    - xform m ㄇ
+    - xform f ㄈ
+    - xform d ㄉ
+    - xform t ㄊ
+    - xform n ㄋ
+    - xform l ㄌ
+    - xform g ㄍ
+    - xform k ㄎ
+    - xform h ㄏ
+    - xform j ㄐ
+    - xform q ㄑ
+    - xform x ㄒ
+    - xform z ㄗ
+    - xform c ㄘ
+    - xform s ㄙ
+    - xform u ㄨ
+    - xform e ㄜ
+    - xform o ㄛ
+    - xform a ㄚ
+    - xform i ㄧ
+    - xform/1//
+    - xform 2 ˊ
+    - xform 3 ˇ
+    - xform 4 ˋ
+    - xform 5 ˙
+    - 'xlit ABCDEFGHIJKLMNOPQRSTUVWXYZ 日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重'
+    - xform/ //
+  disable_user_dict_for_patterns:
+    - "^oj.*$"
+    - "^oy.*$"
+    - "^op.*$"
+    - "^on.*$"
+    - "^ok.*$"
+    - "^oh.*$"
+    - "^ov.*$"
+    - "^om.*$"
+    - "^oi.*$"
+    - "^os.*$"
+    - "^od.*$"
+    - "^of.*$"
+
+abc_segmentor:
+  extra_tags:
+    - putonghua_to_jyutping_lookup  # 與拼音（反查碼）混打
+
+putonghua_to_jyutping_lookup:
+  tag: putonghua_to_jyutping_lookup
+  prefix: "op"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  spelling_hints: 10
+  dictionary: terra_pinyin.extended.cangjie5
+  prism: td_pinyin_flypy_cangjie5
+  preedit_format:
+    - xform/([bpmfdtnljqx])n/$1iao/
+    - xform/(\w)g/$1eng/
+    - xform/(\w)q/$1iu/
+    - xform/(\w)w/$1ei/
+    - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
+    - xform/(\w)t/$1ve/
+    - xform/(\w)y/$1un/
+    - xform/([dtnlgkhvuirzcs])o/$1uo/
+    - xform/(\w)p/$1ie/
+    - xform/([jqx])s/$1iong/
+    - xform/(\w)s/$1ong/
+    - xform/(\w)d/$1ai/
+    - xform/(\w)f/$1en/
+    - xform/(\w)h/$1ang/
+    - xform/(\w)j/$1an/
+    - xform/([gkhvuirzcs])k/$1uai/
+    - xform/(\w)k/$1ing/
+    - xform/([jqxnl])l/$1iang/
+    - xform/(\w)l/$1uang/
+    - xform/(\w)z/$1ou/
+    - xform/([gkhvuirzcs])x/$1ua/
+    - xform/(\w)x/$1ia/
+    - xform/(\w)c/$1ao/
+    - xform/([dtgkhvuirzcs])v/$1ui/
+    - xform/(\w)b/$1in/
+    - xform/(\w)m/$1ian/
+    - xform/([aoe])\1(\w)/$1$2/
+    - "xform/(^|[ '])v/$1zh/"
+    - "xform/(^|[ '])i/$1ch/"
+    - "xform/(^|[ '])u/$1sh/"
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+    - xform/eh/ê/
+    - 'xform ([aeiou])(ng?|r)([;/,\.]) $1$3$2'
+    - 'xform ([aeo])([iuo])([;/,\.]) $1$3$2'
+    - 'xform a; ā'
+    - 'xform a/ á'
+    - 'xform a, ǎ'
+    - 'xform a\. à'
+    - 'xform e; ē'
+    - 'xform e/ é'
+    - 'xform e, ě'
+    - 'xform e\. è'
+    - 'xform o; ō'
+    - 'xform o/ ó'
+    - 'xform o, ǒ'
+    - 'xform o\. ò'
+    - 'xform i; ī'
+    - 'xform i/ í'
+    - 'xform i, ǐ'
+    - 'xform i\. ì'
+    - 'xform u; ū'
+    - 'xform u/ ú'
+    - 'xform u, ǔ'
+    - 'xform u\. ù'
+    - 'xform ü; ǖ'
+    - 'xform ü/ ǘ'
+    - 'xform ü, ǚ'
+    - 'xform ü\. ǜ'
+    - 'xlit ABCDEFGHIJKLMNOPQRSTUVWXYZ 日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重'
+  comment_format:
+    - xform zhi ㄓ
+    - xform chi ㄔ
+    - xform shi ㄕ
+    - xform ri ㄖ
+    - xform zi ㄗ
+    - xform ci ㄘ
+    - xform si ㄙ
+    - xform zh ㄓ
+    - xform ch ㄔ
+    - xform sh ㄕ
+    - xform er ㄦ
+    - xform ruan ㄖㄨㄢ
+    - xform rua ㄖㄨㄚ
+    - xform run ㄖㄨㄣ
+    - xform rong ㄖㄨㄥ
+    - xform rang ㄖㄤ
+    - xform reng ㄖㄥ
+    - xform ruo ㄖㄨㄛ
+    - xform rui ㄖㄨㄟ
+    - xform ran ㄖㄢ
+    - xform ren ㄖㄣ
+    - xform rou ㄖㄡ
+    - xform rao ㄖㄠ
+    - xform ru ㄖㄨ
+    - xform re ㄖㄜ
+    - xform ying ㄧㄥ
+    - xform wang ㄨㄤ
+    - xform uang ㄨㄤ
+    - xform yang ㄧㄤ
+    - xform iang ㄧㄤ
+    - xform yong ㄩㄥ
+    - xform iong ㄩㄥ
+    - xform weng ㄨㄥ
+    - xform wo ㄨㄛ
+    - xform yun ㄩㄣ
+    - xform yue ㄩㄝ
+    - xform yuan ㄩㄢ
+    - xform you ㄧㄡ
+    - xform ye ㄧㄝ
+    - xform yao ㄧㄠ
+    - xform yin ㄧㄣ
+    - xform yan ㄧㄢ
+    - xform wan ㄨㄢ
+    - xform wai ㄨㄞ
+    - xform wei ㄨㄟ
+    - xform wen ㄨㄣ
+    - xform wa ㄨㄚ
+    - xform wu ㄨ
+    - xform yi ㄧ
+    - xform yu ㄩ
+    - xform un ㄨㄣ
+    - xform ui ㄨㄟ
+    - xform ju ㄐㄩ
+    - xform xu ㄒㄩ
+    - xform qu ㄑㄩ
+    - xform ve ㄩㄝ
+    - xform ing ㄧㄥ
+    - xform ong ㄨㄥ
+    - xform ang ㄤ
+    - xform eng ㄥ
+    - xform ai ㄞ
+    - xform ei ㄟ
+    - xform ao ㄠ
+    - xform ou ㄡ
+    - xform ian ㄧㄢ
+    - xform ya ㄧㄚ
+    - xform in ㄧㄣ
+    - xform an ㄢ
+    - xform en ㄣ
+    - xform r ㄦ
+    - xform v ㄩ
+    - xform b ㄅ
+    - xform p ㄆ
+    - xform m ㄇ
+    - xform f ㄈ
+    - xform d ㄉ
+    - xform t ㄊ
+    - xform n ㄋ
+    - xform l ㄌ
+    - xform g ㄍ
+    - xform k ㄎ
+    - xform h ㄏ
+    - xform j ㄐ
+    - xform q ㄑ
+    - xform x ㄒ
+    - xform z ㄗ
+    - xform c ㄘ
+    - xform s ㄙ
+    - xform u ㄨ
+    - xform e ㄜ
+    - xform o ㄛ
+    - xform a ㄚ
+    - xform i ㄧ
+    - xform/1//
+    - xform 2 ˊ
+    - xform 3 ˇ
+    - xform 4 ˋ
+    - xform 5 ˙
+    - 'xlit ABCDEFGHIJKLMNOPQRSTUVWXYZ 日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重'
+    - xform/ //
+  # comment_format:
+  #   - xform ([aeiou])(ng?|r)([1234]) $1$3$2
+  #   - xform ([aeo])([iuo])([1234]) $1$3$2
+  #   - xform a1 ā
+  #   - xform a2 á
+  #   - xform a3 ǎ
+  #   - xform a4 à
+  #   - xform e1 ē
+  #   - xform e2 é
+  #   - xform e3 ě
+  #   - xform e4 è
+  #   - xform o1 ō
+  #   - xform o2 ó
+  #   - xform o3 ǒ
+  #   - xform o4 ò
+  #   - xform i1 ī
+  #   - xform i2 í
+  #   - xform i3 ǐ
+  #   - xform i4 ì
+  #   - xform u1 ū
+  #   - xform u2 ú
+  #   - xform u3 ǔ
+  #   - xform u4 ù
+  #   - xform v1 ǖ
+  #   - xform v2 ǘ
+  #   - xform v3 ǚ
+  #   - xform v4 ǜ
+  #   - xform/([nljqxy])v/$1ü/
+  #   - xform/eh[0-5]?/ê/
+  #   - xform/([a-z]+)[0-5]/$1/
+  tips: 【普查粵】
+  #closing_tips: 【粵拼】
+
+putonghua_to_jyutping_reverse_lookup:
+  tags: [ putonghua_to_jyutping_lookup ]
+  dictionary: leimaau_jyutping_zhuyin_nospaces
+  spelling_hints: 10
+  overwrite_comment: true  # 覆蓋其他提示
+  #comment_format:
+  #  - xform/ /\｜/
+  #  - xform/^/（粵拼：〔/
+  #  - xform/$/〕）/
+
+jyutping_to_cangjie_lookup:
+  tag: jyutping_to_cangjie_lookup
+  spelling_hints: 10
+  prefix: "oy"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  dictionary: jyutping_tradsimp
+  prism: double_jyutping_display
+  preedit_format:
+    - xform/(^|[ '])u/$1G/
+    - xform/(^|[ '])y/$1Q/
+    - xform/(^|[ '])aa/$1Ñ/ # aa => ng
+    - xform/(^|[ '])mm/$1M/ # mm => m
+    - xform/(^|[ '])a/$1N/
+    - xform/(^|[ '])e/$1E/
+    - xform/(^|[ '])(\w)(\w)r/$1$2$3T/
+    - xform/(^|[ '])(\w)(\w)o/$1$2$3P/
+    - xform/(^|[ '])(\w)(\w)i/$1$2$3K/
+    - xform / Á
+    # tones ng/m syllable
+    - xform/(^|[ '])(Ñ|M);/$1$2¹/
+    - xform/(^|[ '])(Ñ|M)Á/$1$2²/
+    - xform/(^|[ '])(Ñ|M),/$1$2³/
+    - xform/(^|[ '])(Ñ|M)x/$1$2⁴/
+    - xform/(^|[ '])(Ñ|M)v/$1$2⁵/
+    # tones non-ptk
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.);/$1$2$3¹/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)x/$1$2$3⁴/
+    # - xform (^|[ '])(\w)([abcdefghijklmnopqrstuvwxyzNM])/ $1$2$3²
+    #- xform/(^|[ '])(\w)([abcdefghijklmnopqrstuvwxyzNM,Á;\.])Á/$1$2$3²/
+    #- xform/(^|[ '])(\w)([Á])Á/$1$2$3²/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)Á/$1$2$3²/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)\./$1$2$3⁶/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.),/$1$2$3³/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)v/$1$2$3⁵/
+    # tones ptk
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK]);/$1$2$3$4¹/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK])x/$1$2$3$4⁴/
+    # - 'xform ([abcdefghijklmnopqrstuvwxyzNM])([PTK])/ $1$2²'
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK])Á/$1$2$3$4²/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK])\./$1$2$3$4⁶/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK]),/$1$2$3$4³/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK])v/$1$2$3$4⁵/
+    # - "xform (^|[ '])(\w)([aeioumngNM]), $1$2$3³"
+    # - "xform (^|[ '])(\w)([aeioumngNM])v $1$2$3⁵"
+    - xform/(^|[ '])(j|z|d|g|c|k|l|s)wK/$1$2oeK/
+    - xform/(^|[ '])(c|z|d|l|s)wT/$1$2eoT/
+    - xform/(^|[ '])(h|t|z)w/$1$2oe/
+    - xform/(^|[ '])(G|Q|g|k|p|f|b|m|w)w/$1$2ui/
+    - xform/(^|[ '])([wpGkfcbm])y/$1$2un/
+    - xform/(^|[ '])([sdtlghzcnj])t/$1$2yun/
+    - xform/(^|[ '])([gkbpmhf])i($|[^PTK])/$1$2ei$3/
+    - xform/(^|[ '])([wtGpsdfghjklzcbnm])p/$1$2ing/
+    - xform/(^|[ '])([Etsdghjklzcbnm])a/$1$2am/
+    - xform/(^|[ '])([sndl])w/$1$2ei/
+    - xform/(^|[ '])(\w)q/$1$2iu/
+    - xform/(^|[ '])(\w)r/$1$2A/
+    - xform/(^|[ '])(\w)s/$1$2ung/
+    - xform/(^|[ '])(\w)d/$1$2ai/
+    - xform/(^|[ '])(\w)f/$1$2an/
+    - xform/(^|[ '])(\w)g/$1$2ang/
+    - xform/(^|[ '])(\w)h/$1$2aang/
+    - xform/(^|[ '])(\w)j/$1$2aan/
+    - xform/(^|[ '])(\w)k/$1$2aai/
+    - xform/(^|[ '])(\w)l/$1$2ong/
+    - xform/(^|[ '])(\w);/$1$2aam/
+    - xform/(^|[ '])(\w)z/$1$2ou/
+    - xform/(^|[ '])(N|c|d|e|g|h|k|l|n|p|s|t|z)x/$1$2oi/ # 外 ax 才 cx 待 dx 爱 ex 该 gx 开 hx 盖 kx 来 lx 内 nx 俖 px 思 sx 台 tx 在 zx
+    - xform/(^|[ '])(\w)c/$1$2au/
+    - xform/(^|[ '])(\w)v/$1$2eoi/
+    - xform/(^|[ '])(\w)b/$1$2in/
+    - xform/(^|[ '])(h|g|b|N)n/$1$2on/
+    - xform/(^|[ '])En/$1on/
+    - xform/(^|[ '])(z|c|s|d|t|j|l)n/$1$2eon/
+    - xform/(^|[ '])wn/$1wen/
+    - xform/(^|[ '])(\w)m/$1$2im/
+    - xform/(^|[ '])(\w),/$1$2aau/
+    - xform/(^|[ '])(\w)\./$1$2oeng/
+    - xform/(^|[ '])(\w)Á/$1$2eng/
+    - xform/(^|[ '])(z|s|c|j)u(?!(P|T|K|n|i))/$1$2yu$3/
+    - xform/(^|[ '])(z|s|c|k|g|j|d|t|h|l)uT/$1$2yuT/
+    - xform/A/aa/
+    - xform/G/gw/
+    - xform/Q/kw/
+    - xform/N/ng/
+    - xform/M/m/
+    - xform/Ñ/ng/
+    - xform/E//
+    - xform/mT/t/
+    - xform/mK/k/
+    - xform/mP/p/
+    - xform/T/t/
+    - xform/K/k/
+    - xform/P/p/
+    #- xform/([aeioumngptk])qq/$1⁴/
+    #- xform/([aeioumngptk])q/$1¹/
+    #- xform/([aeioumngptk])vv/$1⁵/
+    #- xform/([aeioumngptk])v/$1²/
+    #- xform/([aeioumngptk])xx/$1⁶/
+    #- xform/([aeioumngptk])x/$1³/
+    # - 'xform ([aeioumngptkqrwy]); $1¹'
+    # - 'xform ([aeioumngptkqrwy])x $1⁴'
+    # - 'xform ([aeioumngptkqrwy])/ $1²'
+    # - 'xform ([aeioumngptkqrwy])\. $1⁶'
+    # - 'xform ([aeioumngptkqrwy]), $1³'
+    # - 'xform ([aeioumngptkqrwy])v $1⁵'
+    #- 'xform r aa'
+    #- 'xform q ng'
+  tips: 【粵查仓】
+  #closing_tips: 【粵拼】
+
+jyutping_to_cangjie_reverse_lookup:
+  tags: [ jyutping_to_cangjie_lookup ]
+  #dictionary: terra_pinyin_nospaces.extended
+  dictionary: cangjie5_tradsimp
+  spelling_hints: 10
+  overwrite_comment: true  # 覆蓋其他提示
+  comment_format:
+    - "xlit|abcdefghijklmnopqrstuvwxyz|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重|"
+
+jyutping_lookup:
+  tag: jyutping_lookup
+  spelling_hints: 10
+  prefix: "oj"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  dictionary: leimaau_jyutping.cangjie5
+  prism: double_jyutping_cangjie5
+  preedit_format:
+    - 'xlit ABCDEFGHIJKLMNOPQRSTUVWXYZ 日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重'
+    - xform/(^|[ '])u/$1G/
+    - xform/(^|[ '])y/$1Q/
+    - xform/(^|[ '])aa/$1Ñ/ # aa => ng
+    - xform/(^|[ '])mm/$1M/ # mm => m
+    - xform/(^|[ '])a/$1N/
+    - xform/(^|[ '])e/$1E/
+    - xform/(^|[ '])(\w)(\w)r/$1$2$3T/
+    - xform/(^|[ '])(\w)(\w)o/$1$2$3P/
+    - xform/(^|[ '])(\w)(\w)i/$1$2$3K/
+    - xform / Á
+    # tones ng/m syllable
+    - xform/(^|[ '])(Ñ|M);/$1$2¹/
+    - xform/(^|[ '])(Ñ|M)Á/$1$2²/
+    - xform/(^|[ '])(Ñ|M),/$1$2³/
+    - xform/(^|[ '])(Ñ|M)x/$1$2⁴/
+    - xform/(^|[ '])(Ñ|M)v/$1$2⁵/
+    # tones non-ptk
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.);/$1$2$3¹/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)x/$1$2$3⁴/
+    # - xform (^|[ '])(\w)([abcdefghijklmnopqrstuvwxyzNM])/ $1$2$3²
+    #- xform/(^|[ '])(\w)([abcdefghijklmnopqrstuvwxyzNM,Á;\.])Á/$1$2$3²/
+    #- xform/(^|[ '])(\w)([Á])Á/$1$2$3²/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)Á/$1$2$3²/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)\./$1$2$3⁶/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.),/$1$2$3³/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)v/$1$2$3⁵/
+    # tones ptk
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK]);/$1$2$3$4¹/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK])x/$1$2$3$4⁴/
+    # - 'xform ([abcdefghijklmnopqrstuvwxyzNM])([PTK])/ $1$2²'
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK])Á/$1$2$3$4²/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK])\./$1$2$3$4⁶/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK]),/$1$2$3$4³/
+    - xform/(^|[ '])(\w)(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|N|,|Á|;|\.)([PTK])v/$1$2$3$4⁵/
+    # - "xform (^|[ '])(\w)([aeioumngNM]), $1$2$3³"
+    # - "xform (^|[ '])(\w)([aeioumngNM])v $1$2$3⁵"
+    - xform/(^|[ '])(j|z|d|g|c|k|l|s)wK/$1$2oeK/
+    - xform/(^|[ '])(c|z|d|l|s)wT/$1$2eoT/
+    - xform/(^|[ '])(h|t|z)w/$1$2oe/
+    - xform/(^|[ '])(G|Q|g|k|p|f|b|m|w)w/$1$2ui/
+    - xform/(^|[ '])([wpGkfcbmg])y/$1$2un/
+    - xform/(^|[ '])([sdtlghzcnj])t/$1$2yun/
+    - xform/(^|[ '])([gkbpmhf])i($|[^PTK])/$1$2ei$3/
+    - xform/(^|[ '])([wtGpsdfghjklzcbnm])p/$1$2ing/
+    - xform/(^|[ '])([Etsdghjklzcbnm])a/$1$2am/
+    - xform/(^|[ '])([sndl])w/$1$2ei/
+    - xform/(^|[ '])(\w)q/$1$2iu/
+    - xform/(^|[ '])(\w)r/$1$2A/
+    - xform/(^|[ '])(\w)s/$1$2ung/
+    - xform/(^|[ '])(\w)d/$1$2ai/
+    - xform/(^|[ '])(\w)f/$1$2an/
+    - xform/(^|[ '])(\w)g/$1$2ang/
+    - xform/(^|[ '])(\w)h/$1$2aang/
+    - xform/(^|[ '])(\w)j/$1$2aan/
+    - xform/(^|[ '])(\w)k/$1$2aai/
+    - xform/(^|[ '])(\w)l/$1$2ong/
+    - xform/(^|[ '])(\w);/$1$2aam/
+    - xform/(^|[ '])(\w)z/$1$2ou/
+    - xform/(^|[ '])(N|c|d|e|g|h|k|l|n|p|s|t|z)x/$1$2oi/ # 外 ax 才 cx 待 dx 爱 ex 该 gx 开 hx 盖 kx 来 lx 内 nx 俖 px 思 sx 台 tx 在 zx
+    - xform/(^|[ '])(\w)c/$1$2au/
+    - xform/(^|[ '])(\w)v/$1$2eoi/
+    - xform/(^|[ '])(\w)b/$1$2in/
+    - xform/(^|[ '])(h|g|b|N)n/$1$2on/
+    - xform/(^|[ '])En/$1on/
+    - xform/(^|[ '])(z|c|s|d|t|j|l)n/$1$2eon/
+    - xform/(^|[ '])wn/$1wen/
+    - xform/(^|[ '])(\w)m/$1$2im/
+    - xform/(^|[ '])(\w),/$1$2aau/
+    - xform/(^|[ '])(\w)\./$1$2oeng/
+    - xform/(^|[ '])(\w)Á/$1$2eng/
+    - xform/(^|[ '])(z|s|c|j)u(?!(P|T|K|n|i))/$1$2yu$3/
+    - xform/(^|[ '])(z|s|c|k|g|j|d|t|h|l)uT/$1$2yuT/
+    - xform/A/aa/
+    - xform/G/gw/
+    - xform/Q/kw/
+    - xform/N/ng/
+    - xform/M/m/
+    - xform/Ñ/ng/
+    - xform/E//
+    - xform/mT/t/
+    - xform/mK/k/
+    - xform/mP/p/
+    - xform/T/t/
+    - xform/K/k/
+    - xform/P/p/
+    #- xform/([aeioumngptk])qq/$1⁴/
+    #- xform/([aeioumngptk])q/$1¹/
+    #- xform/([aeioumngptk])vv/$1⁵/
+    #- xform/([aeioumngptk])v/$1²/
+    #- xform/([aeioumngptk])xx/$1⁶/
+    #- xform/([aeioumngptk])x/$1³/
+    # - 'xform ([aeioumngptkqrwy]); $1¹'
+    # - 'xform ([aeioumngptkqrwy])x $1⁴'
+    # - 'xform ([aeioumngptkqrwy])/ $1²'
+    # - 'xform ([aeioumngptkqrwy])\. $1⁶'
+    # - 'xform ([aeioumngptkqrwy]), $1³'
+    # - 'xform ([aeioumngptkqrwy])v $1⁵'
+    #- 'xform r aa'
+    #- 'xform q ng'
+  comment_format:
+    - 'xlit ABCDEFGHIJKLMNOPQRSTUVWXYZ 日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重'
+    - xform/ //
+  tips: 【粵】
+  #closing_tips: 【粵拼】
+
+jyutping_reverse_lookup:
+  tags: [ jyutping_lookup ]
+  spelling_hints: 10
+  dictionary: leimaau_zhuyin_jyutping_nospaces
+  overwrite_comment: true  # 覆蓋其他提示
+  #comment_format:
+  #  - xform/ /\｜/
+  #  - xform/^/（粵拼：〔/
+  #  - xform/$/〕）/
+
+japanese_lookup:
+  tag: japanese_lookup
+  prefix: "on"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  dictionary: "japanese"
+  preedit_format:
+    - 'xlit|q|ー|'
+  tips: 【日】
+
+japanese_reverse_lookup:
+  tags: [ japanese_lookup ]
+  dictionary: "japanese"
+  comment_format:
+    - 'xlit|q|ー|'
+
+korean_lookup:
+  tag: korean_lookup
+  prefix: "ok"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  dictionary: "korean"
+  preedit_format:
+    - xform/'/ /
+    - xform/(^|[ '])([qx])/$1/
+    - xform/([qx])/ng/
+  tips: 【韓】
+  extra_tags:
+    - hanja_lookup
+
+korean_reverse_lookup:
+  tags: [ korean_lookup ]
+  dictionary: "korean"
+  comment_format:
+    - xform/(^|[ '])q/$1/
+    - xform/q/ng/
+
+hanja_lookup:
+  tag: hanja_lookup
+  prefix: "oh"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  dictionary: "korean_hanja"
+  preedit_format:
+    - xform/'/ /
+    - xform/(^|[ '])([qx])/$1/
+    - xform/([qx])/ng/
+  tips: 【韓】
+
+hanja_reverse_lookup:
+  tags: [ hanja_lookup ]
+  dictionary: "korean_hanja"
+  comment_format:
+    - xform/(^|[ '])q/$1/
+    - xform/q/ng/
+
+vietnamese_lookup:
+  tag: vietnamese_lookup
+  prefix: "ov"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  dictionary: "vietnamese"
+  spelling_hints: 10
+  preedit_format:
+    - 'xform ([aeiouâăôê])(ng|nh|ch)([sfjxr]) $1$3$2'
+    - 'xform ([aeiouâăôê])([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform ([ae])([ou])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)(ng|nh|ch)([sfjxr]) $1$3$2'
+    - 'xform z '
+    #- 'xform , '
+    - 'xform A 　'
+    - 'xform dd đ'
+    - 'xform aa â'
+    - 'xform âs ấ'
+    - 'xform âf ầ'
+    - 'xform âj ậ'
+    - 'xform âx ẫ'
+    - 'xform âr ẩ'
+    - 'xform aw ă'
+    - 'xform ăs ắ'
+    - 'xform ăf ằ'
+    - 'xform ăj ặ'
+    - 'xform ăx ẵ'
+    - 'xform ăr ẳ'
+    - 'xform oo ô'
+    - 'xform ôs ố'
+    - 'xform ôf ồ'
+    - 'xform ôj ộ'
+    - 'xform ôx ỗ'
+    - 'xform ôr ổ'
+    - 'xform ee ê'
+    - 'xform ês ế'
+    - 'xform êf ề'
+    - 'xform êj ệ'
+    - 'xform êx ễ'
+    - 'xform êr ể'
+    - 'xform uw ư'
+    - 'xform ưs ứ'
+    - 'xform ưf ừ'
+    - 'xform ưj ự'
+    - 'xform ưx ữ'
+    - 'xform ưr ử'
+    - 'xform ow ơ'
+    - 'xform ơs ớ'
+    - 'xform ơf ờ'
+    - 'xform ơj ợ'
+    - 'xform ơx ỡ'
+    - 'xform ơr ở'
+    - 'xform as á'
+    - 'xform af à'
+    - 'xform aj ạ'
+    - 'xform ax ã'
+    - 'xform ar ả'
+    - 'xform is í'
+    - 'xform if ì'
+    - 'xform ij ị'
+    - 'xform ix ĩ'
+    - 'xform ir ỉ'
+    - 'xform us ú'
+    - 'xform uf ù'
+    - 'xform uj ụ'
+    - 'xform ux ũ'
+    - 'xform ur ủ'
+    - 'xform es é'
+    - 'xform ef è'
+    - 'xform ej ẹ'
+    - 'xform ex ẽ'
+    - 'xform er ẻ'
+    - 'xform os ó'
+    - 'xform of ò'
+    - 'xform oj ọ'
+    - 'xform ox õ'
+    - 'xform or ỏ'
+    - 'xform ys ý'
+    - 'xform yf ỳ'
+    - 'xform yj ỵ'
+    - 'xform yx ỹ'
+    - 'xform yr ỷ'
+  comment_format:
+    - 'xform ([aeiouâăôê])(ng|nh|ch)([sfjxr]) $1$3$2'
+    - 'xform ([aeiouâăôê])([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform ([ae])([ou])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)(ng|nh|ch)([sfjxr]) $1$3$2'
+#    - 'xform z ，【𡨸標準】'
+#    - 'xform , ，【𡨸異體】'
+    - 'xform z '
+    - 'xform dd đ'
+    - 'xform aa â'
+    - 'xform âs ấ'
+    - 'xform âf ầ'
+    - 'xform âj ậ'
+    - 'xform âx ẫ'
+    - 'xform âr ẩ'
+    - 'xform aw ă'
+    - 'xform ăs ắ'
+    - 'xform ăf ằ'
+    - 'xform ăj ặ'
+    - 'xform ăx ẵ'
+    - 'xform ăr ẳ'
+    - 'xform oo ô'
+    - 'xform ôs ố'
+    - 'xform ôf ồ'
+    - 'xform ôj ộ'
+    - 'xform ôx ỗ'
+    - 'xform ôr ổ'
+    - 'xform ee ê'
+    - 'xform ês ế'
+    - 'xform êf ề'
+    - 'xform êj ệ'
+    - 'xform êx ễ'
+    - 'xform êr ể'
+    - 'xform uw ư'
+    - 'xform ưs ứ'
+    - 'xform ưf ừ'
+    - 'xform ưj ự'
+    - 'xform ưx ữ'
+    - 'xform ưr ử'
+    - 'xform ow ơ'
+    - 'xform ơs ớ'
+    - 'xform ơf ờ'
+    - 'xform ơj ợ'
+    - 'xform ơx ỡ'
+    - 'xform ơr ở'
+    - 'xform as á'
+    - 'xform af à'
+    - 'xform aj ạ'
+    - 'xform ax ã'
+    - 'xform ar ả'
+    - 'xform is í'
+    - 'xform if ì'
+    - 'xform ij ị'
+    - 'xform ix ĩ'
+    - 'xform ir ỉ'
+    - 'xform us ú'
+    - 'xform uf ù'
+    - 'xform uj ụ'
+    - 'xform ux ũ'
+    - 'xform ur ủ'
+    - 'xform es é'
+    - 'xform ef è'
+    - 'xform ej ẹ'
+    - 'xform ex ẽ'
+    - 'xform er ẻ'
+    - 'xform os ó'
+    - 'xform of ò'
+    - 'xform oj ọ'
+    - 'xform ox õ'
+    - 'xform or ỏ'
+    - 'xform ys ý'
+    - 'xform yf ỳ'
+    - 'xform yj ỵ'
+    - 'xform yx ỹ'
+    - 'xform yr ỷ'
+  tips: 【越】
+  extra_tags:
+    - hannom_lookup
+
+vietnamese_reverse_lookup:
+  tags: [ vietnamese_lookup ]
+  dictionary: "vietnamese"
+  overwrite_comment: true
+  comment_format:
+    - 'xform ([aeiouâăôê])(ng|nh|ch)([sfjxr]) $1$3$2'
+    - 'xform ([aeiouâăôê])([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform ([ae])([ou])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)(ng|nh|ch)([sfjxr]) $1$3$2'
+#    - 'xform z ，【𡨸標準】'
+#    - 'xform , ，【𡨸異體】'
+    - 'xform z '
+    - 'xform dd đ'
+    - 'xform aa â'
+    - 'xform âs ấ'
+    - 'xform âf ầ'
+    - 'xform âj ậ'
+    - 'xform âx ẫ'
+    - 'xform âr ẩ'
+    - 'xform aw ă'
+    - 'xform ăs ắ'
+    - 'xform ăf ằ'
+    - 'xform ăj ặ'
+    - 'xform ăx ẵ'
+    - 'xform ăr ẳ'
+    - 'xform oo ô'
+    - 'xform ôs ố'
+    - 'xform ôf ồ'
+    - 'xform ôj ộ'
+    - 'xform ôx ỗ'
+    - 'xform ôr ổ'
+    - 'xform ee ê'
+    - 'xform ês ế'
+    - 'xform êf ề'
+    - 'xform êj ệ'
+    - 'xform êx ễ'
+    - 'xform êr ể'
+    - 'xform uw ư'
+    - 'xform ưs ứ'
+    - 'xform ưf ừ'
+    - 'xform ưj ự'
+    - 'xform ưx ữ'
+    - 'xform ưr ử'
+    - 'xform ow ơ'
+    - 'xform ơs ớ'
+    - 'xform ơf ờ'
+    - 'xform ơj ợ'
+    - 'xform ơx ỡ'
+    - 'xform ơr ở'
+    - 'xform as á'
+    - 'xform af à'
+    - 'xform aj ạ'
+    - 'xform ax ã'
+    - 'xform ar ả'
+    - 'xform is í'
+    - 'xform if ì'
+    - 'xform ij ị'
+    - 'xform ix ĩ'
+    - 'xform ir ỉ'
+    - 'xform us ú'
+    - 'xform uf ù'
+    - 'xform uj ụ'
+    - 'xform ux ũ'
+    - 'xform ur ủ'
+    - 'xform es é'
+    - 'xform ef è'
+    - 'xform ej ẹ'
+    - 'xform ex ẽ'
+    - 'xform er ẻ'
+    - 'xform os ó'
+    - 'xform of ò'
+    - 'xform oj ọ'
+    - 'xform ox õ'
+    - 'xform or ỏ'
+    - 'xform ys ý'
+    - 'xform yf ỳ'
+    - 'xform yj ỵ'
+    - 'xform yx ỹ'
+    - 'xform yr ỷ'
+  #closing_tips: 【粵拼】
+
+hannom_lookup:
+  tag: hannom_lookup
+  prefix: "om"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  dictionary: "vietnamese_hannom"
+  spelling_hints: 10
+  preedit_format:
+    - 'xform ([aeiouâăôê])(ng|nh|ch)([sfjxr]) $1$3$2'
+    - 'xform ([aeiouâăôê])([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform ([ae])([ou])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)(ng|nh|ch)([sfjxr]) $1$3$2'
+    - 'xform z '
+    #- 'xform , '
+    - 'xform A 　'
+    - 'xform dd đ'
+    - 'xform aa â'
+    - 'xform âs ấ'
+    - 'xform âf ầ'
+    - 'xform âj ậ'
+    - 'xform âx ẫ'
+    - 'xform âr ẩ'
+    - 'xform aw ă'
+    - 'xform ăs ắ'
+    - 'xform ăf ằ'
+    - 'xform ăj ặ'
+    - 'xform ăx ẵ'
+    - 'xform ăr ẳ'
+    - 'xform oo ô'
+    - 'xform ôs ố'
+    - 'xform ôf ồ'
+    - 'xform ôj ộ'
+    - 'xform ôx ỗ'
+    - 'xform ôr ổ'
+    - 'xform ee ê'
+    - 'xform ês ế'
+    - 'xform êf ề'
+    - 'xform êj ệ'
+    - 'xform êx ễ'
+    - 'xform êr ể'
+    - 'xform uw ư'
+    - 'xform ưs ứ'
+    - 'xform ưf ừ'
+    - 'xform ưj ự'
+    - 'xform ưx ữ'
+    - 'xform ưr ử'
+    - 'xform ow ơ'
+    - 'xform ơs ớ'
+    - 'xform ơf ờ'
+    - 'xform ơj ợ'
+    - 'xform ơx ỡ'
+    - 'xform ơr ở'
+    - 'xform as á'
+    - 'xform af à'
+    - 'xform aj ạ'
+    - 'xform ax ã'
+    - 'xform ar ả'
+    - 'xform is í'
+    - 'xform if ì'
+    - 'xform ij ị'
+    - 'xform ix ĩ'
+    - 'xform ir ỉ'
+    - 'xform us ú'
+    - 'xform uf ù'
+    - 'xform uj ụ'
+    - 'xform ux ũ'
+    - 'xform ur ủ'
+    - 'xform es é'
+    - 'xform ef è'
+    - 'xform ej ẹ'
+    - 'xform ex ẽ'
+    - 'xform er ẻ'
+    - 'xform os ó'
+    - 'xform of ò'
+    - 'xform oj ọ'
+    - 'xform ox õ'
+    - 'xform or ỏ'
+    - 'xform ys ý'
+    - 'xform yf ỳ'
+    - 'xform yj ỵ'
+    - 'xform yx ỹ'
+    - 'xform yr ỷ'
+  comment_format:
+    - 'xform ([aeiouâăôê])(ng|nh|ch)([sfjxr]) $1$3$2'
+    - 'xform ([aeiouâăôê])([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform ([ae])([ou])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)(ng|nh|ch)([sfjxr]) $1$3$2'
+#    - 'xform z ，【𡨸標準】'
+#    - 'xform , ，【𡨸異體】'
+    - 'xform z '
+    - 'xform dd đ'
+    - 'xform aa â'
+    - 'xform âs ấ'
+    - 'xform âf ầ'
+    - 'xform âj ậ'
+    - 'xform âx ẫ'
+    - 'xform âr ẩ'
+    - 'xform aw ă'
+    - 'xform ăs ắ'
+    - 'xform ăf ằ'
+    - 'xform ăj ặ'
+    - 'xform ăx ẵ'
+    - 'xform ăr ẳ'
+    - 'xform oo ô'
+    - 'xform ôs ố'
+    - 'xform ôf ồ'
+    - 'xform ôj ộ'
+    - 'xform ôx ỗ'
+    - 'xform ôr ổ'
+    - 'xform ee ê'
+    - 'xform ês ế'
+    - 'xform êf ề'
+    - 'xform êj ệ'
+    - 'xform êx ễ'
+    - 'xform êr ể'
+    - 'xform uw ư'
+    - 'xform ưs ứ'
+    - 'xform ưf ừ'
+    - 'xform ưj ự'
+    - 'xform ưx ữ'
+    - 'xform ưr ử'
+    - 'xform ow ơ'
+    - 'xform ơs ớ'
+    - 'xform ơf ờ'
+    - 'xform ơj ợ'
+    - 'xform ơx ỡ'
+    - 'xform ơr ở'
+    - 'xform as á'
+    - 'xform af à'
+    - 'xform aj ạ'
+    - 'xform ax ã'
+    - 'xform ar ả'
+    - 'xform is í'
+    - 'xform if ì'
+    - 'xform ij ị'
+    - 'xform ix ĩ'
+    - 'xform ir ỉ'
+    - 'xform us ú'
+    - 'xform uf ù'
+    - 'xform uj ụ'
+    - 'xform ux ũ'
+    - 'xform ur ủ'
+    - 'xform es é'
+    - 'xform ef è'
+    - 'xform ej ẹ'
+    - 'xform ex ẽ'
+    - 'xform er ẻ'
+    - 'xform os ó'
+    - 'xform of ò'
+    - 'xform oj ọ'
+    - 'xform ox õ'
+    - 'xform or ỏ'
+    - 'xform ys ý'
+    - 'xform yf ỳ'
+    - 'xform yj ỵ'
+    - 'xform yx ỹ'
+    - 'xform yr ỷ'
+  tips: 【越】
+
+hannom_reverse_lookup:
+  tags: [ hannom_lookup ]
+  dictionary: "vietnamese_hannom"
+  overwrite_comment: true
+  comment_format:
+    - 'xform ([aeiouâăôê])(ng|nh|ch)([sfjxr]) $1$3$2'
+    - 'xform ([aeiouâăôê])([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform ([ae])([ou])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)([iunptcmy])([sfjxr]) $1$3$2'
+    - 'xform (aw|ow|uw)(ng|nh|ch)([sfjxr]) $1$3$2'
+#    - 'xform z ，【𡨸標準】'
+#    - 'xform , ，【𡨸異體】'
+    - 'xform z '
+    - 'xform dd đ'
+    - 'xform aa â'
+    - 'xform âs ấ'
+    - 'xform âf ầ'
+    - 'xform âj ậ'
+    - 'xform âx ẫ'
+    - 'xform âr ẩ'
+    - 'xform aw ă'
+    - 'xform ăs ắ'
+    - 'xform ăf ằ'
+    - 'xform ăj ặ'
+    - 'xform ăx ẵ'
+    - 'xform ăr ẳ'
+    - 'xform oo ô'
+    - 'xform ôs ố'
+    - 'xform ôf ồ'
+    - 'xform ôj ộ'
+    - 'xform ôx ỗ'
+    - 'xform ôr ổ'
+    - 'xform ee ê'
+    - 'xform ês ế'
+    - 'xform êf ề'
+    - 'xform êj ệ'
+    - 'xform êx ễ'
+    - 'xform êr ể'
+    - 'xform uw ư'
+    - 'xform ưs ứ'
+    - 'xform ưf ừ'
+    - 'xform ưj ự'
+    - 'xform ưx ữ'
+    - 'xform ưr ử'
+    - 'xform ow ơ'
+    - 'xform ơs ớ'
+    - 'xform ơf ờ'
+    - 'xform ơj ợ'
+    - 'xform ơx ỡ'
+    - 'xform ơr ở'
+    - 'xform as á'
+    - 'xform af à'
+    - 'xform aj ạ'
+    - 'xform ax ã'
+    - 'xform ar ả'
+    - 'xform is í'
+    - 'xform if ì'
+    - 'xform ij ị'
+    - 'xform ix ĩ'
+    - 'xform ir ỉ'
+    - 'xform us ú'
+    - 'xform uf ù'
+    - 'xform uj ụ'
+    - 'xform ux ũ'
+    - 'xform ur ủ'
+    - 'xform es é'
+    - 'xform ef è'
+    - 'xform ej ẹ'
+    - 'xform ex ẽ'
+    - 'xform er ẻ'
+    - 'xform os ó'
+    - 'xform of ò'
+    - 'xform oj ọ'
+    - 'xform ox õ'
+    - 'xform or ỏ'
+    - 'xform ys ý'
+    - 'xform yf ỳ'
+    - 'xform yj ỵ'
+    - 'xform yx ỹ'
+    - 'xform yr ỷ'
+  #closing_tips: 【粵拼】
+
+international_lookup:
+  tag: international_lookup
+  prefix: "oi"  # 獨用jyutping_lookup反查在反查鍵「`」之後再鍵入〔大寫〕「J」
+  suffix: "`"
+  enable_user_dict: false
+  enable_sentence: true
+  dictionary: "spanish"
+  tips: 【罗】
+
+international_reverse_lookup:
+  tags: [ international_lookup ]
+  dictionary: "spanish"
+
+punctuator:
+  import_preset: default
+
+ascii_composer:
+  switch_key:
+    Shift_L: noop
+    Shift_R: noop
+
+key_binder:
+  bindings:
+    - {accept: "Control+Shift+1", select: .next, when: always}
+    - {accept: "Control+Shift+f", toggle: zh_simp, when: always}
+    - {accept: "Control+Shift+F", toggle: zh_simp, when: always}
+    - {accept: "Control+Shift+t", toggle: zh_tw, when: always}
+    - {accept: "Control+Shift+T", toggle: zh_tw, when: always}
+    - {accept: "Control+Shift+n", select: japanese, when: always}
+    - {accept: "Control+Shift+N", select: japanese, when: always}
+    - {accept: "Control+Shift+k", select: korean, when: always}
+    - {accept: "Control+Shift+K", select: korean, when: always}
+    - {accept: "Control+Shift+v", select: vietnamese, when: always}
+    - {accept: "Control+Shift+V", select: vietnamese, when: always}
+    - {accept: "Control+Shift+j", select: double_jyutping_extra, when: always}
+    - {accept: "Control+Shift+J", select: double_jyutping_extra, when: always}
+    - {accept: "Control+Shift+m", select: td_pinyin_flypy_extra, when: always}
+    - {accept: "Control+Shift+M", select: td_pinyin_flypy_extra, when: always}
+    - {accept: "Control+Shift+l", select: spanish, when: always}
+    - {accept: "Control+Shift+L", select: spanish, when: always}
+    - {accept: "F16", select: double_jyutping_extra, when: always}
+    - {accept: "F19", select: spanish, when: always}
+
+stroke_lookup:
+  tag: "stroke_lookup"
+  dictionary: "stroke"
+  enable_user_dict: false
+  enable_completion: true
+  enable_sentence: false
+  sentence_over_completion: false
+  max_phrase_length: 1
+  spelling_hints: 10
+  prefix: "os"
+  suffix: "`"
+  tips: 【笔】
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
+  comment_format:
+    - xform/~//
+    - xform/^·//
+
+liangfen_lookup:
+  #dictionary: luna_pinyin
+  #prism: luna_quanpin
+  tag: liangfen_lookup
+  spelling_hints: 10
+  dictionary: liangfen_shuangpin
+  #prism: td_pinyin_flypy
+  prefix: "od"
+  suffix: "`"
+  tips: 〔两分〕
+
+liangfen_reverse_lookup:
+  tags: [ liangfen_lookup ]
+  #dictionary: leimaau_jyutping_zhuyin_nospaces
+  dictionary: leimaau_jyutping_zhuyin_nospaces
+  spelling_hints: 10
+  #overwrite_comment: true  # 覆蓋其他提示
+  #comment_format:
+  #  - "xlit|abcdefghijklmnopqrstuvwxyz|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重|"
+
+putonghua_to_cangjie_lookup:
+  #dictionary: luna_pinyin
+  #prism: luna_quanpin
+  tag: putonghua_to_cangjie_lookup
+  spelling_hints: 10
+  dictionary: terra_pinyin_tradsimp
+  prism: td_pinyin_flypy_display
+  prefix: "of"
+  suffix: "`"
+  tips: 【普查仓】
+  preedit_format:
+    - xform/([bpmfdtnljqx])n/$1iao/
+    - xform/(\w)g/$1eng/
+    - xform/(\w)q/$1iu/
+    - xform/(\w)w/$1ei/
+    - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
+    - xform/(\w)t/$1ve/
+    - xform/(\w)y/$1un/
+    - xform/([dtnlgkhvuirzcs])o/$1uo/
+    - xform/(\w)p/$1ie/
+    - xform/([jqx])s/$1iong/
+    - xform/(\w)s/$1ong/
+    - xform/(\w)d/$1ai/
+    - xform/(\w)f/$1en/
+    - xform/(\w)h/$1ang/
+    - xform/(\w)j/$1an/
+    - xform/([gkhvuirzcs])k/$1uai/
+    - xform/(\w)k/$1ing/
+    - xform/([jqxnl])l/$1iang/
+    - xform/(\w)l/$1uang/
+    - xform/(\w)z/$1ou/
+    - xform/([gkhvuirzcs])x/$1ua/
+    - xform/(\w)x/$1ia/
+    - xform/(\w)c/$1ao/
+    - xform/([dtgkhvuirzcs])v/$1ui/
+    - xform/(\w)b/$1in/
+    - xform/(\w)m/$1ian/
+    - xform/([aoe])\1(\w)/$1$2/
+    - "xform/(^|[ '])v/$1zh/"
+    - "xform/(^|[ '])i/$1ch/"
+    - "xform/(^|[ '])u/$1sh/"
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+    - xform/eh/ê/
+    - 'xform ([aeiou])(ng?|r)([;/,\.]) $1$3$2'
+    - 'xform ([aeo])([iuo])([;/,\.]) $1$3$2'
+    - 'xform a; ā'
+    - 'xform a/ á'
+    - 'xform a, ǎ'
+    - 'xform a\. à'
+    - 'xform e; ē'
+    - 'xform e/ é'
+    - 'xform e, ě'
+    - 'xform e\. è'
+    - 'xform o; ō'
+    - 'xform o/ ó'
+    - 'xform o, ǒ'
+    - 'xform o\. ò'
+    - 'xform i; ī'
+    - 'xform i/ í'
+    - 'xform i, ǐ'
+    - 'xform i\. ì'
+    - 'xform u; ū'
+    - 'xform u/ ú'
+    - 'xform u, ǔ'
+    - 'xform u\. ù'
+    - 'xform ü; ǖ'
+    - 'xform ü/ ǘ'
+    - 'xform ü, ǚ'
+    - 'xform ü\. ǜ'
+  #closing_tips: 【粵拼】
+
+putonghua_to_cangjie_reverse_lookup:
+  tags: [ putonghua_to_cangjie_lookup ]
+  #dictionary: leimaau_jyutping_zhuyin_nospaces
+  dictionary: cangjie5_tradsimp
+  spelling_hints: 10
+  overwrite_comment: true  # 覆蓋其他提示
+  comment_format:
+    - "xlit|abcdefghijklmnopqrstuvwxyz|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重|"
+
+cangjie5_lookup:    # 倉頡五代反查
+  tag: "cangjie5_lookup"
+  dictionary: "cangjie5_tradsimp"
+  prism: "cangjie5_tradsimp"
+  enable_user_dict: false
+  enable_completion: true
+  enable_sentence: false
+  sentence_over_completion: false
+  max_phrase_length: 1
+  #prefix: "od"
+  suffix: "`"
+  tips: 【仓】
+  preedit_format:
+    - "xlit|abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重|"
+  comment_format:
+    - "xlit|abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重～|"
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+    - "^yyy.*$"
+
+reverse_lookup:
+  tags: [ stroke_lookup, cangjie5_lookup ]
+  #overwrite_comment: true
+  dictionary: "leimaau_jyutping_zhuyin_nospaces"
+
+recognizer:
+  import_preset: default
+  patterns:
+    email: "^[a-z][-_.0-9a-z]*@.*$"
+    #uppercase: "^[A-Z][-_+.'0-9A-Za-z]*$"
+    url: "^(www[.]|https?:|ftp:|mailto:).*$"
+    jyutping_lookup: "^oj[a-zA-Z;/,.]*`?$"
+    putonghua_to_jyutping_lookup: "^op[a-z;/,.]*`?$"
+    jyutping_to_cangjie_lookup: "^oy[a-z;/,.]*`?$"
+    japanese_lookup: "^on[a-z;/,.]*`?$"
+    korean_lookup: "^ok[a-z;/,.]*`?$"
+    hanja_lookup: "^oh[a-z;/,.]*`?$"
+    vietnamese_lookup: "^ov[a-zA-Z;/,.]*`?$"
+    hannom_lookup: "^om[a-zA-Z;/,.]*`?$"
+    international_lookup: "^oi[a-zA-Z;/,.]*`?$"
+    stroke_lookup: "^os[a-z]*`?$"
+    #cangjie5_lookup: "^od[a-z]*`?$"
+    cangjie5_lookup: "^[A-Z][a-z]*`?$"
+    #cangjie5_cap_lookup: "^[A-Z][abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]*`?$"
+    putonghua_to_cangjie_lookup: "^of[a-z;/,.]*`?$"
+    liangfen_lookup: "^od[a-z]*`?$"
+    punct: ^/[0-9]?[a-z]*$
+
+zh_simp:
+  option_name: zh_simp
+  opencc_config: t2s.json
+  tips: none
+
+zh_tw:
+  option_name: zh_tw
+  opencc_config: t2tw.json
+  tips: none
+

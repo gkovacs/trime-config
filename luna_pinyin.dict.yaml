@@ -28,7 +28,7 @@
 
 ---
 name: luna_pinyin
-version: "2016.07.10"
+version: "2018.04.15"
 sort: by_weight
 use_preset_vocabulary: true
 ...
@@ -383,6 +383,8 @@ use_preset_vocabulary: true
 㕵	guo
 㕶	fu
 㕷	huo
+㕷	pa
+㕷	pia
 㕸	li
 㕹	fa
 㕺	xiao
@@ -7076,9 +7078,10 @@ use_preset_vocabulary: true
 亰	jing	100%
 亰	yuan	0%
 亱	ye
-亲	qin	0.1%
-亲	qing	0.1%
-亲	zhen	98%
+亲	qin	0%
+亲	qing	0%
+亲	xin	10%
+亲	zhen	90%
 亳	bo
 亴	you
 亵	xie
@@ -9313,6 +9316,7 @@ use_preset_vocabulary: true
 啩	gua
 啪	pa	100%
 啪	pai	0%
+啪	pia	10%
 啫	zhe
 啬	se
 啭	zhuan
@@ -15156,7 +15160,7 @@ use_preset_vocabulary: true
 杂	duo	100%
 杂	za	0%
 权	quan	0%
-权	you	100%
+权	shu	100%
 杄	qian
 杅	yu
 杆	gan
@@ -16514,8 +16518,8 @@ use_preset_vocabulary: true
 殴	qu
 段	duan
 殶	zhu
-殷	yan	0.20%
-殷	yin	99.80%
+殷	yan	30%
+殷	yin
 殸	keng
 殸	qing
 殸	sheng
@@ -17757,7 +17761,7 @@ use_preset_vocabulary: true
 澜	lan
 澞	yu
 澟	lin
-澠	min
+澠	mian
 澠	sheng
 澡	zao
 澢	dang
@@ -19503,8 +19507,7 @@ use_preset_vocabulary: true
 甩	shuai
 甪	lu
 甫	fu
-甬	tong	0%
-甬	yong	100%
+甬	yong
 甭	beng
 甮	beng
 甮	fong
@@ -19601,7 +19604,6 @@ use_preset_vocabulary: true
 異	yi
 畱	liu
 畲	she
-畲	yu
 畳	die
 畴	chou
 畵	hua
@@ -20869,7 +20871,6 @@ use_preset_vocabulary: true
 祫	xia
 祬	zhi
 祭	ji	100%
-祭	zha	0%
 祭	zhai	0%
 祮	gao
 祯	zhen
@@ -24170,7 +24171,7 @@ use_preset_vocabulary: true
 萏	xian
 萐	jie
 萐	sha
-萑	huan
+萑	zhui
 萒	yan
 萓	yi
 萔	tiao
@@ -28577,7 +28578,6 @@ use_preset_vocabulary: true
 釖	dao
 釗	zhao
 釘	ding
-釙	li
 釙	po
 釙	pu
 釚	chou
@@ -30029,6 +30029,7 @@ use_preset_vocabulary: true
 隗	wei
 隘	ai
 隘	e
+隘	ga	0%
 隙	qi	0%
 隙	xi
 隚	tang
@@ -31682,6 +31683,7 @@ use_preset_vocabulary: true
 鰀	wan
 鰁	quan
 鰂	ze
+鰂	zei
 鰃	wei
 鰄	wei
 鰅	yu
@@ -31847,6 +31849,7 @@ use_preset_vocabulary: true
 鲕	er
 鲖	tong
 鲗	zei
+鲗	ze
 鲘	hou
 鲙	kuai
 鲚	ji
@@ -55460,6 +55463,7 @@ use_preset_vocabulary: true
 後車戒	hou che jie
 後車戒	hou ju jie
 後重	hou zhong
+徐繼畬	xu ji yu
 徐行	xu xing
 徐鉉	xu xuan
 徑行	jing xing
@@ -57674,6 +57678,7 @@ use_preset_vocabulary: true
 斧削	fu xue
 斧鑿	fu zao
 斫地	zhuo di
+斫畬	zhuo she
 斫蜋	zhuo lang
 斫鱠	zhuo kui
 斬衰	zhan cui
@@ -57914,6 +57919,8 @@ use_preset_vocabulary: true
 普天率土	pu tian shuai tu
 普通地圖	pu tong di tu
 普陀洛伽山	pu tuo luo qie shan
+景寧畬族自治縣	jing ning she zu zi zhi xian
+景寧畬鄉	jing ning she xiang
 景差	jing cuo
 景從	ying cong
 景從雲合	ying cong yun he
@@ -60594,10 +60601,10 @@ use_preset_vocabulary: true
 澗壑	jian he
 澗壑	jian huo
 澠水	sheng shui
-澠池	min chi
-澠池之功	min chi zhi gong
-澠池會	min chi hui
-澠池縣	min chi xian
+澠池	mian chi
+澠池之功	mian chi zhi gong
+澠池會	mian chi hui
+澠池縣	mian chi xian
 澤深恩重	ze shen en zhong
 澤被	ze bei
 澤被	ze pi
@@ -61658,7 +61665,8 @@ use_preset_vocabulary: true
 畬丁	yu ding
 畬族	she zu
 畬民	she min
-畬田	yu tian
+畬田	she tian
+畬鄉	she xiang
 異國情調	yi guo qing diao
 異地	yi di
 異地相逢	yi di xiang feng
@@ -70633,6 +70641,7 @@ use_preset_vocabulary: true
 鼓樂喧天	gu yue xuan tian
 鼓翮	gu he
 鼓腹含哺	gu fu han bu
+鼓角	gu jiao
 鼓角	gu jue
 鼓鈸	gu ba
 鼠牙雀角	shu ya que jiao
