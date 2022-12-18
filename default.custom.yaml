@@ -2,13 +2,10 @@ customization:
   distribution_code_name: ""
   distribution_version: ""
   generator: "Rime::SwitcherSettings"
-  modified_time: "Wed Dec 14 23:19:58 2022"
+  modified_time: "Sat Dec 17 21:54:56 2022"
   rime_version: 1.7.3
 patch:
   schema_list:
     - {schema: double_jyutping_extra}
-    - {schema: japanese}
-    - {schema: korean}
     - {schema: spanish}
     - {schema: td_pinyin_flypy_extra}
-    - {schema: vietnamese}

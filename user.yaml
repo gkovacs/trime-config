@@ -1,13 +1,15 @@
 var:
-  last_build_time: 1671090364
+  last_build_time: 1671342959
   option:
     ascii_punct: false
     full_shape: false
+    simplification: false
   previously_selected_schema: td_pinyin_flypy_extra
   schema_access_time:
-    double_jyutping_extra: 1671090420
-    spanish: 1657262433
+    double_jyutping_extra: 1671343128
+    japanese: 1671091785
+    spanish: 1671342716
     td_pinyin_flypy: 1657260725
     td_pinyin_flypy_display: 1657258170
-    td_pinyin_flypy_extra: 1671090428
+    td_pinyin_flypy_extra: 1671343165
     vietnamese: 1650442640
