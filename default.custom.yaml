@@ -1,11 +1,11 @@
 customization:
-  distribution_code_name: ""
-  distribution_version: ""
+  distribution_code_name: trime
+  distribution_version: "v3.2.11-20230301"
   generator: "Rime::SwitcherSettings"
-  modified_time: "Sat Dec 17 21:54:56 2022"
-  rime_version: 1.7.3
+  modified_time: "Mon May  1 00:20:18 2023"
+  rime_version: 1.8.5
 patch:
   schema_list:
-    - {schema: double_jyutping_extra}
+    - {schema: td_pinyin_flypy_display}
+    - {schema: double_jyutping_display}
     - {schema: spanish}
-    - {schema: td_pinyin_flypy_extra}

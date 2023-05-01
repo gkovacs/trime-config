@@ -1,15 +1,21 @@
 var:
-  last_build_time: 1671342959
+  last_build_time: 1682983605
   option:
     ascii_punct: false
     full_shape: false
     simplification: false
-  previously_selected_schema: td_pinyin_flypy_extra
+  previously_selected_schema: double_jyutping_display
   schema_access_time:
-    double_jyutping_extra: 1671343128
+    double_jyutping: 1682928096
+    double_jyutping_allowcap: 1682973233
+    double_jyutping_display: 1682983733
+    double_jyutping_extra: 1672651779
     japanese: 1671091785
-    spanish: 1671342716
-    td_pinyin_flypy: 1657260725
-    td_pinyin_flypy_display: 1657258170
-    td_pinyin_flypy_extra: 1671343165
+    korean: 1682886625
+    korean_hanja: 1682888163
+    spanish: 1682977441
+    td_pinyin_flypy: 1682979679
+    td_pinyin_flypy_allowcap: 1682974690
+    td_pinyin_flypy_display: 1682977443
+    td_pinyin_flypy_extra: 1672651834
     vietnamese: 1650442640

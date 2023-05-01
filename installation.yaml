@@ -1,4 +1,6 @@
-install_time: "Sun Mar  1 16:07:06 2020"
-installation_id: "1b532c36-ca65-444f-aa49-9a9d643321d5"
-rime_version: 1.7.3
-update_time: "Sat Dec 17 21:49:41 2022"
+distribution_code_name: trime
+distribution_name: Rime
+distribution_version: "v3.2.11-20230301"
+install_time: "Mon May  1 00:13:43 2023"
+installation_id: "ab983b63-ca8c-49cf-8dfe-f56e27a24fc1"
+rime_version: 1.8.5
