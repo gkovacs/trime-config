@@ -1,11 +1,33 @@
-customization:
-  distribution_code_name: trime
-  distribution_version: "v3.2.11-20230301"
-  generator: "Rime::SwitcherSettings"
-  modified_time: "Mon May  1 00:20:18 2023"
-  rime_version: 1.8.5
 patch:
+  menu:
+    alternative_select_keys: "123456789"
+    page_size: 9
   schema_list:
-    - {schema: td_pinyin_flypy_display}
-    - {schema: double_jyutping_display}
-    - {schema: spanish}
+    #- schema: jyut6ping3_pinyin
+    #- schema: clover_jyutping
+    #- schema: clover_show_jyutping
+    #- schema: jyut6ping3_nospaces
+    #- schema: terra_pinyin_nospaces
+    #- schema: jyut6ping3_shumianyu
+    #- schema: double_jyutping_shumianyu
+    #- schema: cangjie5_tradsimp
+    #- schema: td_pinyin_flypy
+    #- schema: td_pinyin_flypy_simp
+    - schema: double_pinyin_flypy_simp_show_jyutping
+    - schema: double_jyutping_simp_ext
+    - schema: double_pinyin_flypy_show_jyutping
+    - schema: double_jyutping_ext
+    #- schema: terra_pinyin_simp_nospaces
+    #- schema: double_pinyin_flypy
+    - schema: double_pinyin_flypy_simp_show_tones
+    - schema: double_jyutping_shumianyu_simp_ext
+    - schema: double_pinyin_flypy_show_tones
+    - schema: double_jyutping_shumianyu_ext
+    #- schema: td_pinyin_flypy
+    #- schema: double_jyutping_ext
+    - schema: cangjie5_tradsimp
+    - schema: spanish
+    #- schema: jyut6ping3
+    #- schema: jyut6ping3_simp
+    #- schema: jyut6ping3_nospaces
+    #- schema: jyut6ping3_simp_nospaces

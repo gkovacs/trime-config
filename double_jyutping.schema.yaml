@@ -12,7 +12,7 @@ schema:
     聲調輸入 q平 v上 x去 （雙擊爲陽調）
     提供多種字體轉換方案
   dependencies:
-    - leimaau_jyutping
+    - jyut6ping3
 
 switches:
   - name: ascii_mode
@@ -23,13 +23,14 @@ switches:
     states: [ 半角, 全角 ]
   #- name: simplification
   #  states: [ 漢字, 汉字 ]
-  - options: [zh_simp, zh_tw ]
+  - options: [ zh_tw, simplification ]
+    states: [ 繁, 简 ]
     reset: 0
-    states:
-      - 汉字
-      - 漢字
   - name: ascii_punct
     states: [ 。，, ．， ]
+  - name: extended_charset
+    states: ["通用", "增广"]
+    reset: 0
 
 engine:
   processors:
@@ -54,6 +55,8 @@ engine:
     - simplifier@zh_simp
     - simplifier@zh_tw
     - uniquifier
+    - charset_filter
+    - cjk_minifier
 
 speller:
   alphabet: 'zyxwvutsrqponmlkjihgfedcba;/,.'
@@ -186,7 +189,8 @@ menu:
   page_size: 9
 
 translator:
-  dictionary: leimaau_jyutping
+  enable_charset_filter: true
+  dictionary: jyut6ping3
   spelling_hints: 9
   prism: double_jyutping
   preedit_format:

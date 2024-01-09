@@ -72,7 +72,7 @@ style:
   key_long_text_size: 18 #长标签字号
   key_text_size: 24 #键字号
   key_width: 10.0 #键宽，占屏幕宽的百分比
-  keyboards: [.default, letter, default, cangjie5_tradsimp, cangjie5_tradsimp_upper, td_pinyin_flypy_display, td_pinyin_flypy_extra, double_jyutping_display, double_jyutping_extra, spanish, spanish_upper, number, symbols, edit, move, bqrw1, bqrw2, bqrw3, bqrw4, bqrw5, bqqt1, bqqt2, bqqt3, bqqt4, bqqz1, bqqz2, bqqz3, bqqz4, bqqz5, bqpt1, bqpt2, bqhd1, bqhd2, bqhc1, bqhc2, bqlx1, bqlx2, bqlx3, bqlx4, bqlx5, bqkj1, bqkj2, bqkj3, bqkj4, bqfh1, bqfh2, bqfh3, bqfh4, kao_fond, kao_sad, kao_mad, kao_astonished, kao_impotent, kao_happy, numberb] #键盘配置
+  keyboards: [.default, letter, default, cangjie5_tradsimp, cangjie5_tradsimp_upper, td_pinyin_flypy_display, td_pinyin_flypy_extra, double_jyutping_display, double_jyutping_extra, spanish, spanish_upper, double_pinyin_flypy_simp_show_jyutping, double_pinyin_flypy_show_jyutping, double_pinyin_flypy_simp_show_tones, double_pinyin_flypy_show_tones, double_jyutping_simp_ext, double_jyutping_ext, double_jyutping_shumianyu_simp_ext, double_jyutping_shumianyu_ext, number, symbols, edit, move, bqrw1, bqrw2, bqrw3, bqrw4, bqrw5, bqqt1, bqqt2, bqqt3, bqqt4, bqqz1, bqqz2, bqqz3, bqqz4, bqqz5, bqpt1, bqpt2, bqhd1, bqhd2, bqhc1, bqhc2, bqlx1, bqlx2, bqlx3, bqlx4, bqlx5, bqkj1, bqkj2, bqkj3, bqkj4, bqfh1, bqfh2, bqfh3, bqfh4, kao_fond, kao_sad, kao_mad, kao_astonished, kao_impotent, kao_happy, numberb] #键盘配置
   label_text_size: 22 #标签字号
   label_font: label.ttf #编标签字体
   latin_font: latin.ttf #西文本体
@@ -859,37 +859,37 @@ preset_keyboards:
   #  height: 48
     ascii_mode: 0
     keys:
-      - {click: q, swipe_up: up_Q, long_click: 1, key_back_color: bh1, key_text_color: th1}
-      - {click: w, swipe_up: up_W, long_click: 2, key_back_color: bh1, key_text_color: th1}
-      - {click: e, swipe_up: up_E, long_click: 3, key_back_color: bh1, key_text_color: th1}
-      - {click: r, swipe_up: up_R, long_click: 4, key_back_color: bh1, key_text_color: th1}
-      - {click: t, swipe_up: up_T, long_click: 5, key_back_color: bh1, key_text_color: th1}
-      - {click: y, swipe_up: up_Y, long_click: 6, key_back_color: bh1, key_text_color: th1}
-      - {click: u, swipe_up: up_U, long_click: 7, key_back_color: bh1, key_text_color: th1}
-      - {click: i, swipe_up: up_I, long_click: 8, key_back_color: bh1, key_text_color: th1}
-      - {click: o, swipe_up: up_O, long_click: 9, key_back_color: bh1, key_text_color: th1}
-      - {click: p, swipe_up: up_P, long_click: 0, key_back_color: bh1, key_text_color: th1}
+      - {click: q, label: '手', swipe_down: up_Q, long_click: 1, key_back_color: bh1, key_text_color: th1}
+      - {click: w, label: '田', swipe_down: up_W, long_click: 2, key_back_color: bh1, key_text_color: th1}
+      - {click: e, label: '水', swipe_down: up_E, long_click: 3, key_back_color: bh1, key_text_color: th1}
+      - {click: r, label: '口', swipe_down: up_R, long_click: 4, key_back_color: bh1, key_text_color: th1}
+      - {click: t, label: '廿', swipe_down: up_T, long_click: 5, key_back_color: bh1, key_text_color: th1}
+      - {click: y, label: '卜', swipe_down: up_Y, long_click: 6, key_back_color: bh1, key_text_color: th1}
+      - {click: u, label: '山', swipe_down: up_U, long_click: 7, key_back_color: bh1, key_text_color: th1}
+      - {click: i, label: '戈', swipe_down: up_I, long_click: 8, key_back_color: bh1, key_text_color: th1}
+      - {click: o, label: '人', swipe_down: up_O, long_click: 9, key_back_color: bh1, key_text_color: th1}
+      - {click: p, label: '心', swipe_down: up_P, long_click: 0, key_back_color: bh1, key_text_color: th1}
 
       - {width: 5, key_back_color: bh2, key_text_color: th2}
-      - {click: a, swipe_up: up_A, long_click: '`', key_back_color: bh2, key_text_color: th2}
-      - {click: s, swipe_up: up_S, long_click: '@', key_back_color: bh2, key_text_color: th2}
-      - {click: d, swipe_up: up_D, long_click: '#', key_back_color: bh2, key_text_color: th2}
-      - {click: f, swipe_up: up_F, long_click: '$', key_back_color: bh2, key_text_color: th2}
-      - {click: g, swipe_up: up_G, long_click: '%', key_back_color: bh2, key_text_color: th2}
-      - {click: h, swipe_up: up_H, long_click: '!', key_back_color: bh2, key_text_color: th2}
-      - {click: j, swipe_up: up_J, long_click: '&', key_back_color: bh2, key_text_color: th2}
-      - {click: k, swipe_up: up_K, long_click: '*', key_back_color: bh2, key_text_color: th2}
-      - {click: l, swipe_up: up_L, long_click: '(){Left}', key_back_color: bh2, key_text_color: th2}
+      - {click: a, label: '日', swipe_down: up_A, long_click: '`', key_back_color: bh2, key_text_color: th2}
+      - {click: s, label: '尸', swipe_down: up_S, long_click: '@', key_back_color: bh2, key_text_color: th2}
+      - {click: d, label: '木', swipe_down: up_D, long_click: '#', key_back_color: bh2, key_text_color: th2}
+      - {click: f, label: '火', swipe_down: up_F, long_click: '$', key_back_color: bh2, key_text_color: th2}
+      - {click: g, label: '土', swipe_down: up_G, long_click: '%', key_back_color: bh2, key_text_color: th2}
+      - {click: h, label: '竹', swipe_down: up_H, long_click: '!', key_back_color: bh2, key_text_color: th2}
+      - {click: j, label: '十', swipe_down: up_J, long_click: '&', key_back_color: bh2, key_text_color: th2}
+      - {click: k, label: '大', swipe_down: up_K, long_click: '*', key_back_color: bh2, key_text_color: th2}
+      - {click: l, label: '中', swipe_down: up_L, long_click: '(){Left}', key_back_color: bh2, key_text_color: th2}
       - {width: 5, key_back_color: bh2, key_text_color: th2}
 
       - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
-      - {click: z, swipe_up: up_Z, long_click: "\\", key_back_color: bh3, key_text_color: th3}
-      - {click: x, swipe_up: up_X, long_click: '_', key_back_color: bh3, key_text_color: th3}
-      - {click: c, swipe_up: up_C, long_click: '-', key_back_color: bh3, key_text_color: th3}
-      - {click: v, swipe_up: up_V, long_click: '^', key_back_color: bh3, key_text_color: th3}
-      - {click: b, swipe_up: up_B, long_click: "~", key_back_color: bh3, key_text_color: th3}
-      - {click: n, swipe_up: up_N, long_click: "'", key_back_color: bh3, key_text_color: th3}
-      - {click: m, swipe_up: up_M, long_click: '"', key_back_color: bh3, key_text_color: th3}
+      - {click: z, label: '重', swipe_down: up_Z, long_click: "\\", key_back_color: bh3, key_text_color: th3}
+      - {click: x, label: '難', swipe_down: up_X, long_click: '_', key_back_color: bh3, key_text_color: th3}
+      - {click: c, label: '金', swipe_down: up_C, long_click: '-', key_back_color: bh3, key_text_color: th3}
+      - {click: v, label: '女', swipe_down: up_V, long_click: '^', key_back_color: bh3, key_text_color: th3}
+      - {click: b, label: '月', swipe_down: up_B, long_click: "~", key_back_color: bh3, key_text_color: th3}
+      - {click: n, label: '弓', swipe_down: up_N, long_click: "'", key_back_color: bh3, key_text_color: th3}
+      - {click: m, label: '一', swipe_down: up_M, long_click: '"', key_back_color: bh3, key_text_color: th3}
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
 
       - {click: Keyboard_number, long_click: Menu, swipe_up: Keyboard_cangjie, width: 12.5, key_back_color: bgn, key_text_color: tgn}
@@ -912,7 +912,7 @@ preset_keyboards:
       - {click: e, swipe_up: E, swipe_down: swp_e, long_click: 3, key_back_color: bh1, key_text_color: th1}
       - {click: r, swipe_up: R, swipe_down: swp_r, long_click: 4, key_back_color: bh1, key_text_color: th1}
       - {click: t, swipe_up: T, swipe_down: swp_t, long_click: 5, key_back_color: bh1, key_text_color: th1}
-      - {click: y, swipe_up: Y, swipe_down: swp_y, long_click: 6, key_back_color: bh1, key_text_color: th1}
+      - {click: 'y', swipe_up: 'Y', swipe_down: swp_y, long_click: 6, key_back_color: bh1, key_text_color: th1}
       - {click: u, swipe_up: U, swipe_down: swp_u, long_click: 7, key_back_color: bh1, key_text_color: th1}
       - {click: i, swipe_up: I, swipe_down: swp_i, long_click: 8, key_back_color: bh1, key_text_color: th1}
       - {click: o, swipe_up: O, swipe_down: swp_o, long_click: 9, key_back_color: bh1, key_text_color: th1}
@@ -936,7 +936,7 @@ preset_keyboards:
       - {click: c, swipe_up: C, swipe_down: swp_c, long_click: '-', key_back_color: bh3, key_text_color: th3}
       - {click: v, swipe_up: V, swipe_down: swp_v, long_click: '^', key_back_color: bh3, key_text_color: th3}
       - {click: b, swipe_up: B, swipe_down: swp_b, long_click: "~", key_back_color: bh3, key_text_color: th3}
-      - {click: n, swipe_up: N, swipe_down: swp_n, long_click: "'", key_back_color: bh3, key_text_color: th3}
+      - {click: 'n', swipe_up: 'N', swipe_down: swp_n, long_click: "'", key_back_color: bh3, key_text_color: th3}
       - {click: m, swipe_up: M, swipe_down: swp_m, long_click: '"', key_back_color: bh3, key_text_color: th3}
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
 
@@ -1008,7 +1008,7 @@ preset_keyboards:
       - {click: cangjie_e, swipe_up: E, swipe_down: yue_e, long_click: 3, key_back_color: bh1, key_text_color: th1}
       - {click: cangjie_r, swipe_up: R, swipe_down: yue_r, long_click: 4, key_back_color: bh1, key_text_color: th1}
       - {click: cangjie_t, swipe_up: T, swipe_down: yue_t, long_click: 5, key_back_color: bh1, key_text_color: th1}
-      - {click: cangjie_y, swipe_up: Y, swipe_down: yue_y, long_click: 6, key_back_color: bh1, key_text_color: th1}
+      - {click: cangjie_y, swipe_up: 'Y', swipe_down: yue_y, long_click: 6, key_back_color: bh1, key_text_color: th1}
       - {click: cangjie_u, swipe_up: U, swipe_down: yue_u, long_click: 7, key_back_color: bh1, key_text_color: th1}
       - {click: cangjie_i, swipe_up: I, swipe_down: yue,i, long_click: 8, key_back_color: bh1, key_text_color: th1}
       - {click: cangjie_o, swipe_up: O, swipe_down: yue_o, long_click: 9, key_back_color: bh1, key_text_color: th1}
@@ -1032,7 +1032,7 @@ preset_keyboards:
       - {click: cangjie_c, swipe_up: C, swipe_down: yue_c, long_click: '-', key_back_color: bh3, key_text_color: th3}
       - {click: cangjie_v, swipe_up: V, swipe_down: yue_v, long_click: '^', key_back_color: bh3, key_text_color: th3}
       - {click: cangjie_b, swipe_up: B, swipe_down: yue_b, long_click: "~", key_back_color: bh3, key_text_color: th3}
-      - {click: cangjie_n, swipe_up: N, swipe_down: yue_n, long_click: "'", key_back_color: bh3, key_text_color: th3}
+      - {click: cangjie_n, swipe_up: 'N', swipe_down: yue_n, long_click: "'", key_back_color: bh3, key_text_color: th3}
       - {click: cangjie_m, swipe_up: M, swipe_down: yue_m, long_click: '"', key_back_color: bh3, key_text_color: th3}
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
 
@@ -1092,10 +1092,6 @@ preset_keyboards:
       - {click: ".", long_click: ">", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: Return, swipe_up: Escape, long_click: CommitComment, width: 15, key_back_color: benter, key_text_color: tenter}
 
-
-  td_pinyin_flypy_extra:
-    import_preset: cangjie5_tradsimp
-
   double_jyutping_extra:
     author: "暖暖"
     name: 仓颉
@@ -1108,7 +1104,7 @@ preset_keyboards:
       - {click: cangjie_e, swipe_up: E, swipe_down: prq_e, long_click: 3, key_back_color: bh1, key_text_color: th1}
       - {click: cangjie_r, swipe_up: R, swipe_down: prq_r, long_click: 4, key_back_color: bh1, key_text_color: th1}
       - {click: cangjie_t, swipe_up: T, swipe_down: prq_t, long_click: 5, key_back_color: bh1, key_text_color: th1}
-      - {click: cangjie_y, swipe_up: Y, swipe_down: prq_y, long_click: 6, key_back_color: bh1, key_text_color: th1}
+      - {click: cangjie_y, swipe_up: 'Y', swipe_down: prq_y, long_click: 6, key_back_color: bh1, key_text_color: th1}
       - {click: cangjie_u, swipe_up: U, swipe_down: prq_u, long_click: 7, key_back_color: bh1, key_text_color: th1}
       - {click: cangjie_i, swipe_up: I, swipe_down: prq_i, long_click: 8, key_back_color: bh1, key_text_color: th1}
       - {click: cangjie_o, swipe_up: O, swipe_down: prq_o, long_click: 9, key_back_color: bh1, key_text_color: th1}
@@ -1132,7 +1128,7 @@ preset_keyboards:
       - {click: cangjie_c, swipe_up: C, swipe_down: prq_c, long_click: '-', key_back_color: bh3, key_text_color: th3}
       - {click: cangjie_v, swipe_up: V, swipe_down: prq_v, long_click: '^', key_back_color: bh3, key_text_color: th3}
       - {click: cangjie_b, swipe_up: B, swipe_down: prq_b, long_click: "~", key_back_color: bh3, key_text_color: th3}
-      - {click: cangjie_n, swipe_up: N, swipe_down: prq_n, long_click: "'", key_back_color: bh3, key_text_color: th3}
+      - {click: cangjie_n, swipe_up: 'N', swipe_down: prq_n, long_click: "'", key_back_color: bh3, key_text_color: th3}
       - {click: cangjie_m, swipe_up: M, swipe_down: prq_m, long_click: '"', key_back_color: bh3, key_text_color: th3}
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
 
@@ -1143,6 +1139,33 @@ preset_keyboards:
       - {click: ",", long_click: "<", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: ".", long_click: ">", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: Return, swipe_up: Escape, long_click: CommitComment, width: 15, key_back_color: benter, key_text_color: tenter}
+
+  td_pinyin_flypy_extra:
+    import_preset: cangjie5_tradsimp
+
+  double_pinyin_flypy_simp_show_jyutping:
+    import_preset: cangjie5_tradsimp
+
+  double_pinyin_flypy_show_jyutping:
+    import_preset: cangjie5_tradsimp
+
+  double_pinyin_flypy_simp_show_tones:
+    import_preset: cangjie5_tradsimp
+
+  double_pinyin_flypy_show_tones:
+    import_preset: cangjie5_tradsimp
+
+  double_jyutping_simp_ext:
+    import_preset: double_jyutping_extra
+
+  double_jyutping_ext:
+    import_preset: double_jyutping_extra
+
+  double_jyutping_shumianyu_simp_ext:
+    import_preset: double_jyutping_extra
+
+  double_jyutping_shumianyu_ext:
+    import_preset: double_jyutping_extra
 
   letter:
     author: "暖暖"

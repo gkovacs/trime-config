@@ -12,24 +12,26 @@ schema:
   description: |
     地球拼音＋小鶴雙拼方案。
   dependencies:
-    - terra_pinyin
+    #- stroke
 
 switches:
   - name: ascii_mode
     reset: 0
     states: [ 中文, 西文 ]
   - name: full_shape
-    reset: 0
     states: [ 半角, 全角 ]
-  #- name: simplification
-  #  states: [ 漢字, 汉字 ]
-  - options: [zh_simp, zh_tw ]
-    reset: 0
-    states:
-      - 汉字
-      - 漢字
+  - name: simplification
+    states: [ 漢字, 汉字 ]
   - name: ascii_punct
     states: [ 。，, ．， ]
+
+custom_phrase:
+  db_class: stabledb
+  dictionary: ""
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: 1
+  user_dict: custom_phrase
 
 engine:
   processors:
@@ -49,14 +51,16 @@ engine:
     - fallback_segmentor
   translators:
     - punct_translator
+    - "table_translator@custom_phrase"
+    - reverse_lookup_translator
     - script_translator
   filters:
-    - simplifier@zh_simp
-    - simplifier@zh_tw
+    #- reverse_lookup_filter
+    - simplifier
     - uniquifier
 
 speller:
-  alphabet: 'zyxwvutsrqponmlkjihgfedcba;,./'
+  alphabet: 'zyxwvutsrqponmlkjihgfedcba;/,\.'
   initials: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
   algebra:
@@ -94,13 +98,10 @@ speller:
     - derive/^([a-z]+)[0-5]$/$1/
     - 'xlit 1234 ;/,.'
 
-menu:
-  alternative_select_keys: "123456789"
-  page_size: 9
 
 translator:
   dictionary: terra_pinyin
-  spelling_hints: 5 # ～字以內候選標註完整帶調拼音
+  spelling_hints: 5  # ～字以內候選標註完整帶調拼音
   prism: td_pinyin_flypy
   preedit_format:
     - xform/([bpmfdtnljqx])n/$1iao/
@@ -264,35 +265,28 @@ translator:
     - xform 5 ˙
     - xform/ //
 
+reverse_lookup:
+  dictionary: stroke
+  enable_completion: true
+  prefix: "`"
+  suffix: "'"
+  tips: 〔筆畫〕
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
+  comment_format:
+    - xform/([nl])v/$1ü/
+
 punctuator:
   import_preset: default
 
-ascii_composer:
-  switch_key:
-    Shift_L: noop
-    Shift_R: noop
-
 key_binder:
-  bindings:
-    - {accept: "Control+Shift+1", select: .next, when: always}
-    - {accept: "Control+Shift+f", toggle: zh_simp, when: always}
-    - {accept: "Control+Shift+F", toggle: zh_simp, when: always}
-    - {accept: "Control+Shift+t", toggle: zh_tw, when: always}
-    - {accept: "Control+Shift+T", toggle: zh_tw, when: always}
+  import_preset: default
+
+menu:
+  alternative_select_keys: "123456789"
+  page_size: 9
 
 recognizer:
+  import_preset: default
   patterns:
-    email: "^[a-z][-_.0-9a-z]*@.*$"
-    uppercase: "^[A-Z][-_+.'0-9A-Za-z]*$"
-    url: "^(www[.]|https?:|ftp:|mailto:).*$"
-    punct: ^/[0-9]?[a-z]*$
-
-zh_simp:
-  option_name: zh_simp
-  opencc_config: t2s.json
-  tips: none
-
-zh_tw:
-  option_name: zh_tw
-  opencc_config: t2tw.json
-  tips: none
+    reverse_lookup: "`[a-z]*'?$"
