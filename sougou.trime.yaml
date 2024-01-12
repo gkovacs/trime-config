@@ -859,45 +859,45 @@ preset_keyboards:
   #  height: 48
     ascii_mode: 0
     keys:
-      - {click: q, label: '手', swipe_up: up_Q, swipe_down: swp_q, long_click: 1, key_back_color: bh1, key_text_color: th1}
-      - {click: w, label: '田', swipe_up: up_W, swipe_down: swp_w, long_click: 2, key_back_color: bh1, key_text_color: th1}
-      - {click: e, label: '水', swipe_up: up_E, swipe_down: swp_e, long_click: 3, key_back_color: bh1, key_text_color: th1}
-      - {click: r, label: '口', swipe_up: up_R, swipe_down: swp_r, long_click: 4, key_back_color: bh1, key_text_color: th1}
-      - {click: t, label: '廿', swipe_up: up_T, swipe_down: swp_t, long_click: 5, key_back_color: bh1, key_text_color: th1}
-      - {click: y, label: '卜', swipe_up: up_Y, swipe_down: swp_y, long_click: 6, key_back_color: bh1, key_text_color: th1}
-      - {click: u, label: '山', swipe_up: up_U, swipe_down: swp_u, long_click: 7, key_back_color: bh1, key_text_color: th1}
-      - {click: i, label: '戈', swipe_up: up_I, swipe_down: swp_i, long_click: 8, key_back_color: bh1, key_text_color: th1}
-      - {click: o, label: '人', swipe_up: up_O, swipe_down: swp_o, long_click: 9, key_back_color: bh1, key_text_color: th1}
-      - {click: p, label: '心', swipe_up: up_P, swipe_down: swp_p, long_click: 0, key_back_color: bh1, key_text_color: th1}
+      - {click: 'q', label: '手', swipe_up: up_Q, swipe_down: swp_q, long_click: 1, key_back_color: bh1, key_text_color: th1}
+      - {click: 'w', label: '田', swipe_up: up_W, swipe_down: swp_w, long_click: 2, key_back_color: bh1, key_text_color: th1}
+      - {click: 'e', label: '水', swipe_up: up_E, swipe_down: swp_e, long_click: 3, key_back_color: bh1, key_text_color: th1}
+      - {click: 'r', label: '口', swipe_up: up_R, swipe_down: swp_r, long_click: 4, key_back_color: bh1, key_text_color: th1}
+      - {click: 't', label: '廿', swipe_up: up_T, swipe_down: swp_t, long_click: 5, key_back_color: bh1, key_text_color: th1}
+      - {click: 'y', label: '卜', swipe_up: up_Y, swipe_down: swp_y, long_click: 6, key_back_color: bh1, key_text_color: th1}
+      - {click: 'u', label: '山', swipe_up: up_U, swipe_down: swp_u, long_click: 7, key_back_color: bh1, key_text_color: th1}
+      - {click: 'i', label: '戈', swipe_up: up_I, swipe_down: swp_i, long_click: 8, key_back_color: bh1, key_text_color: th1}
+      - {click: 'o', label: '人', swipe_up: up_O, swipe_down: swp_o, long_click: 9, key_back_color: bh1, key_text_color: th1}
+      - {click: 'p', label: '心', swipe_up: up_P, swipe_down: swp_p, long_click: 0, key_back_color: bh1, key_text_color: th1}
 
       - {width: 5, key_back_color: bh2, key_text_color: th2}
-      - {click: a, label: '日', swipe_up: up_A, swipe_down: swp_a, long_click: '`', key_back_color: bh2, key_text_color: th2}
-      - {click: s, label: '尸', swipe_up: up_S, swipe_down: swp_s, long_click: '@', key_back_color: bh2, key_text_color: th2}
-      - {click: d, label: '木', swipe_up: up_D, swipe_down: swp_d, long_click: '#', key_back_color: bh2, key_text_color: th2}
-      - {click: f, label: '火', swipe_up: up_F, swipe_down: swp_f, long_click: '$', key_back_color: bh2, key_text_color: th2}
-      - {click: g, label: '土', swipe_up: up_G, swipe_down: swp_g, long_click: '%', key_back_color: bh2, key_text_color: th2}
-      - {click: h, label: '竹', swipe_up: up_H, swipe_down: swp_h, long_click: '!', key_back_color: bh2, key_text_color: th2}
-      - {click: j, label: '十', swipe_up: up_J, swipe_down: swp_j, long_click: '&', key_back_color: bh2, key_text_color: th2}
-      - {click: k, label: '大', swipe_up: up_K, swipe_down: swp_k, long_click: '*', key_back_color: bh2, key_text_color: th2}
-      - {click: l, label: '中', swipe_up: up_L, swipe_down: swp_l, long_click: '(){Left}', key_back_color: bh2, key_text_color: th2}
+      - {click: 'a', label: '日', swipe_up: up_A, swipe_down: swp_a, long_click: '`', key_back_color: bh2, key_text_color: th2}
+      - {click: 's', label: '尸', swipe_up: up_S, swipe_down: swp_s, long_click: '@', key_back_color: bh2, key_text_color: th2}
+      - {click: 'd', label: '木', swipe_up: up_D, swipe_down: swp_d, long_click: '#', key_back_color: bh2, key_text_color: th2}
+      - {click: 'f', label: '火', swipe_up: up_F, swipe_down: swp_f, long_click: '$', key_back_color: bh2, key_text_color: th2}
+      - {click: 'g', label: '土', swipe_up: up_G, swipe_down: swp_g, long_click: '%', key_back_color: bh2, key_text_color: th2}
+      - {click: 'h', label: '竹', swipe_up: up_H, swipe_down: swp_h, long_click: '!', key_back_color: bh2, key_text_color: th2}
+      - {click: 'j', label: '十', swipe_up: up_J, swipe_down: swp_j, long_click: '&', key_back_color: bh2, key_text_color: th2}
+      - {click: 'k', label: '大', swipe_up: up_K, swipe_down: swp_k, long_click: '*', key_back_color: bh2, key_text_color: th2}
+      - {click: 'l', label: '中', swipe_up: up_L, swipe_down: swp_l, long_click: '(){Left}', key_back_color: bh2, key_text_color: th2}
       - {width: 5, key_back_color: bh2, key_text_color: th2}
 
       - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
-      - {click: z, label: '重', swipe_up: up_Z, swipe_down: swp_z, long_click: "\\", key_back_color: bh3, key_text_color: th3}
-      - {click: x, label: '難', swipe_up: up_X, swipe_down: swp_x, long_click: '_', key_back_color: bh3, key_text_color: th3}
-      - {click: c, label: '金', swipe_up: up_C, swipe_down: swp_c, long_click: '-', key_back_color: bh3, key_text_color: th3}
-      - {click: v, label: '女', swipe_up: up_V, swipe_down: swp_v, long_click: '^', key_back_color: bh3, key_text_color: th3}
-      - {click: b, label: '月', swipe_up: up_B, swipe_down: swp_b, long_click: "~", key_back_color: bh3, key_text_color: th3}
-      - {click: n, label: '弓', swipe_up: up_N, swipe_down: swp_n, long_click: "'", key_back_color: bh3, key_text_color: th3}
-      - {click: m, label: '一', swipe_up: up_M, swipe_down: swp_m, long_click: '"', key_back_color: bh3, key_text_color: th3}
+      - {click: 'z', label: '重', swipe_up: up_Z, swipe_down: swp_z, long_click: "\\", key_back_color: bh3, key_text_color: th3}
+      - {click: 'x', label: '難', swipe_up: up_X, swipe_down: swp_x, long_click: '_', key_back_color: bh3, key_text_color: th3}
+      - {click: 'c', label: '金', swipe_up: up_C, swipe_down: swp_c, long_click: '-', key_back_color: bh3, key_text_color: th3}
+      - {click: 'v', label: '女', swipe_up: up_V, swipe_down: swp_v, long_click: '^', key_back_color: bh3, key_text_color: th3}
+      - {click: 'b', label: '月', swipe_up: up_B, swipe_down: swp_b, long_click: "~", key_back_color: bh3, key_text_color: th3}
+      - {click: 'n', label: '弓', swipe_up: up_N, swipe_down: swp_n, long_click: "'", key_back_color: bh3, key_text_color: th3}
+      - {click: 'm', label: '一', swipe_up: up_M, swipe_down: swp_m, long_click: '"', key_back_color: bh3, key_text_color: th3}
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
 
       - {click: Keyboard_number, long_click: Menu, swipe_up: Menu, width: 12.5, key_back_color: bgn, key_text_color: tgn}
-      - {click: ";", long_click: ":", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: "/", long_click: "?", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: space, long_click: '{Mode_switch}{Keyboard_spanish}', swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switch, width: 32.5, key_back_color: bkg, key_text_color: tkg}
-      - {click: ",", long_click: "<", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: ".", long_click: ">", send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: ";", long_click: ":", swipe_up: Keyboard_spanish, send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: "/", long_click: "?", swipe_up: Keyboard_spanish, send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: space, long_click: '{Mode_switch}{Keyboard_spanish}', swipe_left: "Left", swipe_right: "Right", swipe_up: '{Mode_switch}{Keyboard_spanish}', width: 32.5, key_back_color: bkg, key_text_color: tkg}
+      - {click: ",", long_click: "<", swipe_up: Schema_switch, send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: ".", long_click: ">", swipe_up: Schema_switch, send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: Return, swipe_up: Escape, long_click: CommitComment, width: 15, key_back_color: benter, key_text_color: tenter}
 
   spanish:
@@ -941,11 +941,11 @@ preset_keyboards:
       - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
 
       - {click: Keyboard_number, long_click: Menu, swipe_up: Menu, width: 12.5, key_back_color: bgn, key_text_color: tgn}
-      - {click: ";", long_click: ":", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: "/", long_click: "?", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: space, long_click: '{Mode_switch}{Keyboard_default}', swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switch, width: 32.5, key_back_color: bkg, key_text_color: tkg}
-      - {click: ",", long_click: "<", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: ".", long_click: ">", send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: ";", long_click: ":", swipe_up: Keyboard_default, send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: "/", long_click: "?", swipe_up: Keyboard_default, send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: space, long_click: '{Mode_switch}{Keyboard_default}', swipe_left: "Left", swipe_right: "Right", swipe_up: '{Mode_switch}{Keyboard_default}', width: 32.5, key_back_color: bkg, key_text_color: tkg}
+      - {click: ",", long_click: "<", swipe_up: Schema_switch, send_bindings: false, key_back_color: bh4, key_text_color: th4}
+      - {click: ".", long_click: ">", swipe_up: Schema_switch, send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: Return, swipe_up: Escape, long_click: CommitComment, width: 15, key_back_color: benter, key_text_color: tenter}
 
   spanish_upper:
@@ -991,7 +991,7 @@ preset_keyboards:
       - {click: Keyboard_number, long_click: Menu, swipe_up: Menu, width: 12.5, key_back_color: bgn, key_text_color: tgn}
       - {click: ':', long_click: ":", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: "/", long_click: "?", send_bindings: false, key_back_color: bh4, key_text_color: th4}
-      - {click: space, long_click: '{Mode_switch}{Keyboard_default}', swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switch, width: 32.5, key_back_color: bkg, key_text_color: tkg}
+      - {click: space, long_click: '{Mode_switch}{Keyboard_default}', swipe_left: "Left", swipe_right: "Right", swipe_up: '{Mode_switch}{Keyboard_default}', width: 32.5, key_back_color: bkg, key_text_color: tkg}
       - {click: ",", long_click: "<", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: ".", long_click: ">", send_bindings: false, key_back_color: bh4, key_text_color: th4}
       - {click: Return, swipe_up: Escape, long_click: CommitComment, width: 15, key_back_color: benter, key_text_color: tenter}
