@@ -83,7 +83,7 @@ style:
   preview_offset: -32 #按键提示纵向偏移
   preview_text_size: 40 #按键提示字号
   proximity_correction: true #按键纠错
-  reset_ascii_mode: false #显示键盘时重置为中文状态
+  reset_ascii_mode: true #显示键盘时重置为中文状态
   round_corner: *round1 #按键圆角半径
   shadow_radius: 0.0 #按键阴影半径
   speech_opencc_config: none #语音输入简繁转换
