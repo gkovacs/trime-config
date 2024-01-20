@@ -11,6 +11,9 @@
     "dict": {
       "type": "group",
       "dicts": [{
+        "type": "text",
+        "file": "TSCharacters_custom.txt"
+      }, {
         "type": "ocd2",
         "file": "TSPhrases.ocd2"
       }, {
