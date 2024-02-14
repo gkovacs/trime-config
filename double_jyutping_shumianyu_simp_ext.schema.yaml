@@ -32,7 +32,7 @@ switches:
   states: [半角, 全角]
   reset: 0
 - options: [zh_tw, simplification]
-  states: [繁, 简]
+  states: [繁體, 简体]
   reset: 1
 - name: ascii_punct
   states: [。，, ．，]
@@ -77,6 +77,7 @@ engine:
   - reverse_lookup_filter@cangjie5_reverse_lookup
   - reverse_lookup_filter@jyutping_to_cangjie5_reverse_lookup
   - lua_filter@reverse_lookup_filter_jyutping_if_empty
+  - lua_filter@charset_filter
   - simplifier@zh_tw
   - simplifier
   - uniquifier
@@ -85,7 +86,6 @@ engine:
     # - charset_filter@gbk
     # - charset_filter
     # - cjk_minifier
-  - lua_filter@charset_filter
 
 # charset_filter:
 #   option_name: gbk

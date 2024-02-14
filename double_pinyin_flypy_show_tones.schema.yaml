@@ -24,13 +24,13 @@ schema:
 
 switches:
 - name: ascii_mode
-  states: [中, 英]
+  states: [中文, 西文]
   reset: 0
 - name: full_shape
   states: [半角, 全角]
   reset: 0
 - options: [zh_tw, simplification]
-  states: [繁, 简]
+  states: [繁體, 简体]
   reset: 0
 - name: ascii_punct
   states: [。，, ．，]
@@ -74,6 +74,8 @@ engine:
   filters:
   - reverse_lookup_filter@putonghua_to_cangjie5_reverse_lookup
   - reverse_lookup_filter@cangjie5_reverse_lookup
+  - lua_filter@charset_filter
+    #- reverse_lookup_filter@putonghua_reverse_lookup
   - simplifier@zh_tw
   - simplifier
   - uniquifier
@@ -81,8 +83,6 @@ engine:
     # - charset_filter@gbk
     # - charset_filter
     # - cjk_minifier
-  - reverse_lookup_filter@putonghua_to_tones_reverse_lookup
-  - lua_filter@charset_filter
 
 # charset_filter:
 #   option_name: gbk
@@ -96,6 +96,7 @@ engine:
 #   option_name: emoji_suggestion
 #   tips: false
 
+  - reverse_lookup_filter@putonghua_to_tones_reverse_lookup
 speller:
   alphabet: 'zyxwvutsrqponmlkjihgfedcba;/,.'
   initials: 'zyxwvutsrqponmlkjihgfedcba'

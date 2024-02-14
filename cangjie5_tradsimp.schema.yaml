@@ -28,7 +28,7 @@ switches:
   - name: full_shape
     states: [ 半角, 全角 ]
   - options: [ both, zh_tw, zh_simp ]
-    states: [ 全, 繁, 简 ]
+    states: [ 全部, 繁體, 简体 ]
     reset: 0
   - name: ascii_punct
     states: [ 。，, ．， ]
@@ -76,11 +76,11 @@ engine:
     - reverse_lookup_filter@cangjie_to_putonghua_reverse_lookup
     - simplifier@zh_tw
     - simplifier@zh_simp
-    - uniquifier
     - single_char_filter
     - charset_filter@gbk
     - charset_filter
     - cjk_minifier
+    - uniquifier
 
 charset_filter:
   option_name: gbk

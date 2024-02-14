@@ -21,16 +21,11 @@ switches:
   - name: full_shape
     reset: 0
     states: [ 半角, 全角 ]
-  #- name: simplification
-  #  states: [ 漢字, 汉字 ]
-  - options: [ zh_tw, simplification ]
-    states: [ 繁, 简 ]
-    reset: 0
+  - options: [simplification, zh_tw ]
+    states: [ 简, 台 ]
+    reset: 1
   - name: ascii_punct
     states: [ 。，, ．， ]
-  - name: extended_charset
-    states: ["通用", "增广"]
-    reset: 0
 
 engine:
   processors:
@@ -52,11 +47,9 @@ engine:
     - punct_translator
     - script_translator
   filters:
-    - simplifier@zh_simp
     - simplifier@zh_tw
+    - simplifier
     - uniquifier
-    - charset_filter
-    - cjk_minifier
 
 speller:
   alphabet: 'zyxwvutsrqponmlkjihgfedcba;/,.'
